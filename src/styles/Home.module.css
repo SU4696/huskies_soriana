@@ -13,6 +13,10 @@
     font-size:1.5rem;
 }
 
+.greentext{
+    color: #208220;
+}
+
 .whitebutton{
     
     width: 55%;
@@ -21,5 +25,14 @@
     font-size:1.5rem;
     background-color: white;
     color: #208220;
+    border-radius: 1.5rem;
+}
+.greenbutton{
+    width: 55%;
+    margin:30px;
+    padding:0.8rem;
+    font-size:1.5rem;
+    background-color: #208220;
+    color: white;
     border-radius: 1.5rem;
 }
