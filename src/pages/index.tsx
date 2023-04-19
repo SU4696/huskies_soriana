@@ -1,4 +1,4 @@
-import { Box, Button, Center, Heading, Image, Input, Stack, Text } from '@chakra-ui/react'
+import { Box, Button, Center, Heading, Image, Input, Text, VisuallyHidden } from '@chakra-ui/react'
 import React from 'react'
 
 import styles from '@/styles/Home.module.css'
@@ -7,7 +7,7 @@ import styles from '@/styles/Home.module.css'
 function index() {
   return (
     <Box>
-      <Box padding={"1rem"}  >
+      <Box   >
         <Center>
           <Image
             src={"/assets/sorianaLogo.png"}
@@ -17,16 +17,19 @@ function index() {
           />
         </Center>
       </Box>
-      <Box  backgroundColor={"#208220"} width={"100%"} left={"0px"}bottom={"0px"}position={"fixed"} borderTopRadius={"3rem"} >
-        <Center><Heading className={styles.garet} fontSize={"2rem"} color={"white"}>Inicio de sesión</Heading>
+      <Box  backgroundColor={"#208220"} width={"100%"} left={"0px"}bottom={"0px"} borderTopRadius={"3rem"}  padding={"calc(8px + 1.5625vw)"}
+        justifyItems={"center"}>
+         
+        <Center><Heading as="h1" size="2xl" color={"white"}>Inicio de sesión</Heading>
         </Center>
-   
-        <Input  variant='Correo' placeholder='Correo' className={styles.login} />
-        
-        <Input  variant='Correo' placeholder='Correo' className={styles.login} />
-        <Text color={"white"}>¿Olvidaste tu contraseña?</Text>
+        <VisuallyHidden>Email Address</VisuallyHidden>
+        <Input type="email" variant='Correo' placeholder='Correo' className={styles.login} />
+        <VisuallyHidden>Password</VisuallyHidden>
+        <Input  type="password" variant='Correo' placeholder='Correo' className={styles.login} />
+        <Text color={"white"} fontSize='2xl'>¿Olvidaste tu contraseña?</Text>
         <Button className={styles.whitebutton} >Log in</Button>
-        <Text color={"white"}>¿No tienes una cuenta? Crea una cuenta nueva</Text>
+        <Text fontSize='2xl' color={"white"}>¿No tienes una cuenta? Crea una cuenta nueva</Text>
+  
       </Box>
     </Box>
     
