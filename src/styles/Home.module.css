@@ -1,33 +1,30 @@
-.huskiesgreen{
-    color:#208220;
+.huskiesgreen {
+  color: #208220;
 }
-.login{
-    display: flex;
-  justify-content: center;
-    width: 70%;
-    margin:30px;
-    padding:1rem;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-    border-radius:3rem;
-    font-size:1.5rem;
+.login {
+  
+  width: 100%;
+  margin: 30px;
+  padding: 1rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  font-size: 1.5rem;
 }
 
-.greentext{
-    color: #208220;
+.greentext {
+  color: #208220;
 }
 
-.whitebutton{
-    width: 55%;
-    margin:30px;
-    padding:0.8rem;
-    color: #208220;
-    border-radius: 1.5rem;
+.whitebutton {
+  /* width: 55%; */
+  /* margin: 30px; */
+  /* padding: 0.8rem; */
+  color: #208220;
 }
-.greenbutton{
-    width: 70%;
-    margin:30px;
-    padding:0.8rem;
-    border-radius: 1.5rem;
-    color: white;
+.greenbutton {
+  width: 70%;
+  margin: 30px;
+  padding: 0.8rem;
+  border-radius: 1.5rem;
+  color: white;
 }
