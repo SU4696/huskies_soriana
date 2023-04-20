@@ -1,7 +1,7 @@
-import { Box, Image, Text, VStack } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
-function footer() {
+function Footer() {
   return (
     <Box backgroundColor={"transparent"}  flexDirection={"column"} bottom={"0px"}>
       <Box
@@ -13,10 +13,10 @@ function footer() {
         <Image
           src={"/assets/huskies.png"}
           alt="introimg1"
-          width={"80px"}
-          height={"80px"}
+          width={"20px"}
+          height={"20px"}
         />
-        <Text textAlign="center" fontSize="medium">
+        <Text textAlign="center" fontSize="small">
           Copy right by Huskies
         </Text>
       </Box>
@@ -24,4 +24,4 @@ function footer() {
   );
 }
 
-export default footer;
+export default Footer;
