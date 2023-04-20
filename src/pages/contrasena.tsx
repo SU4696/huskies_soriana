@@ -32,6 +32,7 @@ function contrasena() {
           display={"flex"}
           flexDir={"column"}
           justifyContent={"center"}
+          alignItems={"center"}
         >
           <Button
             fontSize="l"
