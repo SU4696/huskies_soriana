@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
 
     --font-mono: font-family: 'Garet', sans-serif;
