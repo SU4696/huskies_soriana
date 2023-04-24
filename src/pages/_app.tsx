@@ -6,10 +6,12 @@ import { AuthContextProvider } from "@/context/AuthContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
+    //Connection with login accoutn data
+    //Default Footer
     <AuthContextProvider>
       <ChakraProvider>
         <Component {...pageProps} />
-        <Footer />
+        <Footer /> 
       </ChakraProvider>
     </AuthContextProvider>
   );

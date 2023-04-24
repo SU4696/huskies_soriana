@@ -50,6 +50,7 @@ const Navbar = () => {
         <Flex alignItems="center" justifyContent="space-between" mx="auto">
           <HStack display="flex" spacing={3} alignItems="center">
             <Link href={"/main"}>
+              {/* Soriana Logo */}
               <Avatar
                 size="md"
                 name="Soriana Logo"
@@ -65,6 +66,7 @@ const Navbar = () => {
               }}
               color="#208220"
             >
+              {/* Template to open the menu when you click the icon */}
               <VStack
                 pos="absolute"
                 top={0}
@@ -119,9 +121,10 @@ const Navbar = () => {
             display={mobileNav.isOpen ? "none" : "flex"}
             alignItems="center"
           >
+            {/* Link to perfil */}
             <Link href={"/perfil"}>
               <IconButton
-                aria-label="Open menu"
+                aria-label="Go to Perfil"
                 fontSize="25px"
                 color="#208220"
                 _dark={{
@@ -131,9 +134,10 @@ const Navbar = () => {
                 icon={<HiOutlineUserCircle />}
               />
             </Link>
+            {/* Link to promociones */}
             <Link href={"/promociones"}>
               <IconButton
-                aria-label="Open menu"
+                aria-label="Go to promociones"
                 fontSize="25px"
                 color="#208220"
                 _dark={{
@@ -143,9 +147,10 @@ const Navbar = () => {
                 icon={<AiOutlineGift />}
               />
             </Link>
+            {/* Link to Cart */}
             <Link href={"/cart"}>
               <IconButton
-                aria-label="Open menu"
+                aria-label="Go to cart"
                 fontSize="25px"
                 color="#208220"
                 _dark={{
@@ -155,6 +160,7 @@ const Navbar = () => {
                 icon={<AiOutlineShoppingCart />}
               />
             </Link>
+            {/* open menu when you click */}
             <IconButton
               aria-label="Open menu"
               fontSize="20px"
@@ -175,6 +181,7 @@ const Navbar = () => {
           display={mobileNav.isOpen ? "none" : "flex"}
           alignItems="center"
         >
+          {/* Searching Bar */}
           <InputGroup>
             <InputLeftElement pointerEvents="none">
               <AiOutlineSearch color="#208220" />
@@ -186,6 +193,8 @@ const Navbar = () => {
               placeholder="Search..."
             />
           </InputGroup>
+
+          {/* Camera Button */}
           <IconButton
             style={{
               position: "absolute",
@@ -199,8 +208,7 @@ const Navbar = () => {
             borderWidth={"medium"}
             borderRadius={"3rem"}
             backgroundColor={"#208220"}
-            icon={<AiFillCamera  color="white" size={30}/> }
-            onClick={mobileNav.onOpen}
+            icon={<AiFillCamera color="white" size={30} />}
           />
         </HStack>
       </chakra.header>

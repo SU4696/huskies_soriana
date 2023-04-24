@@ -30,6 +30,7 @@ function contrasena() {
   const { signUp } = useAuth();
   const router = useRouter();
 
+  {/* Create account and direct to main page after submit */}
   const onSubmit = async (data: SignupType) => {
     try {
       await signUp(data.email, data.password);
@@ -52,6 +53,7 @@ function contrasena() {
       </Heading>
       <Stack width={"100%"} spacing={5}>
         <FormProvider {...methods}>
+          {/* Form function works after doing a submit */}
           <form action="" onSubmit={handleSubmit(onSubmit)}>
             <Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
               Nombre completo
@@ -62,6 +64,7 @@ function contrasena() {
               Correo
             </Text>
             <VisuallyHidden>Email Address</VisuallyHidden>
+            {/* Email form required */}
             <Input
               type="email"
               {...register("email", { required: "Email is required" })}
@@ -75,6 +78,7 @@ function contrasena() {
               Contraseña
             </Text>
             <VisuallyHidden>Password</VisuallyHidden>
+            {/* Password form required */}
             <Input
               type="password"
               {...register("password", { required: "Password is required" })}
