@@ -108,7 +108,7 @@ function index() {
                 flexDir={"column"}
                 alignItems={"center"}
               >
-                <Link href={"/contrasena"}>
+                <Link href={"/reestablecercontrasena"}>
                   <Text color={"white"}>¿Olvidaste tu contraseña?</Text>
                 </Link>
 

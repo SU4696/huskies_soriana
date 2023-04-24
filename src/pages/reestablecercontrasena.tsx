@@ -19,7 +19,7 @@ function contrasena() {
       flexWrap={"wrap"}
     >
       <Heading className={styles.greentext} fontSize="3xl">
-        Cambiar Contraseña
+        Reestablecer Contraseña
       </Heading>
       <Stack width={"100%"} spacing={30}>
         <Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
