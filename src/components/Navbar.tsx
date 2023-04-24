@@ -189,7 +189,7 @@ const Navbar = () => {
           <IconButton
             style={{
               position: "absolute",
-              top: "70%",
+              top: "35%",
             }}
             aria-label="Camera"
             justifyItems={"center"}
