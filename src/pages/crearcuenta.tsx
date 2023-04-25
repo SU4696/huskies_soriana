@@ -9,7 +9,37 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import styles from "@/styles/Home.module.css";
+import { FormProvider, useForm } from "react-hook-form";
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/router";
+
+interface SignupType {
+  email: string;
+  password: string;
+  password_confirm: string;
+}
+
 function contrasena() {
+  const methods = useForm<SignupType>({ mode: "onBlur" });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = methods;
+  const { signUp } = useAuth();
+  const router = useRouter();
+
+  {/* Create account and direct to main page after submit */}
+  const onSubmit = async (data: SignupType) => {
+    try {
+      await signUp(data.email, data.password);
+      router.push("/main");
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <Box
       margin={"2rem"}
@@ -22,36 +52,60 @@ function contrasena() {
         Crear cuenta
       </Heading>
       <Stack width={"100%"} spacing={5}>
-        <Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
-          Nombre completo
-        </Text>
-        <VisuallyHidden>Name</VisuallyHidden>
-        <Input variant="flushed" fontSize="xl" />
-        <Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
-          Correo
-        </Text>
-        <VisuallyHidden>Email Address</VisuallyHidden>
-        <Input type="email" variant="flushed" fontSize="xl" />
-        <Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
-          Contraseña
-        </Text>
-        <VisuallyHidden>Password</VisuallyHidden>
-        <Input type="password" variant="flushed" fontSize="xl" />
-        <Box
-          gap={8}
-          display={"flex"}
-          flexDir={"column"}
-          justifyContent={"center"}
-          alignItems={"center"}
-        >
-          <Button
-            fontSize="xl"
-            className={styles.greenbutton}
-            backgroundColor={"#208220"}
-          >
-            Registrarse
-          </Button>
-        </Box>{" "}
+        <FormProvider {...methods}>
+          {/* Form function works after doing a submit */}
+          <form action="" onSubmit={handleSubmit(onSubmit)}>
+            <Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
+              Nombre completo
+            </Text>
+            <VisuallyHidden>Name</VisuallyHidden>
+            <Input variant="flushed" fontSize="xl" />
+            <Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
+              Correo
+            </Text>
+            <VisuallyHidden>Email Address</VisuallyHidden>
+            {/* Email form required */}
+            <Input
+              type="email"
+              {...register("email", { required: "Email is required" })}
+              variant="flushed"
+              fontSize="xl"
+            />
+            {errors.email && (
+              <p className="text-red-400">{errors.email.message}</p>
+            )}
+            <Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
+              Contraseña
+            </Text>
+            <VisuallyHidden>Password</VisuallyHidden>
+            {/* Password form required */}
+            <Input
+              type="password"
+              {...register("password", { required: "Password is required" })}
+              variant="flushed"
+              fontSize="xl"
+            />
+            {errors.password && (
+              <p className="text-red-400">{errors.password.message}</p>
+            )}
+            <Box
+              gap={8}
+              display={"flex"}
+              flexDir={"column"}
+              justifyContent={"center"}
+              alignItems={"center"}
+            >
+              <Button
+                type="submit"
+                fontSize="xl"
+                className={styles.greenbutton}
+                backgroundColor={"#208220"}
+              >
+                Registrarse
+              </Button>
+            </Box>{" "}
+          </form>
+        </FormProvider>
       </Stack>
     </Box>
   );
