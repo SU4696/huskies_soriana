@@ -195,7 +195,7 @@ const Navbar = () => {
           </InputGroup>
 
           {/* Camera Button */}
-          <IconButton
+          {/* <IconButton
             style={{
               position: "absolute",
               top: "35%",
@@ -209,7 +209,7 @@ const Navbar = () => {
             borderRadius={"3rem"}
             backgroundColor={"#208220"}
             icon={<AiFillCamera color="white" size={30} />}
-          />
+          /> */}
         </HStack>
       </chakra.header>
     </React.Fragment>

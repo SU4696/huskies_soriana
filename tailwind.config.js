@@ -8,8 +8,9 @@ module.exports = {
   theme: {
     backgroundColor: theme => ({
       ...theme('colors'),
-      'primary': '#F8F7F1',
-      'secondary': '#208220'
+      'primary': '#F2EFE1',
+      'secondary': '#208220',
+      'grayB': '#DDDCDC'
      }),
     extend: {
       backgroundImage: {
