@@ -30,9 +30,11 @@ import {
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { BsFillCameraVideoFill } from "react-icons/bs";
 
-const Topbar = () => {
+const Topbar = ({titulo}) => {
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();
+  const tagTitle = titulo;
+
   return (
     <React.Fragment>
       <chakra.header
@@ -82,7 +84,7 @@ const Topbar = () => {
 
           {/* "Todos" text, for next sprint we should bring the category name from database*/ }
           <HStack>
-            <p className="lg:text-lg text-white mt-5 mb-5 text-center font-bold ">Todos</p>            
+            <p className="lg:text-lg text-white mt-5 mb-5 text-center font-bold ">{tagTitle}</p>            
           </HStack>
 
           <HStack

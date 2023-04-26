@@ -7,7 +7,7 @@ import ProductoG from '@/components/ProductoG';
 function main() {
   return (
     <React.Fragment>
-        <Topbar  />
+        <Topbar titulo={"Todos"} />
         <ProductoG />
         <Producto />
 
