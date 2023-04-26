@@ -20,7 +20,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 
 
 const Image = styled.img`
-  max-width: 500px;
+
   max-height: 24rem;
   width: 80%;
   margin: 0px auto;
