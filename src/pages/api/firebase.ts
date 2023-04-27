@@ -1,11 +1,7 @@
 import { db } from "@/firebase/config";
 import {
-  collection,
-  addDoc,
   updateDoc,
   doc,
-  deleteDoc,
-  Timestamp,
 } from "firebase/firestore";
 
 const togglePostStatus = async ({ docId, status }: any) => {
