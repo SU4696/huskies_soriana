@@ -10,7 +10,16 @@ import {
     Button
 } from "@chakra-ui/react"
 
-const PromosCard = () => {
+import { Promociones } from "@/types/Promociones";
+
+interface PromosCardProps {
+    promo: Promociones;
+}
+
+const PromosCard:React.FC<PromosCardProps> = ({promo}) => {
+
+    const { titulo, fotoPromo, copy } = promo;
+
     return(
         <>
             <Card
@@ -23,16 +32,16 @@ const PromosCard = () => {
             <Image
                 objectFit='cover'
                 maxW={{ base: '100%', sm: '200px' }}
-                src='https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60'
+                src={fotoPromo}
                 alt='Promo image'
             />
 
             <Stack>
                 <CardBody>
-                <Heading size='md'>Promo heading</Heading>
+                <Heading size='md'>{titulo}</Heading>
 
                 <Text py='2'>
-                    This is supposed to come from firebase
+                {copy}
                 </Text>
                 </CardBody>
 
