@@ -26,6 +26,7 @@ import {
   AiOutlineGift,
   AiOutlineShoppingCart,
   AiFillCamera,
+  AiOutlineShop
 } from "react-icons/ai";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { BsFillCameraVideoFill } from "react-icons/bs";
@@ -87,9 +88,19 @@ const Navbar = () => {
                   justifySelf="self-start"
                   onClick={mobileNav.onClose}
                 />
-                <Button w="full" variant="ghost" leftIcon={<AiFillHome />}>
-                  Test
-                </Button>
+               {/* "Todos" button that takes to its page to see all the products */}
+                <Link href={"/categTodos"}>
+                  <IconButton
+                    aria-label="Go to cart"
+                    fontSize="25px"
+                    color="#208220"
+                    _dark={{
+                      color: "inherit",
+                    }}
+                    variant="ghost"
+                    icon={<AiOutlineShop />}
+                  /> Todos
+                </Link>
                 <Button
                   w="full"
                   variant="solid"
@@ -190,7 +201,7 @@ const Navbar = () => {
               borderColor={"#208220"}
               backgroundColor={"white"}
               type="tel"
-              placeholder="Search..."
+              placeholder="Buscar..."
             />
           </InputGroup>
 
