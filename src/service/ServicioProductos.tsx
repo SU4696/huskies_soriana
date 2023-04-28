@@ -8,9 +8,9 @@ export async function getProductos(){
   snapshot.forEach((doc) => {
     const prod = doc.data();
     const idProduct = doc.id;
-    const {image, title, categoria, precio } = prod;
+    const {image, nombre, categoria, precio } = prod;
     productos.push({
-      nombre: title,
+      nombre,
       categoria,
       idProduct,
       image,
