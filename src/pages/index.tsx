@@ -37,7 +37,7 @@ function index() {
       router.push("/main");
     } catch (error: any) {
       console.log(error.message);
-      
+      alert("Correo y/o contrseña es invalido");
     }
   };
   return (
