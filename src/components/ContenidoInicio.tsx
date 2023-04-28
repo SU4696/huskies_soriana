@@ -1,11 +1,11 @@
 import styled from "@emotion/styled"
 import Swiper from "swiper"
 import Carrusel from "./Carrusel"
-import SorianaMain from "src/img/sorianamain.png"
+import SorianaMain from "src/img/sorianamain.jpeg"
 
 
 const Image = styled.img`
-  max-width: 400px;
+  max-width: 700px;
   max-height: 200px;
   width: 80%;
   margin: 0px auto;
@@ -21,15 +21,15 @@ const ContenidoInicio = () => {
                 alt="Soriana Logo"
             />
          </picture> */}
-         <Image src={SorianaMain.src} alt="Soriana Logo" />
+         <Image src={SorianaMain.src} alt="Soriana Logo"/>
         <div className="bg-primary rounded-t-3xl p-1">
-            <div className="mt-5 md:px-100 content-center">
+            <div className="mt-5 md:px-50 content-center ">
                 <Carrusel/>
             </div>
 
             <p className=" lg:text-lg mt-5 mb-5 text-center font-bold">Recomendados</p>
 
-            <div className="justify-center flex space-x-2 md:space-x-5 px-5">
+            <div className="justify-center flex space-x-2 md:space-x-10 px-5">
                 <button
                     type="button"
                     className="py-1 px-1 md:py-2 md:px-5 text-sm bg-secondary text-white md:font-medium uppercase rounded-lg  hover:bg-green-800"
