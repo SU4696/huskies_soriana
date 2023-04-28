@@ -10,8 +10,6 @@ import {
   VisuallyHidden,
 } from "@chakra-ui/react";
 import React from "react";
-
-import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 
 import { FormProvider, useForm } from "react-hook-form";
@@ -39,6 +37,7 @@ function index() {
       router.push("/main");
     } catch (error: any) {
       console.log(error.message);
+      
     }
   };
   return (
@@ -79,27 +78,27 @@ function index() {
               <VisuallyHidden>Email Address</VisuallyHidden>
               <Input
                 type="email"
-                {...register("email", { required: "Email is required" })}
+                {...register("email", { required: "Correo es requerido" })}
                 variant="Correo"
                 placeholder="Correo"
                 // className={styles.login}
                 borderRadius={"3rem"}
               />
               {errors.email && (
-                <p className="text-red-400">{errors.email.message}</p>
+                <Text color={"white"}>{errors.email.message}</Text>
               )}
 
               <VisuallyHidden>Password</VisuallyHidden>
               <Input
                 type="password"
-                {...register("password", { required: "Password is required" })}
+                {...register("password", { required: "Contraseña es requerido" })}
                 variant="password"
                 placeholder="Contraseña"
                 borderRadius={"3rem"}
                 // className={styles.login}
               />
               {errors.password && (
-                <p className="text-red-400">{errors.password.message}</p>
+                <Text color={"white"}>{errors.password.message}</Text>
               )}
 
               <Box

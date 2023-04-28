@@ -16,7 +16,7 @@ import { useRouter } from "next/router";
 interface SignupType {
   email: string;
   password: string;
-  password_confirm: string;
+  name: string;
 }
 
 function contrasena() {
@@ -30,7 +30,9 @@ function contrasena() {
   const { signUp } = useAuth();
   const router = useRouter();
 
-  {/* Create account and direct to main page after submit */}
+  {
+    /* Create account and direct to main page after submit */
+  }
   const onSubmit = async (data: SignupType) => {
     try {
       await signUp(data.email, data.password);
@@ -59,7 +61,15 @@ function contrasena() {
               Nombre completo
             </Text>
             <VisuallyHidden>Name</VisuallyHidden>
-            <Input variant="flushed" fontSize="xl" />
+            <Input
+              variant="flushed"
+              fontSize="xl"
+              type="text"
+              {...register("name", { required: "Nombre es requerido" })}
+            />
+            {errors.name && (
+              <p className="text-red-400">{errors.name.message}</p>
+            )}
             <Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
               Correo
             </Text>
@@ -67,7 +77,7 @@ function contrasena() {
             {/* Email form required */}
             <Input
               type="email"
-              {...register("email", { required: "Email is required" })}
+              {...register("email", { required: "Email es requerido" })}
               variant="flushed"
               fontSize="xl"
             />
@@ -81,7 +91,7 @@ function contrasena() {
             {/* Password form required */}
             <Input
               type="password"
-              {...register("password", { required: "Password is required" })}
+              {...register("password", { required: "Contraseña es requerido" })}
               variant="flushed"
               fontSize="xl"
             />
