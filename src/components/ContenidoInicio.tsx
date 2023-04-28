@@ -3,6 +3,14 @@ import Swiper from "swiper"
 import Carrusel from "./Carrusel"
 import SorianaMain from "src/img/sorianamain.jpeg"
 
+import { useEffect, useState } from 'react';
+import ProductoCard from '@/components/ProductoCard';
+
+import { DocumentData, collection, doc, getDocs } from "firebase/firestore";
+import { db } from "../firebase/config";
+import { getProductos } from '@/service/ServicioProductos';
+import { Producto } from '@/types/Producto';
+
 
 const Image = styled.img`
   max-width: 700px;
@@ -13,6 +21,20 @@ const Image = styled.img`
 `;
 
 const ContenidoInicio = () => {
+    const [productos, setProductos] = useState<Producto[]>([]);
+
+
+  useEffect(() => {
+    const fetchProductos = async () => {
+      const promos = await getProductos();
+      setProductos(promos);
+    }
+
+    fetchProductos();
+
+  }, [])
+
+
   return (
     <div className="bg-white">
         {/* <picture className="justify-center flex md:max-w-md h-36 ">
@@ -51,6 +73,11 @@ const ContenidoInicio = () => {
                 >En Tendencia</button>
 
             </div>
+
+            {productos.map((prod) => (
+                <ProductoCard key={prod.idProduct} prod={prod} />
+            ))}
+            
         </div>
     </div>
   )
