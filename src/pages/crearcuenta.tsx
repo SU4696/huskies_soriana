@@ -99,6 +99,7 @@ function Contrasena() {
             {errors.password && (
               <p className="text-red-400">{errors.password.message}</p>
             )}
+            <Text>Mínimo 7 caracteres</Text>
             <Box
               gap={8}
               display={"flex"}
