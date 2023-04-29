@@ -117,7 +117,7 @@ function Index() {
                   marginY={3}
                   color={"#208220"}
                 >
-                  Log in
+                  Iniciar sesión
                 </Button>
 
                 <Link href={"/crearcuenta"}>

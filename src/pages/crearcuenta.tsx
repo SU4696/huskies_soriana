@@ -3,6 +3,7 @@ import {
   Button,
   Heading,
   Input,
+  Link,
   Stack,
   Text,
   VisuallyHidden,
@@ -116,6 +117,11 @@ function Contrasena() {
             </Box>{" "}
           </form>
         </FormProvider>
+        <Link href={"/"}>
+          <Text color={"#208220"} textAlign={"center"}>
+            ¿Ya tienes una cuenta? Inicia sesión
+          </Text>
+        </Link>
       </Stack>
     </Box>
   );
