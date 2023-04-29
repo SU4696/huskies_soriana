@@ -30,7 +30,7 @@ import {
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { BsFillCameraVideoFill } from "react-icons/bs";
 
-const Topbar = ({titulo}) => {
+const Topbar = ({titulo}: {titulo: string}) => {
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();
   const tagTitle = titulo;
