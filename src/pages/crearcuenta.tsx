@@ -19,7 +19,7 @@ interface SignupType {
   name: string;
 }
 
-function contrasena() {
+function Contrasena() {
   const methods = useForm<SignupType>({ mode: "onBlur" });
 
   const {
@@ -121,4 +121,4 @@ function contrasena() {
   );
 }
 
-export default contrasena;
+export default Contrasena;

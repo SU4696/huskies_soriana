@@ -21,7 +21,7 @@ interface LoginType {
   password: string;
 }
 
-function index() {
+function Index() {
   const methods = useForm<LoginType>({ mode: "onBlur" });
   const { logIn } = useAuth();
   const router = useRouter();
@@ -134,4 +134,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

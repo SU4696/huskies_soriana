@@ -6,7 +6,7 @@ import { db } from "../firebase/config";
 import { getPromociones } from '@/service/ServicioPromociones';
 import { Promociones } from '@/types/Promociones';
 
-function main() {
+function Main() {
   const [promociones, setPromociones] = useState<Promociones[]>([]);
 
 
@@ -30,4 +30,4 @@ function main() {
   )
 }
 
-export default main
+export default Main
