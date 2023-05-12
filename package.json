@@ -12,8 +12,8 @@
     "@chakra-ui/icons": "^2.0.19",
     "@chakra-ui/react": "^2.6.0",
     "@coreui/coreui": "^4.2.6",
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
     "@firebase/firestore": "^3.11.0",
     "@types/node": "18.15.11",
     "@types/react": "18.0.35",
@@ -22,7 +22,7 @@
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
     "firebase": "^9.21.0",
-    "framer-motion": "^10.12.4",
+    "framer-motion": "^10.12.6",
     "next": "13.3.0",
     "pnpm": "^8.3.1",
     "postcss": "8.4.21",
@@ -31,8 +31,10 @@
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",
     "swiper": "^9.2.4",
-    "tailwindcss": "3.3.1",
     "typescript": "5.0.4",
     "vercel": "^29.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
   }
 }
