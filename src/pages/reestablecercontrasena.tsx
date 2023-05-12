@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import styles from "@/styles/Home.module.css";
+
 function contrasena() {
   return (
     <Box
