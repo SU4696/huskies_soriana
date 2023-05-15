@@ -1,48 +1,56 @@
 import {
   Box,
   Button,
+  Center,
   Heading,
   Input,
-  Link,
   Stack,
   Text,
   VisuallyHidden,
 } from "@chakra-ui/react";
+
 import React from "react";
 import styles from "@/styles/Home.module.css";
 import { FormProvider, useForm } from "react-hook-form";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/router";
 
-interface SignupType {
-  password: string;
+interface ProfileUpdate {
   name: string;
-  email: string;
+  password: string;
 }
 
 function Perfil() {
-  const methods = useForm<SignupType>({ mode: "onBlur" });
+  const methods = useForm<ProfileUpdate>({ mode: "onBlur" });
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = methods;
-  const { signUp } = useAuth();
+
+  const { currentUser, updateProfile, updatePassword } = useAuth();
   const router = useRouter();
 
-  {
-    /* Create account and direct to main page after submit */
-  }
-  const onSubmit = async (data: SignupType) => {
+  // Update profile name and password
+  const onSubmit = async (data: ProfileUpdate) => {
     try {
-      await signUp(data.email, data.password);
+      if (data.name) {
+        await updateProfile(currentUser?.uid, { displayName: data.name });
+      }
+
+      if (data.password) {
+        await updatePassword(currentUser?.email, data.password);
+      }
+
+      reset(); // Reset form fields
       router.push("/main");
     } catch (error: any) {
       console.log(error.message);
     }
   };
-  
+
   return (
     <Box
       margin={"2rem"}
@@ -52,12 +60,11 @@ function Perfil() {
       flexWrap={"wrap"}
     >
       <Heading className={styles.greentext} fontSize="3xl">
-       Editar Perfil
+        Editar Perfil
       </Heading>
       <Stack width={"100%"} spacing={5}>
         <FormProvider {...methods}>
-          {/* Form function works after doing a submit */}
-          <form action="" onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
               Nombre completo
             </Text>
@@ -66,27 +73,26 @@ function Perfil() {
               variant="flushed"
               fontSize="xl"
               type="text"
-              {...register("name", { required: "Nombre es requerido" })}
+              {...register("name")}
             />
             {errors.name && (
               <p className="text-red-400">{errors.name.message}</p>
             )}
 
             <Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
-                Contraseña
-              </Text>
-              <VisuallyHidden>Password</VisuallyHidden>
-              {/* Password form required */}
-              <Input
-                type="password"
-                {...register("password", { required: "Contraseña es requerido" })}
-                variant="flushed"
-                fontSize="xl"
-              />
-              {errors.password && (
-                <p className="text-red-400">{errors.password.message}</p>
-              )}
-              <Text>Mínimo 7 caracteres</Text>
+              Contraseña
+            </Text>
+            <VisuallyHidden>Password</VisuallyHidden>
+            <Input
+              type="password"
+              {...register("password")}
+              variant="flushed"
+              fontSize="xl"
+            />
+            {errors.password && (
+              <p className="text-red-400">{errors.password.message}</p>
+            )}
+            <Text>Mínimo 7 caracteres</Text>
             <Box
               gap={8}
               display={"flex"}
@@ -102,10 +108,9 @@ function Perfil() {
               >
                 Guardar
               </Button>
-            </Box>{" "}
+            </Box>
           </form>
         </FormProvider>
-        
       </Stack>
     </Box>
   );

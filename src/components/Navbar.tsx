@@ -30,10 +30,14 @@ import {
 } from "react-icons/ai";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { BsFillCameraVideoFill } from "react-icons/bs";
+import { useContext } from 'react';
+
 
 const Navbar = () => {
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();
+
+  
   return (
     <React.Fragment>
       <chakra.header
@@ -133,7 +137,7 @@ const Navbar = () => {
             alignItems="center"
           >
             {/* Link to perfil */}
-            <Link href={"/perfil"}>
+            <Link href={"/editarPerfil"}>
               <IconButton
                 aria-label="Go to Perfil"
                 fontSize="25px"
@@ -205,11 +209,11 @@ const Navbar = () => {
             />
           </InputGroup>
 
-          {/* Camera Button */}
-          {/* <IconButton
+          {/* Camera Button 
+           <IconButton
             style={{
               position: "absolute",
-              top: "35%",
+              top: "70%",
             }}
             aria-label="Camera"
             justifyItems={"center"}
@@ -220,7 +224,9 @@ const Navbar = () => {
             borderRadius={"3rem"}
             backgroundColor={"#208220"}
             icon={<AiFillCamera color="white" size={30} />}
-          /> */}
+          
+            /> 
+           */} 
         </HStack>
       </chakra.header>
     </React.Fragment>
