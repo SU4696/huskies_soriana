@@ -7,7 +7,12 @@ import {
   Stack,
   Text,
   VisuallyHidden,
+  Link,
+  IconButton
 } from "@chakra-ui/react";
+import {
+  BiArrowBack
+} from "react-icons/bi";
 
 import React from "react";
 import styles from "@/styles/Home.module.css";
@@ -60,6 +65,16 @@ function Perfil() {
       flexWrap={"wrap"}
     >
       <Heading className={styles.greentext} fontSize="3xl">
+      <Link href={"/main"}>
+            <IconButton 
+            aria-label="goBack"
+            size={"xs"}
+            padding={"2px"}
+            icon={<BiArrowBack color="black" size={30} />}
+            paddingRight={"20px"}
+            variant="ghost"
+            />
+            </Link>
         Editar Perfil
       </Heading>
       <Stack width={"100%"} spacing={5}>
