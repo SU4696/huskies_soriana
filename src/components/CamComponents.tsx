@@ -1,13 +1,14 @@
 import React, { useRef, useState, useCallback } from "react";
 import Webcam from "react-webcam";
 
-import { IconButton, Flex, HStack, Button } from "@chakra-ui/react";
+import { IconButton, Flex, HStack, Button, Link } from "@chakra-ui/react";
 import { AiFillCamera, AiFillDelete, AiOutlineLeft } from "react-icons/ai";
 
 const videoConstraints = {
     width: 720,
     height: 1200,  
     facingMode: "user"
+
 };
 
 const CamComponents = () => {
@@ -46,6 +47,7 @@ const CamComponents = () => {
       {isCaptureEnable && (
         <>
           <div>
+          <Link href={"/main"}>
             <IconButton 
             aria-label="goBack"
             variant="outline"
@@ -61,9 +63,10 @@ const CamComponents = () => {
 
             onClick={() => setCaptureEnable(false)}
             />
+            </Link>
           </div>
           
-          <Flex alignItems="center" justifyContent="space-between" mx="auto">
+          <Flex alignItems="center" justifyContent="center" mx="auto">
           <HStack display="flex" spacing={3} alignItems="center">
             <Webcam
               audio={false}
@@ -78,7 +81,6 @@ const CamComponents = () => {
           
           <Flex justifyContent={"center"}>
           <Button
-
          aria-label="capture"
          variant="outline"
          borderRadius={"50%"}
@@ -88,10 +90,9 @@ const CamComponents = () => {
          justifyContent ={"center"}
          alignItems = {"center"}
          bottom={"50px"}
-        width={"60px"}
-        height={"60px"}
+         width={"60px"}
+         height={"60px"}
          onClick={capture}
-         
          /> 
          </Flex>
           
@@ -106,13 +107,16 @@ const CamComponents = () => {
               top: "70%",
             }}
             aria-label="delete"
-            justifyItems={"center"}
             variant="outline"
-            size={"small"}
+            size={"xs"}
             borderWidth={"medium"}
             borderRadius={"3rem"}
-            backgroundColor={"#208220"}
-            icon={<AiFillDelete color="white" size={15} />}
+            backgroundColor={"#FFFFFF"}
+            padding={"2px"}
+            position={"fixed"}
+            bottom={"50px"}
+            right={"25px"}
+            icon={<AiFillDelete color="black" size={15} />}
 
             onClick={() => {
               setUrl(null);
