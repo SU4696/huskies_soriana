@@ -1,12 +1,12 @@
 import React, { useRef, useState, useCallback } from "react";
 import Webcam from "react-webcam";
 
-import { IconButton, Flex, HStack } from "@chakra-ui/react";
-import { AiFillCamera } from "react-icons/ai";
+import { IconButton, Flex, HStack, Button } from "@chakra-ui/react";
+import { AiFillCamera, AiFillDelete, AiOutlineLeft } from "react-icons/ai";
 
 const videoConstraints = {
     width: 720,
-    height: 360,  
+    height: 1200,  
     facingMode: "user"
 };
 
@@ -26,18 +26,17 @@ const CamComponents = () => {
     
       {isCaptureEnable || (
          <IconButton
-         style={{
-           position: "absolute",
-           top: "70%",
-         }}
+         
          aria-label="Camera"
-         justifyItems={"center"}
          variant="outline"
          size={"lg"}
          borderColor={"lightgray"}
          borderWidth={"medium"}
          borderRadius={"3rem"}
          backgroundColor={"#208220"}
+         position={"fixed"}
+         bottom={"50px"}
+         right={"25px"}
          icon={<AiFillCamera color="white" size={30} />}
 
          onClick={() => setCaptureEnable(true)}
@@ -47,7 +46,21 @@ const CamComponents = () => {
       {isCaptureEnable && (
         <>
           <div>
-            <button onClick={() => setCaptureEnable(false)}>end </button>
+            <IconButton 
+            aria-label="goBack"
+            variant="outline"
+            size={"xs"}
+            borderWidth={"medium"}
+            borderRadius={"3rem"}
+            backgroundColor={"#FFFFFF"}
+            padding={"2px"}
+            position={"fixed"}
+            top={"200px"}
+            left={"25px"}
+            icon={<AiOutlineLeft color="black" size={15} />}
+
+            onClick={() => setCaptureEnable(false)}
+            />
           </div>
           
           <Flex alignItems="center" justifyContent="space-between" mx="auto">
@@ -62,19 +75,51 @@ const CamComponents = () => {
             />
             </HStack>
           </Flex>
-          <button onClick={capture}>capture</button>
+          
+          <Flex justifyContent={"center"}>
+          <Button
+
+         aria-label="capture"
+         variant="outline"
+         borderRadius={"50%"}
+         backgroundColor={"#FFFFFF"}
+         outlineColor={"#FFFFFF"}
+         position={"fixed"}
+         justifyContent ={"center"}
+         alignItems = {"center"}
+         bottom={"50px"}
+        width={"60px"}
+        height={"60px"}
+         onClick={capture}
+         
+         /> 
+         </Flex>
+          
         </>
       )}
       {url && (
         <>
           <div>
-            <button
-              onClick={() => {
-                setUrl(null);
-              }}
-            >
-              delete
-            </button>
+          <IconButton 
+            style={{
+              position: "absolute",
+              top: "70%",
+            }}
+            aria-label="delete"
+            justifyItems={"center"}
+            variant="outline"
+            size={"small"}
+            borderWidth={"medium"}
+            borderRadius={"3rem"}
+            backgroundColor={"#208220"}
+            icon={<AiFillDelete color="white" size={15} />}
+
+            onClick={() => {
+              setUrl(null);
+            }}
+            />
+
+            
           </div>
           <div>
             <img src={url} alt="Screenshot" />
