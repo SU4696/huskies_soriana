@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Topbar from '@/components/Topbar';
+import TopbarPromo from '@/components/TopbarPromo';
 import PromosCard from '@/components/PromosCard';
 import { DocumentData, collection, doc, getDocs } from "firebase/firestore";
 import { db } from "../firebase/config";
@@ -22,7 +22,7 @@ function Main() {
 
   return (
     <>
-      <Topbar  titulo={"Promociónes"} />
+      <TopbarPromo  titulo={"Promociónes"} />
       {promociones.map((promo) => (
         <PromosCard key={promo.idPromo} promo={promo} />
       ))}

@@ -8,13 +8,12 @@ import {
   useDisclosure,
   Text,
   Link,
+  Heading
 } from "@chakra-ui/react";
 import React from "react";
 import {
-
-  AiOutlineShoppingCart,
-
-} from "react-icons/ai";
+  FiShoppingCart,
+} from "react-icons/fi";
 import {
   BiArrowBack
 } from "react-icons/bi";
@@ -40,26 +39,50 @@ const Topbar = ({titulo}: {titulo: string}) => {
         shadow="md"
         marginBottom={"15px"}
       >
+        
         <Flex  justifyContent="center" mx="auto">
         <Link href={"/main"}>
                {/*Back arrow button*/}
                <IconButton
-                aria-label="Back"
-                size={"lg"}
-                color="#ffffff"
-                _dark={{
-                  color: "inherit",
-                }}
+                aria-label="goBack"
+            
+                padding={"2px"}
+                icon={<BiArrowBack color="white" size={30} />}
+                paddingRight={"20px"}
+                position={"fixed"}
+                left={"25px"}
+                marginTop={"15px"}
                 variant="ghost"
-                icon={<BiArrowBack />}
               />
             </Link>
-
+         
           {/* "Todos" text, for next sprint we should bring the category name from database*/ }
           
-          <Text  >{tagTitle}</Text>          
+          <Text  
+            marginTop={"20px"}
+            color={"white"}
+            fontSize={"20px"}
+            fontWeight={"bold"}
+          >
+            
+            
+            {tagTitle}</Text>          
          
 
+            <Link href={"/carrito"}>
+               {/*Cart button*/}
+               <IconButton
+                aria-label="cart"
+            
+                padding={"2px"}
+                icon={<FiShoppingCart color="white" size={30} />}
+                paddingRight={"20px"}
+                position={"fixed"}
+                right={"25px"}
+                marginTop={"15px"}
+                variant="ghost"
+              />
+            </Link>
           
         </Flex>
 

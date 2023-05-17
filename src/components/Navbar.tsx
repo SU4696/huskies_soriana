@@ -23,12 +23,16 @@ import {
   AiOutlineInbox,
   AiFillBell,
   AiOutlineSearch,
-  AiOutlineGift,
-  AiOutlineShoppingCart,
-  AiFillCamera,
   AiOutlineShop
 } from "react-icons/ai";
-import { HiOutlineUserCircle } from "react-icons/hi";
+import {
+  FiShoppingCart,
+  FiGift
+} from "react-icons/fi";
+import {
+  CgProfile
+} from "react-icons/cg";
+
 import { BsFillCameraVideoFill } from "react-icons/bs";
 import { useContext } from 'react';
 
@@ -146,7 +150,7 @@ const Navbar = () => {
                   color: "inherit",
                 }}
                 variant="ghost"
-                icon={<HiOutlineUserCircle />}
+                icon={<CgProfile />}
               />
             </Link>
             {/* Link to promociones */}
@@ -159,7 +163,7 @@ const Navbar = () => {
                   color: "inherit",
                 }}
                 variant="ghost"
-                icon={<AiOutlineGift />}
+                icon={<FiGift />}
               />
             </Link>
             {/* Link to Cart */}
@@ -172,7 +176,7 @@ const Navbar = () => {
                   color: "inherit",
                 }}
                 variant="ghost"
-                icon={<AiOutlineShoppingCart />}
+                icon={<FiShoppingCart />}
               />
             </Link>
             {/* open menu when you click */}
