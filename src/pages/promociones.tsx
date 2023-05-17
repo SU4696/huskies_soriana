@@ -22,7 +22,7 @@ function Main() {
 
   return (
     <>
-      <Topbar  titulo={"Promos"} />
+      <Topbar  titulo={"Promociónes"} />
       {promociones.map((promo) => (
         <PromosCard key={promo.idPromo} promo={promo} />
       ))}
