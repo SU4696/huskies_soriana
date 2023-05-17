@@ -2,6 +2,7 @@ import { ViewIcon } from "@chakra-ui/icons";
 import {
     Card, 
     Stack, 
+    Flex,
     CardBody,
     Image,
     Heading,
@@ -36,7 +37,7 @@ const PromosCard:React.FC<PromosCardProps> = ({promo}) => {
                 alt='Promo image'
             />
 
-            <Stack>
+            <Flex>
                 <CardBody>
                 <Heading size='md'>{titulo}</Heading>
 
@@ -50,7 +51,7 @@ const PromosCard:React.FC<PromosCardProps> = ({promo}) => {
                     Ver producto
                 </Button>
                 </CardFooter>
-            </Stack>
+            </Flex>
             </Card>
         </>
     )
