@@ -1,14 +1,42 @@
 import { ViewIcon } from "@chakra-ui/icons";
 import {
     Card, 
-    Stack, 
     CardBody,
     Image,
-    Heading,
-    Text,
     CardFooter,
     Button
 } from "@chakra-ui/react"
+
+import {
+    Box,
+    chakra,
+    CloseButton,
+    Flex,
+    HStack,
+    IconButton,
+    useColorModeValue,
+    useDisclosure,
+    VStack,
+    VisuallyHidden,
+    InputGroup,
+    InputLeftElement,
+    Avatar,
+    Input,
+    Link,
+  } from "@chakra-ui/react";
+  import React from "react";
+  import {
+    AiFillHome,
+    AiOutlineMenu,
+    AiOutlineInbox,
+    AiFillBell,
+    AiOutlineGift,
+    AiOutlineShoppingCart,
+    AiOutlineArrowLeft,
+    AiFillCamera,
+  } from "react-icons/ai";
+  import { HiOutlineUserCircle } from "react-icons/hi";
+  import { BsFillCameraVideoFill } from "react-icons/bs";
 
 import { Producto } from "@/types/Producto";
 
@@ -21,49 +49,17 @@ const ProductoCard:React.FC<ProductoCardProps> = ({prod}) => {
     const { nombre, image, precio } = prod;
 
     return(
-        <>
-            {/* <Card
-            direction={{ base: 'column', sm: 'row' }}
-            overflow='hidden'
-            variant='outline'
-            mx={2}
-            my={4}
-            >
-            <Image
-                objectFit='cover'
-                maxW={{ base: '100%', sm: '200px' }}
-                src={fotoProduct}
-                alt='Promo image'
-            />
-
-            <Stack>
-                <CardBody>
-                <Heading size='md'>{nombre}</Heading>
-
-                <Text py='2'>
-                {copy}
-                </Text>
-                </CardBody>
-
-                <CardFooter>
-                <Button leftIcon={<ViewIcon/>}>
-                    Ver producto
-                </Button>
-                </CardFooter>
-            </Stack>
-            </Card> */}
-
-            <div className="bg-white">
-                <button
-                    type="button"
-                    className="py-1 px-1 md:py-2 md:px-5 text-sm text-white md:font-medium rounded-lg hover:bg-gray-100"
-                >
-                    <Image src={image} alt={nombre} />
-                    <p className="lg:text-lg text-black mb-50 text-center font-bold ">{nombre}</p>
-                    <p className="text-black mb-5 text-center">{precio}</p>
-                </button>
+        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <Image className="p-8 rounded-t-lg" src={image} alt={nombre} />
+            <div className="px-5 pb-5">
+                <a href="#">
+                    <h5 className="text-md md:text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{nombre}</h5>
+                </a>
+                <div className="flex items-end justify-between">
+                    <span className="text-sm md:text-md font-medium">${precio}</span>
+                </div>
             </div>
-        </>
+        </div>
     )
 }
 

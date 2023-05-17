@@ -93,7 +93,7 @@ const Topbar = ({titulo}: {titulo: string}) => {
             alignItems="center"
           >
             {/* Link to Cart */}
-            <Link href={"/cart"}>
+            <Link href={"/carrito"}>
               <IconButton
                 aria-label="Go to cart"
                 fontSize="25px"

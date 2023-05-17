@@ -10,7 +10,8 @@ module.exports = {
       ...theme('colors'),
       'primary': '#F2EFE1',
       'secondary': '#208220',
-      'grayB': '#DDDCDC'
+      'grayB': '#DDDCDC',
+      'naranja' : '#FC8E51'
      }),
     extend: {
       backgroundImage: {

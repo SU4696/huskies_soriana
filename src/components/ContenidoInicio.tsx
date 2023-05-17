@@ -74,9 +74,14 @@ const ContenidoInicio = () => {
 
             </div>
 
-            {productos.map((prod) => (
-                <ProductoCard key={prod.idProduct} prod={prod} />
-            ))}
+            <div className="m-10">
+                <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-4 content-start">
+                    {productos.map((prod) => (
+                        <ProductoCard key={prod.idProduct} prod={prod} />
+                    ))}
+                </div>
+            </div>
+            
             
         </div>
     </div>
