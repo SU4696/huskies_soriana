@@ -11,9 +11,11 @@
   "dependencies": {
     "@chakra-ui/icons": "^2.0.19",
     "@chakra-ui/react": "^2.6.0",
+    "@chakra-ui/system": "^2.5.7",
     "@coreui/coreui": "^4.2.6",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@firebase/app": "^0.9.9",
     "@firebase/firestore": "^3.11.0",
     "@types/node": "18.15.11",
     "@types/react": "18.0.35",
