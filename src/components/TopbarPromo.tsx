@@ -25,7 +25,7 @@ import {
       <React.Fragment>
         <chakra.header
           borderBottomRadius={"2rem"}
-          bg={"#208220"}
+          bg={"#F2EFE1"}
           w="full"
           px={{
             base: 2,
@@ -43,7 +43,7 @@ import {
                   aria-label="goBack"
               
                   padding={"2px"}
-                  icon={<BiArrowBack color="white" size={30} />}
+                  icon={<BiArrowBack color="#208220" size={30} />}
                   paddingRight={"20px"}
                   position={"fixed"}
                   left={"25px"}
@@ -56,7 +56,7 @@ import {
             
             <Text  
               marginTop={"20px"}
-              color={"white"}
+              color={"#208220"}
               fontSize={"20px"}
               fontWeight={"bold"}
             >

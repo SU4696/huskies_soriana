@@ -29,7 +29,7 @@ const Topbar = ({titulo}: {titulo: string}) => {
     <React.Fragment>
       <chakra.header
         borderBottomRadius={"2rem"}
-        bg={"#208220"}
+        bg={"#F2EFE1"}
         w="full"
         px={{
           base: 2,
@@ -47,7 +47,7 @@ const Topbar = ({titulo}: {titulo: string}) => {
                 aria-label="goBack"
             
                 padding={"2px"}
-                icon={<BiArrowBack color="white" size={30} />}
+                icon={<BiArrowBack color="#208220" size={30} />}
                 paddingRight={"20px"}
                 position={"fixed"}
                 left={"25px"}
@@ -60,9 +60,10 @@ const Topbar = ({titulo}: {titulo: string}) => {
           
           <Text  
             marginTop={"20px"}
-            color={"white"}
+            color={"#208220"}
             fontSize={"20px"}
             fontWeight={"bold"}
+          
           >
             
             

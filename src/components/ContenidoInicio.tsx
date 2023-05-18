@@ -1,13 +1,9 @@
 import styled from "@emotion/styled"
-import Swiper from "swiper"
 import Carrusel from "./Carrusel"
 import SorianaMain from "src/img/sorianamain.jpeg"
 
 import { useEffect, useState } from 'react';
 import ProductoCard from '@/components/ProductoCard';
-
-import { DocumentData, collection, doc, getDocs } from "firebase/firestore";
-import { db } from "../firebase/config";
 import { getProductos } from '@/service/ServicioProductos';
 import { Producto } from '@/types/Producto';
 
