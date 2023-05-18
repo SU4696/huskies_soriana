@@ -13,10 +13,9 @@
     "@chakra-ui/react": "^2.6.0",
     "@chakra-ui/system": "^2.5.7",
     "@coreui/coreui": "^4.2.6",
-
-    "@firebase/app": "^0.9.9",
     "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.8",
+    "@firebase/app": "^0.9.9",
     "@firebase/firestore": "^3.11.0",
     "@types/node": "18.15.11",
     "@types/react": "18.0.35",

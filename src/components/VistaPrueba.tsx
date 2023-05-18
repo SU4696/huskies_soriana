@@ -76,14 +76,15 @@ import {
   
                 <Flex alignItems="center" justifyContent="space-between" mx="auto">
                     <HStack display="flex" spacing={3} alignItems="center">
-                        <Button
-                            color={"#ffffff"}
-                            backgroundColor={"#208220"}
-                            bottom="7"
-                        >
-                            Ver ruta
-                        </Button>
-
+                        <Link href={"/mapa"}>
+                            <Button
+                                color={"#ffffff"}
+                                backgroundColor={"#208220"}
+                                bottom="7"
+                            >
+                                Ver ruta
+                            </Button>
+                        </Link>
                         
                         <Link href={"/promociones"}>
                             <Button
