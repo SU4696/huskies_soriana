@@ -13,38 +13,39 @@ import styles from "@/styles/Home.module.css";
 import { FormProvider, useForm } from "react-hook-form";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/router";
+import addData from "@/firebase/addData";
 
-interface SignupType {
-  email: string;
-  password: string;
+interface userINFO {
+  name: string;
 }
 
 function Contrasena() {
-  const methods = useForm<SignupType>({ mode: "onBlur" });
+  const methods = useForm<userINFO>({ mode: "onBlur" });
   
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = methods;
-  const { signUp } = useAuth();
   const router = useRouter();
-
+  const {user} =useAuth();
+  const email=user.email;
+  const uid =user.uid;
   {
     /* Create account and direct to main page after submit */
-  }
-  const onSubmit = async (data: SignupType) => {
+  } 
+  const onSubmit = async (data: userINFO) => {
     try {
-      await signUp(data.email, data.password);
       const datas = {
-        correo: data.email,
+        correo: email,
+        nombre: data.name,
         puntoTotal: 0,
       }
       
   
-      router.push("/crearcuentaInfo");
-      const { user } = useAuth();
-     
+      router.push("/main");
+      
+      const { result, error } = await addData('Usuario', uid, datas)
     } catch (error: any) {
       console.log(error.message);
     }
@@ -59,42 +60,26 @@ function Contrasena() {
       flexWrap={"wrap"}
     >
       <Heading className={styles.greentext} fontSize="3xl">
-        Crear cuenta
+        Información Personal
       </Heading>
       <Stack width={"100%"} spacing={5}>
         <FormProvider {...methods}>
           {/* Form function works after doing a submit */}
           <form action="" onSubmit={handleSubmit(onSubmit)}>
+            <Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
+              Nombre completo
+            </Text>
+            <VisuallyHidden>Name</VisuallyHidden>
+            <Input
+              variant="flushed"
+              fontSize="xl"
+              type="text"
+              {...register("name", { required: "Nombre es requerido" })}
+            />
+            {errors.name && (
+              <p className="text-red-400">{errors.name.message}</p>
+            )}
             
-            <Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
-              Correo
-            </Text>
-            <VisuallyHidden>Email Address</VisuallyHidden>
-            {/* Email form required */}
-            <Input
-              type="email"
-              {...register("email", { required: "Email es requerido" })}
-              variant="flushed"
-              fontSize="xl"
-            />
-            {errors.email && (
-              <p className="text-red-400">{errors.email.message}</p>
-            )}
-            <Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
-              Contraseña
-            </Text>
-            <VisuallyHidden>Password</VisuallyHidden>
-            {/* Password form required */}
-            <Input
-              type="password"
-              {...register("password", { required: "Contraseña es requerido" })}
-              variant="flushed"
-              fontSize="xl"
-            />
-            {errors.password && (
-              <p className="text-red-400">{errors.password.message}</p>
-            )}
-            <Text>Mínimo 7 caracteres</Text>
             <Box
               gap={8}
               display={"flex"}
@@ -113,11 +98,7 @@ function Contrasena() {
             </Box>{" "}
           </form>
         </FormProvider>
-        <Link href={"/"}>
-          <Text color={"#208220"} textAlign={"center"}>
-            ¿Ya tienes una cuenta? Inicia sesión
-          </Text>
-        </Link>
+        
       </Stack>
     </Box>
   );

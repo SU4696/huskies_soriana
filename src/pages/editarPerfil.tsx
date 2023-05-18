@@ -18,7 +18,14 @@ import React from "react";
 import styles from "@/styles/Home.module.css";
 import { FormProvider, useForm } from "react-hook-form";
 import { useAuth } from "@/context/AuthContext";
+import {
+  updatePassword,
+} from "firebase/auth";
 import { useRouter } from "next/router";
+import ProtectedRoute from "@/components/ProtectedRoute";
+import {db} from "@/firebase/config";
+import { updateDoc, doc, getDoc  } from "firebase/firestore";
+
 
 interface ProfileUpdate {
   name: string;
@@ -26,8 +33,15 @@ interface ProfileUpdate {
 }
 
 function Perfil() {
+  
   const methods = useForm<ProfileUpdate>({ mode: "onBlur" });
 
+  const { user ,auth} = useAuth();
+  console.log(user);
+  const email =user.email;
+  const uid =user.uid;
+  
+ 
   const {
     register,
     handleSubmit,
@@ -35,28 +49,31 @@ function Perfil() {
     reset,
   } = methods;
 
-  const { currentUser, updateProfile, updatePassword } = useAuth();
   const router = useRouter();
 
   // Update profile name and password
   const onSubmit = async (data: ProfileUpdate) => {
     try {
       if (data.name) {
-        await updateProfile(currentUser?.uid, { displayName: data.name });
+        const docRef = doc(db, 'Usuario', uid);
+        await updateDoc(docRef, {
+          nombre: data.name
+        });
       }
 
-      if (data.password) {
-        await updatePassword(currentUser?.email, data.password);
+      else if (data.password) {
+        await updatePassword(user, data.password)
+        
       }
-
-      reset(); // Reset form fields
       router.push("/main");
+
     } catch (error: any) {
       console.log(error.message);
     }
   };
 
   return (
+    
     <Box
       margin={"2rem"}
       padding={"calc(8px + 1.5625vw)"}
@@ -85,6 +102,7 @@ function Perfil() {
             </Text>
             <VisuallyHidden>Name</VisuallyHidden>
             <Input
+            
               variant="flushed"
               fontSize="xl"
               type="text"
@@ -93,7 +111,12 @@ function Perfil() {
             {errors.name && (
               <p className="text-red-400">{errors.name.message}</p>
             )}
-
+<Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
+              Correo
+            </Text>
+            <Text marginTop={"1rem"}  fontSize="xl">
+              {email}
+            </Text>
             <Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
               Contraseña
             </Text>

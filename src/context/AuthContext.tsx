@@ -53,7 +53,6 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
     setUser({ email: null, uid: null });
      sendPasswordResetEmail(auth, email);
     await signOut(auth);
-   
   }
 
   return (

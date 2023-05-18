@@ -18,13 +18,15 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import {
-  AiFillHome,
   AiOutlineMenu,
   AiOutlineInbox,
-  AiFillBell,
   AiOutlineSearch,
   AiOutlineShop
 } from "react-icons/ai";
+
+import {
+  BiLogOutCircle
+} from "react-icons/bi";
 import {
   FiShoppingCart,
   FiGift
@@ -34,14 +36,23 @@ import {
 } from "react-icons/cg";
 
 import { BsFillCameraVideoFill } from "react-icons/bs";
-import { useContext } from 'react';
-
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();
+  const { user, logOut } = useAuth();
+  const router = useRouter();
 
-  
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      router.push("/");
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
   return (
     <React.Fragment>
       <chakra.header
@@ -179,6 +190,19 @@ const Navbar = () => {
                 icon={<FiShoppingCart />}
               />
             </Link>
+             {/* Link to logout */}
+             
+              <IconButton
+                aria-label="Go to Perfil"
+                fontSize="25px"
+                color="#208220"
+                _dark={{
+                  color: "inherit",
+                }}
+                variant="ghost"
+                onClick={handleLogout}
+                icon={<BiLogOutCircle />}
+              />
             {/* open menu when you click */}
             <IconButton
               aria-label="Open menu"

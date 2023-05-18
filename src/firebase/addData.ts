@@ -1,5 +1,5 @@
 import {db} from "@/firebase/config";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import {  doc, setDoc } from "firebase/firestore";
 
 export default async function addData(colllection: any, id: any, data: any) {
     let result = null;
