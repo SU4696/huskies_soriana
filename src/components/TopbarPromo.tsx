@@ -1,85 +1,71 @@
 import {
-    chakra,
-    Flex,
-    HStack,
-    IconButton,
-    useColorModeValue,
-    useDisclosure,
-    Text,
-    Link,
-  } from "@chakra-ui/react";
-  import React from "react";
-  
-  import {
-    BiArrowBack
-  } from "react-icons/bi";
-  
-  
-  
-  const Topbar = ({titulo}: {titulo: string}) => {
-    const bg = useColorModeValue("white", "gray.800");
-    const mobileNav = useDisclosure();
-    const tagTitle = titulo;
-  
-    return (
-      <React.Fragment>
-        <chakra.header
-          borderBottomRadius={"2rem"}
-          bg={"#F2EFE1"}
-          w="full"
-          px={{
-            base: 2,
-            sm: 4,
-          }}
-          py={0.1}
-          shadow="md"
-          marginBottom={"15px"}
-        >
-          
-          <Flex  justifyContent="center" mx="auto">
-          <Link href={"/main"}>
-                 {/*Back arrow button*/}
-                 <IconButton
-                  aria-label="goBack"
-              
-                  padding={"2px"}
-                  icon={<BiArrowBack color="#208220" size={30} />}
-                  paddingRight={"20px"}
-                  position={"fixed"}
-                  left={"25px"}
-                  marginTop={"15px"}
-                  variant="ghost"
-                />
-              </Link>
-           
-            {/* "Todos" text, for next sprint we should bring the category name from database*/ }
+  chakra,
+  Flex,
+  HStack,
+  IconButton,
+  useColorModeValue,
+  useDisclosure,
+  Link,
+  VisuallyHidden,
+  Text,
+} from "@chakra-ui/react";
+import React from "react";
+
+import { BiArrowBack } from "react-icons/bi";
+
+const Topbar = ({ titulo }: { titulo: string }) => {
+  const bg = useColorModeValue("white", "gray.800");
+  const mobileNav = useDisclosure();
+  const tagTitle = titulo;
+
+  return (
+    <React.Fragment>
+      <Link href={"/main"}>
+             
+             <IconButton
+             zIndex={"999"}
+             position={"fixed"}
+             top={"12px"}
+             left={"18px"}
+              aria-label="goBack"
+               size="md"
+               name="Soriana Logo"
+               icon={<BiArrowBack color="#208220" size={30} />}
+              backgroundColor={"transparent"}
+             
+             />
+           </Link>
+      <chakra.header
+        borderBottomRadius={"2rem"}
+        top={"0"}
+        position={"fixed"}
+        zIndex={"998"}
+        bg={"#F2EFE1"}
+        w="full"
+        px={{
+          base: 2,
+          sm: 4,
+        }}
+        py={4}
+        shadow="md"
+       
+      >
+        <Flex alignItems="center" justifyContent={"center"} mx="auto">
+          <HStack >
             
-            <Text  
-              marginTop={"20px"}
+          
+            <Text
               color={"#208220"}
               fontSize={"20px"}
               fontWeight={"bold"}
             >
-              
-              
-              {tagTitle}</Text>          
-           
-
-            
-          </Flex>
-  
-          <HStack
-            justifyContent={"center"}
-            margin={"13px"}
-            display={mobileNav.isOpen ? "none" : "flex"}
-            alignItems="center"
-          >
-  
+              {tagTitle}
+            </Text>
           </HStack>
-        </chakra.header>
-      </React.Fragment>
-    );
-  };
-  
-  export default Topbar;
-  
+        </Flex>
+      </chakra.header>
+    </React.Fragment>
+  );
+};
+
+export default Topbar;

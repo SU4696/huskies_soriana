@@ -20,17 +20,15 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 
 
 const Image = styled.img`
-
   max-height: 24rem;
   width: 100%;
   margin: 0px auto;
-  display:block;
 `;
 
 export default function Carrusel() {
     return (
         <>
-            <Swiper
+            <Swiper 
                 spaceBetween={30}
                 centeredSlides={true}
                 autoplay={{
@@ -44,11 +42,7 @@ export default function Carrusel() {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    {/* <img
-                        className="object-fill w-full h-96"
-                        src="https://cdn.pixabay.com/photo/2022/03/20/15/40/nature-7081138__340.jpg"
-                        alt="image slide 1"
-                    /> */}
+                    
                     <Image src={Promo1.src} alt="Soriana Logo" className="rounded-lg"/>
                 </SwiperSlide>
                 <SwiperSlide>

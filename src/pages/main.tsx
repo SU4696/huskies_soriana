@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import ContenidoInicio from '@/components/ContenidoInicio';
 import CamComponents from "@/components/CamComponents";
 import { useAuth } from '@/context/AuthContext';
-import { IconButton, Link } from '@chakra-ui/react';
+import { Box, IconButton, Link } from '@chakra-ui/react';
 import { AiFillCamera} from "react-icons/ai";
 
 function main() {
@@ -15,7 +15,7 @@ function main() {
         <Navbar  />
         <Link href={"/camera"} >
         <IconButton
-         
+         zIndex={"999"}
          aria-label="Camera"
          variant="outline"
          size={"lg"}
@@ -30,7 +30,9 @@ function main() {
          
          /> 
         </Link>
+        <Box paddingTop={"165px"}>
         <ContenidoInicio/>
+        </Box>
     </React.Fragment>
   )
 }

@@ -56,8 +56,9 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <chakra.header
+      zIndex={"9999"}
         borderBottomRadius={"2rem"}
-        bg={"#F2EFE1"}
+        bg={"#208220"}
         w="full"
         px={{
           base: 2,
@@ -65,7 +66,7 @@ const Navbar = () => {
         }}
         py={4}
         shadow="md"
-        marginBottom={"15px"}
+        position={"fixed"}
       >
         <Flex alignItems="center" justifyContent="space-between" mx="auto">
           <HStack display="flex" spacing={3} alignItems="center">
@@ -84,7 +85,7 @@ const Navbar = () => {
                 base: "inline-flex",
                 md: "none",
               }}
-              color="#208220"
+              color="# F2EFE1"
             >
               {/* Template to open the menu when you click the icon */}
               <VStack
@@ -112,7 +113,7 @@ const Navbar = () => {
                   <IconButton
                     aria-label="Go to cart"
                     fontSize="25px"
-                    color="#208220"
+                    color="#F2EFE1 "
                     _dark={{
                       color: "inherit",
                     }}
@@ -156,7 +157,7 @@ const Navbar = () => {
               <IconButton
                 aria-label="Go to Perfil"
                 fontSize="25px"
-                color="#208220"
+                color="#F2EFE1"
                 _dark={{
                   color: "inherit",
                 }}
@@ -169,7 +170,7 @@ const Navbar = () => {
               <IconButton
                 aria-label="Go to promociones"
                 fontSize="25px"
-                color="#208220"
+                color="#F2EFE1"
                 _dark={{
                   color: "inherit",
                 }}
@@ -182,7 +183,7 @@ const Navbar = () => {
               <IconButton
                 aria-label="Go to cart"
                 fontSize="25px"
-                color="#208220"
+                color="#F2EFE1"
                 _dark={{
                   color: "inherit",
                 }}
@@ -195,7 +196,7 @@ const Navbar = () => {
               <IconButton
                 aria-label="Go to Perfil"
                 fontSize="25px"
-                color="#208220"
+                color="#F2EFE1"
                 _dark={{
                   color: "inherit",
                 }}
@@ -207,7 +208,7 @@ const Navbar = () => {
             <IconButton
               aria-label="Open menu"
               fontSize="20px"
-              color="#208220"
+              color="#F2EFE1"
               _dark={{
                 color: "inherit",
               }}
@@ -230,31 +231,14 @@ const Navbar = () => {
               <AiOutlineSearch color="#208220" />
             </InputLeftElement>
             <Input
-              borderColor={"#208220"}
+              borderColor={"#F2EFE1"}
               backgroundColor={"white"}
               type="tel"
               placeholder="Buscar..."
             />
           </InputGroup>
 
-          {/* Camera Button 
-           <IconButton
-            style={{
-              position: "absolute",
-              top: "70%",
-            }}
-            aria-label="Camera"
-            justifyItems={"center"}
-            variant="outline"
-            size={"lg"}
-            borderColor={"lightgray"}
-            borderWidth={"medium"}
-            borderRadius={"3rem"}
-            backgroundColor={"#208220"}
-            icon={<AiFillCamera color="white" size={30} />}
           
-            /> 
-           */} 
         </HStack>
       </chakra.header>
     </React.Fragment>

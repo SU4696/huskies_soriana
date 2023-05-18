@@ -5,6 +5,7 @@ import { DocumentData, collection, doc, getDocs } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { getPromociones } from '@/service/ServicioPromociones';
 import { Promociones } from '@/types/Promociones';
+import { Box } from '@chakra-ui/react';
 
 function Main() {
   const [promociones, setPromociones] = useState<Promociones[]>([]);
@@ -23,9 +24,11 @@ function Main() {
   return (
     <>
       <TopbarPromo  titulo={"Promociónes"} />
+      <Box paddingTop={"62px"}>
       {promociones.map((promo) => (
         <PromosCard key={promo.idPromo} promo={promo} />
       ))}
+      </Box>
     </>
   )
 }
