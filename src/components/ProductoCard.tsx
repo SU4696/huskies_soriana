@@ -1,6 +1,7 @@
 
 import {
     Image,
+    Link
 } from "@chakra-ui/react"
 
 
@@ -17,6 +18,7 @@ const ProductoCard:React.FC<ProductoCardProps> = ({prod}) => {
     const { nombre, image, precio } = prod;
 
     return(
+        
         <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
             <Image className="p-8 rounded-t-lg" src={image} alt={nombre} />
             <div className="px-5 pb-5">
@@ -28,6 +30,7 @@ const ProductoCard:React.FC<ProductoCardProps> = ({prod}) => {
                 </div>
             </div>
         </div>
+        
     )
 }
 

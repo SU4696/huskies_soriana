@@ -1,8 +1,12 @@
 import React from 'react'
+import VistaPrueba from '@/components/VistaPrueba'
 
 function tes() {
   return (
-    <div>tes</div>
+
+    <React.Fragment>
+        <VistaPrueba  />
+    </React.Fragment>
   )
 }
 

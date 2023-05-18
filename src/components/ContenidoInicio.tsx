@@ -4,6 +4,7 @@ import SorianaMain from "src/img/sorianamain.jpeg"
 
 import { useEffect, useState } from 'react';
 import ProductoCard from '@/components/ProductoCard';
+import VistaPrueba from "./VistaPrueba";
 import { getProductos } from '@/service/ServicioProductos';
 import { Producto } from '@/types/Producto';
 
