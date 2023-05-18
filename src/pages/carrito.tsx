@@ -3,6 +3,7 @@ import CartHeader from '@/components/CartHeader'
 import NumberCounter from '@/components/NumberCounter'
 import SearchBar from '@/components/SearchBar'
 import TopbarPromo from '@/components/TopbarPromo'
+import { Box } from '@chakra-ui/react'
 import React from 'react'
 
 function carrito() {
@@ -10,6 +11,7 @@ function carrito() {
     <>
         <TopbarPromo  titulo={"Carrito"} />
         <CamComponents  />
+        <Box paddingTop={"62px"}>
         <div className="flex  flex-col max-w-3xl p-6 space-y-4 sm:p-10 ">
             <ul className="flex flex-col divide-y divide-gray-700">
                 <li className="flex flex-col py-6 sm:flex-row sm:justify-between">
@@ -85,6 +87,7 @@ function carrito() {
                 
             </div>
         </div>
+        </Box>
     </>
   )
 }
