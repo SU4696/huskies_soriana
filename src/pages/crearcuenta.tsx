@@ -13,6 +13,8 @@ import styles from "@/styles/Home.module.css";
 import { FormProvider, useForm } from "react-hook-form";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/router";
+import addData from "@/firebase/addData";
+import { data } from "autoprefixer";
 
 interface SignupType {
   email: string;
@@ -37,6 +39,13 @@ function Contrasena() {
   const onSubmit = async (data: SignupType) => {
     try {
       await signUp(data.email, data.password);
+      const datas = {
+        correo: data.email,
+        nombre: data.name,
+        puntoTotal: 0,
+      }
+      const { result, error } = await addData('Usuario', data.name, datas)
+  
       router.push("/main");
     } catch (error: any) {
       console.log(error.message);

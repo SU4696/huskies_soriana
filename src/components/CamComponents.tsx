@@ -3,6 +3,7 @@ import Webcam from "react-webcam";
 
 import { IconButton, Flex, HStack, Button, Link } from "@chakra-ui/react";
 import { AiFillCamera, AiFillDelete, AiOutlineLeft } from "react-icons/ai";
+import { useRouter } from "next/router";
 
 const videoConstraints = {
     width: 720,
@@ -14,6 +15,7 @@ const videoConstraints = {
 const CamComponents = () => {
   const [isCaptureEnable, setCaptureEnable] = useState<boolean>(false);
   const webcamRef = useRef<Webcam>(null);
+  const router = useRouter();
   const [url, setUrl] = useState<string | null>(null);
   const capture = useCallback(() => {
     const imageSrc = webcamRef.current?.getScreenshot();
@@ -26,6 +28,7 @@ const CamComponents = () => {
     <React.Fragment>
     
       {isCaptureEnable || (
+        
          <IconButton
          
          aria-label="Camera"
@@ -39,7 +42,7 @@ const CamComponents = () => {
          bottom={"50px"}
          right={"25px"}
          icon={<AiFillCamera color="white" size={30} />}
-
+         
          onClick={() => setCaptureEnable(true)}
          /> 
     
@@ -69,6 +72,7 @@ const CamComponents = () => {
           <Flex alignItems="center" justifyContent="center" mx="auto">
           <HStack display="flex" spacing={3} alignItems="center">
             <Webcam
+           
               audio={false}
               width={540}
               height={360}
