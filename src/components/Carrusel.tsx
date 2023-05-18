@@ -22,7 +22,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 const Image = styled.img`
 
   max-height: 24rem;
-  width: 80%;
+  width: 100%;
   margin: 0px auto;
   display:block;
 `;
