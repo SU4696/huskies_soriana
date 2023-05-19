@@ -1,4 +1,4 @@
-import Carrito from '@/components/carrito'
+import Carrito from '@/components/Carrito'
 import React from 'react'
 
 const carrito = () => {

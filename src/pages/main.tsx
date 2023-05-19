@@ -7,7 +7,6 @@ import { Box, IconButton, Link } from '@chakra-ui/react';
 import { AiFillCamera} from "react-icons/ai";
 
 function main() {
-
   const { user } = useAuth();
   console.log(user);
   return (
