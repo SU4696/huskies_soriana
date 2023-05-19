@@ -1,4 +1,5 @@
 export interface Producto {
+    idProductos: number
     nombre: string
     idProduct: string
     categoria: string

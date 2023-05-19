@@ -4,6 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import Footer from "@/components/Footer";
 import { AuthContextProvider } from "@/context/AuthContext";
 import  ProtectedRoute  from "@/components/ProtectedRoute";
+import { ShopContextProvider } from "@/context/ShopContext";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -12,9 +13,11 @@ export default function App({ Component, pageProps }: AppProps) {
     
     <AuthContextProvider>
       <ChakraProvider>
+        <ShopContextProvider>
       
-        <Component {...pageProps} />
-        <Footer /> 
+          <Component {...pageProps} />
+          <Footer />
+        </ShopContextProvider> 
       </ChakraProvider>
      
     </AuthContextProvider>
