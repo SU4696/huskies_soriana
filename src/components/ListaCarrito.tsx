@@ -4,13 +4,15 @@ import { Image, chakra, Flex, Box, Link, Text, Button } from "@chakra-ui/react";
 import { Producto } from "@/types/Producto";
 import { ShopContext } from '@/context/ShopContext';
 
+
 interface ListaCarritoProps {
   prod: Producto;
 }
 
 const ListaCarrito: React.FC<ListaCarritoProps> = ({prod}) => {
     const {idProductos, nombre, image, precio } = prod;
-    const { cartItems } = useContext(ShopContext); 
+    const { removeFromCart, addToCart, cartItems } = useContext(ShopContext); 
+
   return (
     <li className="flex flex-col py-6 sm:flex-row sm:justify-between">
         <div className="flex w-full space-x-2 sm:space-x-4">
@@ -21,8 +23,45 @@ const ListaCarrito: React.FC<ListaCarritoProps> = ({prod}) => {
                         <h3 className="text-lg font-semibold leading-snug sm:pr-8">{nombre}</h3>
                     </div>
                     <div className="text-right">
-                        <NumberCounter />
-                        <p className="text-lg font-semibold">{precio}</p>
+                    <div className="counter">
+      <button className="counter-button" onClick={() => removeFromCart(idProductos)}> - </button>
+
+      <input type="number" className="counter-input" value={cartItems[idProductos]} readOnly />
+
+      <button className="counter-button" onClick={() => addToCart(idProductos)}> 
+        +
+      </button>
+      <style jsx>{`
+        .counter {
+          display: flex;
+          align-items: center;
+        }
+
+        .counter-button {
+          background-color: #208220;
+          color: #fff;
+          border: none;
+          padding: 5px 12px;
+          font-size: 11px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+
+        .counter-button:hover {
+            background-color:   #165c16 ;
+        }
+
+        .counter-input {
+          width: 14px;
+          text-align: center;
+          margin: 0 16px;
+          border: none;
+          font-size: 12px;
+        }
+      `}</style>
+    </div>
+
+                        <p className="text-lg font-semibold">{(precio*cartItems[idProductos]).toFixed(2)}</p>
                     </div>
                 </div>
                 <div className="flex text-sm divide-x">

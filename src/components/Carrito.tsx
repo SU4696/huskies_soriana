@@ -12,7 +12,8 @@ import { ShopContext } from '@/context/ShopContext'
 import { useNavigate } from "react-router-dom";
 
 function Carrito() {
-    const { cartItems } = useContext(ShopContext);
+    const { cartItems, totalItems } = useContext(ShopContext);
+    
     const [products, setProducts] = useState<Producto[]>([]);
 
     useEffect(() => {
@@ -41,7 +42,7 @@ function Carrito() {
             </ul>
             <div className="space-y-1 text-right">
                 <p>Total de compra:
-                    <span className="font-semibold">$357</span>
+                    <span className="font-semibold"> {totalItems} </span>
                 </p>
             </div>
             <div className="flex justify-end space-x-4">

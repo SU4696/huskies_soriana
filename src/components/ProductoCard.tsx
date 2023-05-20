@@ -29,7 +29,7 @@ const ProductoCard: React.FC<ProductoCardProps> = ({prod}) => {
       </Box>
       <Text paddingX={"3"}paddingBottom={"4"} fontWeight={"bold"} textAlign={"left"}  position={"relative"} bottom={"0"}>${precio}</Text>
       <button>Ver ruta</button>
-      <button onClick={() => addToCart(idProductos)}>Agregar a carrito {cartItemAmount > 0 && <>({cartItemAmount})</>}</button>
+      <button onClick={() => addToCart(idProductos, (precio * cartItemAmount))}>Agregar a carrito {cartItemAmount > 0 && <>({cartItemAmount})</>}</button>
       </Box>
     </Box>
     
