@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import { Producto } from '@/types/Producto';
 import { getProductos } from '@/service/ServicioProductos';
 
+
 export const ShopContext = createContext();
 
 const getDefaultCart = () => {
@@ -9,16 +10,20 @@ const getDefaultCart = () => {
   if(cartLocalStorage) return JSON.parse(cartLocalStorage);
 
   let cart = {};
-  for (let i = 1; i < 50; i++){
+  for (let i = 1; i < 60; i++){
     cart[i] = 0;
   }
   return cart;
 };
 
+
+
 export const ShopContextProvider = (props) => {
   const [ cartItems, setCartItems ] = useState(getDefaultCart);
-  //const [ products, setProducts ] = useState<Producto[]>([]); // Agregar estado para los productos
-
+  
+  //const [products] = useState<Array<Producto>>([]);
+  
+/*
   useEffect(() => {
     let totalPrice = 0;
     for (const itemId in cartItems) {
@@ -30,7 +35,7 @@ export const ShopContextProvider = (props) => {
     }
     setTotalItems(totalPrice.toFixed(2));
   }, [cartItems, products]);
-
+*/
   const addToCart = (itemId) => {
     setCartItems ((prevs) => ({...prevs, [itemId]: prevs[itemId] + 1}));
     localStorage.setItem("cart", JSON.stringify(cartItems));
@@ -52,3 +57,4 @@ export const ShopContextProvider = (props) => {
     </ShopContext.Provider>
     );
 };
+

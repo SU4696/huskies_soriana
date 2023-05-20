@@ -16,6 +16,8 @@ function Carrito() {
     
     const [products, setProducts] = useState<Producto[]>([]);
 
+    var total = 0;
+
     useEffect(() => {
         const fetchProductos = async () => {
             const fetchProducts = await getProductos();
@@ -36,13 +38,14 @@ function Carrito() {
                     console.log("revisar carrito");
                     if (cartItems[prod.idProductos] !== 0){
                         console.log("carrtio no vacio");
+                        total += prod.precio*cartItems[prod.idProductos]
                         return <ListaCarrito  key={prod.idProduct} prod={prod}/>
                     }
                 })}
             </ul>
             <div className="space-y-1 text-right">
                 <p>Total de compra:
-                    <span className="font-semibold"> {totalItems} </span>
+                    <span className="font-semibold"> {total.toFixed(2)} </span>
                 </p>
             </div>
             <div className="flex justify-end space-x-4">
