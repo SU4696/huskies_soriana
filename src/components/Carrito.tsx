@@ -9,7 +9,6 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Producto } from "@/types/Producto";
 import { getProductos } from '@/service/ServicioProductos'
 import { ShopContext } from '@/context/ShopContext'
-import { useNavigate } from "react-router-dom";
 
 function Carrito() {
     const { cartItems, totalItems } = useContext(ShopContext);
@@ -45,16 +44,16 @@ function Carrito() {
             </ul>
             <div className="space-y-1 text-right">
                 <p>Total de compra:
-                    <span className="font-semibold"> {total.toFixed(2)} </span>
+                    <span className="font-semibold"> ${total.toFixed(2)} </span>
                 </p>
             </div>
-            <div className="flex justify-end space-x-4">
+            {/* <div className="flex justify-end space-x-4">
                 <button type="button" className="px-6 py-2 border rounded-md bg-naranja text-white text-sm md:text-base hover:bg-green-800">Ver más promociones
                 </button>
                 <button type="button" className="px-6 py-2 border rounded-md  bg-secondary text-white text-sm md:text-base hover:bg-green-800">
                     Guardar
                 </button>
-            </div>
+            </div> */}
         </div>
         </Box>
     </>
