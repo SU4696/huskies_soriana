@@ -5,13 +5,14 @@ import { db } from "../firebase/config";
 import { Image } from '@chakra-ui/react';
 import Mapita from '@/components/Mapas';
 
-function Main() {
+function Main(Categoria : string) {
 
+  const cat = Categoria;
 
   return (
     <>
       <Topbar titulo={"Mapa"} />
-      <Mapita categoria='Bebés' />
+      <Mapita categoria={Categoria} />
     </>
   )
 }

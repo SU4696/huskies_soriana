@@ -3,7 +3,11 @@ import React from "react";
 
 function Footer() {
   return (
-    <Box backgroundColor={"transparent"}  flexDirection={"column"} bottom={"0px"}>
+    <Box
+      bottom={"0px"}
+      backgroundColor={"transparent"}
+      
+    >
       <Box
         flexWrap="wrap"
         display={"flex"}

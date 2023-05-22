@@ -5,7 +5,11 @@ import { useEffect, useState } from "react";
 import ProductoCard from "@/components/ProductoCard";
 import { getProductos } from "@/service/ServicioProductos";
 import { Producto } from "@/types/Producto";
-import { Box, Flex, Heading } from "@chakra-ui/react";
+import { Box,  Flex,Heading,  } from "@chakra-ui/react";
+
+import React, { useContext } from "react"
+
+
 
 const Image = styled.img`
   max-width: 700px;
@@ -27,6 +31,7 @@ const ContenidoInicio = () => {
     fetchProductos();
   }, []);
 
+  
   return (
     <>
       <Box  justifyContent={"center"} alignItems={"center"}>
@@ -38,7 +43,7 @@ const ContenidoInicio = () => {
             <Heading paddingTop={"20px"} size={"lg"}>Recomendados</Heading>
           </Flex>
 
-          <Box margin={"15px"}>
+          <Box margin={"15px"}  >
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-4 content-start ">
               {productos.map((prod) => (
                 <ProductoCard key={prod.idProduct} prod={prod} />
@@ -46,6 +51,8 @@ const ContenidoInicio = () => {
             </div>
             </Box>
         </Box>
+
+        
       </Box>
     </>
   );

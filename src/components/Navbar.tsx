@@ -15,22 +15,44 @@ import {
   Avatar,
   Input,
   Link,
+  Image,
+  Text,
 } from "@chakra-ui/react";
 import React from "react";
 import {
   AiOutlineMenu,
-  AiOutlineInbox,
   AiOutlineSearch,
-  AiOutlineShop
+  AiOutlineShop,
 } from "react-icons/ai";
+
+import {
+  FaBaby,
+  FaIceCream,
+  FaAppleAlt,
+  FaWineGlassAlt,
+  FaChair
+} from "react-icons/fa";
+
+import{
+  MdCleaningServices,
+  MdOutlineSmartToy,
+  MdElectricBolt
+} from "react-icons/md";
 
 import {
   BiLogOutCircle
 } from "react-icons/bi";
 import {
   FiShoppingCart,
-  FiGift
+  FiGift,
+
 } from "react-icons/fi";
+
+import {
+
+  GiMedicines
+} from "react-icons/gi";
+
 import {
   CgProfile
 } from "react-icons/cg";
@@ -38,6 +60,7 @@ import {
 import { BsFillCameraVideoFill } from "react-icons/bs";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/router";
+
 
 const Navbar = () => {
   const bg = useColorModeValue("white", "gray.800");
@@ -83,23 +106,29 @@ const Navbar = () => {
             <Box
               display={{
                 base: "inline-flex",
-                md: "none",
+                
               }}
               color="# F2EFE1"
             >
-              {/* Template to open the menu when you click the icon */}
+              
+           
+            
+           
               <VStack
-                pos="absolute"
-                top={0}
-                left={0}
-                right={0}
+                 position={"fixed"}
+                 top={"0px"}
+                 right={"0px"}
+                 height={"100%"}
                 display={mobileNav.isOpen ? "flex" : "none"}
                 flexDirection="column"
-                p={2}
-                pb={4}
-                m={2}
+                alignItems={"left"}
+                width={"338px"}
+                zIndex={"100000"}
+                p={6}
+                pb={9}
+                m={0}
                 bg={bg}
-                spacing={1}
+                spacing={6}
                 rounded="sm"
                 shadow="sm"
               >
@@ -108,35 +137,149 @@ const Navbar = () => {
                   justifySelf="self-start"
                   onClick={mobileNav.onClose}
                 />
-               {/* "Todos" button that takes to its page to see all the products */}
-                <Link href={"/categTodos"}>
+               
+                <Link href={"/categTodos"}
+                
+                >
+                  
                   <IconButton
                     aria-label="Go to cart"
                     fontSize="25px"
-                    color="#F2EFE1 "
+                    color="#208220 "
                     _dark={{
                       color: "inherit",
                     }}
                     variant="ghost"
                     icon={<AiOutlineShop />}
-                  /> Todos
+                  /> Abarrotes
                 </Link>
-                <Button
-                  w="full"
-                  variant="solid"
-                  colorScheme="brand"
-                  leftIcon={<AiOutlineInbox />}
-                >
-                  Inbox
-                </Button>
-                <Button
-                  w="full"
-                  variant="ghost"
-                  leftIcon={<BsFillCameraVideoFill />}
-                >
-                  Videos
-                </Button>
+                
+                <Link href={"/categTodos"}>
+                  <IconButton
+                    aria-label="Go to cart"
+                    fontSize="25px"
+                    color="#208220 "
+                    _dark={{
+                      color: "inherit",
+                    }}
+                    variant="ghost"
+                    icon={<FaBaby />}
+                  /> Bebés
+                </Link>
+
+                <Link href={"/"}>
+                  <IconButton
+                    aria-label="Go to cart"
+                    fontSize="25px"
+                    color="#208220 "
+                    _dark={{
+                      color: "inherit",
+                    }}
+                    variant="ghost"
+                    icon={<FaIceCream />}
+                  /> Congelados
+                </Link>
+
+                <Link href={"/"}>
+                  <IconButton
+                    aria-label="Go to cart"
+                    fontSize="25px"
+                    color="#208220 "
+                    _dark={{
+                      color: "inherit",
+                    }}
+                    variant="ghost"
+                    icon={<GiMedicines />}
+                  /> Farmacia
+                </Link>
+
+                <Link href={"/"}>
+                  <IconButton
+                    aria-label="Go to cart"
+                    fontSize="25px"
+                    color="#208220 "
+                    _dark={{
+                      color: "inherit",
+                    }}
+                    variant="ghost"
+                    icon={<FaAppleAlt />}
+                  /> Frutas y verduras
+                </Link>
+
+                <Link href={"/"}>
+                  <IconButton
+                    aria-label="Go to cart"
+                    fontSize="25px"
+                    color="#208220 "
+                    _dark={{
+                      color: "inherit",
+                    }}
+                    variant="ghost"
+                    icon={<MdCleaningServices />}
+                  /> Limpieza
+                </Link>
+
+                <Link href={"/"}>
+                  <IconButton
+                    aria-label="Go to cart"
+                    fontSize="25px"
+                    color="#208220 "
+                    _dark={{
+                      color: "inherit",
+                    }}
+                    variant="ghost"
+                    icon={<MdOutlineSmartToy />}
+                  /> Juguetería
+                </Link>
+
+                <Link href={"/"}>
+                  <IconButton
+                    aria-label="Go to cart"
+                    fontSize="25px"
+                    color="#208220 "
+                    _dark={{
+                      color: "inherit",
+                    }}
+                    variant="ghost"
+                    icon={<FaWineGlassAlt />}
+                  /> VinosLicores
+                </Link>
+
+                <Link href={"/"}>
+                  <IconButton
+                    aria-label="Go to cart"
+                    fontSize="25px"
+                    color="#208220 "
+                    _dark={{
+                      color: "inherit",
+                    }}
+                    variant="ghost"
+                    icon={<MdElectricBolt />}
+                  /> Electrodomésticos
+                </Link>
+
+
+                <Link href={"/"}>
+                  <IconButton
+                    aria-label="Go to cart"
+                    fontSize="25px"
+                    color="#208220 "
+                    _dark={{
+                      color: "inherit",
+                    }}
+                    variant="ghost"
+                    icon={<FaChair />}
+                  /> Muebles
+                </Link>
+
+                
+
               </VStack>
+           
+           
+
+
+           
             </Box>
             <chakra.a
               href="/"
@@ -148,8 +291,7 @@ const Navbar = () => {
             </chakra.a>
           </HStack>
           <HStack
-            spacing={1}
-            display={mobileNav.isOpen ? "none" : "flex"}
+              spacing={1}
             alignItems="center"
           >
             {/* Link to perfil */}
@@ -205,6 +347,7 @@ const Navbar = () => {
                 icon={<BiLogOutCircle />}
               />
             {/* open menu when you click */}
+      
             <IconButton
               aria-label="Open menu"
               fontSize="20px"

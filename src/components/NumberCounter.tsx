@@ -52,4 +52,4 @@ const NumberCounter = () => {
   );
 };
 
-export default NumberCounter;
+export default ;
