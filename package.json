@@ -20,8 +20,6 @@
     "@popperjs/core": "^2.11.7",
     "@react-three/drei": "^9.68.4",
     "@types/node": "18.15.11",
-    "@types/react": "18.0.35",
-    "@types/react-dom": "18.0.11",
     "autoprefixer": "10.4.14",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
@@ -31,8 +29,8 @@
     "next": "13.3.0",
     "pnpm": "^8.3.1",
     "postcss": "8.4.21",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.11.2",
@@ -40,11 +38,15 @@
     "react-webcam": "^7.0.1",
     "swiper": "^9.3.2",
     "three": "^0.152.2",
-    "typescript": "5.0.4",
     "vercel": "^29.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.21.8",
-    "tailwindcss": "^3.3.2"
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
+    "jsbarcode": "^3.11.5",
+    "parcel-bundler": "^1.12.5",
+    "tailwindcss": "^3.3.2",
+    "typescript": "^5.0.4"
   }
 }
