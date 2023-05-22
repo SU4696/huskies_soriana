@@ -14,6 +14,7 @@ import {
   useDisclosure,
   IconButton,
   PopoverArrow,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { ShopContext } from "../context/ShopContext";
 import { SearchIcon, AddIcon } from "@chakra-ui/icons";
@@ -106,15 +107,15 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
       borderTopRadius={"2rem"}
       boxShadow="dark-lg"
       paddingX={"20px"}
-      paddingY={"15px"}
+      paddingY={"20px"}
       
     >
-      <Box >
+      <Box  >
       <PopoverArrow  />
+      
     <PopoverCloseButton />
       </Box>
-      <Grid
-        h="150px"
+      <SimpleGrid
         templateRows="repeat(2, 1fr)"
         templateColumns="repeat(5, 1fr)"
         gap={2}
@@ -126,8 +127,9 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
           rowSpan={4}
           colSpan={2}
         >
-          <Image  sizes="150px"
-    objectFit='cover' src={image} alt={nombre}></Image>
+          <Image  boxSize='130px'
+    objectFit='cover'
+src={image} alt={nombre}></Image>
           
         </GridItem>
         <GridItem   marginTop={"15px"} colSpan={3} >
@@ -199,7 +201,7 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
           <Text>${precio}</Text>
         </GridItem>
         
-      </Grid>
+      </SimpleGrid>
 
       <Box
         marginTop={"3vh"}
