@@ -1,6 +1,4 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { Producto } from '@/types/Producto';
-import { getProductos } from '@/service/ServicioProductos';
 
 
 export const ShopContext = createContext();
@@ -10,7 +8,7 @@ const getDefaultCart = () => {
   if(cartLocalStorage) return JSON.parse(cartLocalStorage);
 
   let cart = {};
-  for (let i = 1; i < 60; i++){
+  for (let i = 0; i < 60; i++){
     cart[i] = 0;
   }
   return cart;
@@ -36,8 +34,18 @@ export const ShopContextProvider = (props) => {
     setTotalItems(totalPrice.toFixed(2));
   }, [cartItems, products]);
 */
-  const addToCart = (itemId) => {
+useEffect(() => {
+  localStorage.setItem("cart", JSON.stringify(cartItems));
+}, [cartItems]);
+
+  const addToCart = (itemId ) => {
     setCartItems ((prevs) => ({...prevs, [itemId]: prevs[itemId] + 1}));
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+    //setTotalItems ((costo) => ({...costo, [itemId]: costo[itemId] + cost}));
+    //localStorage.setItem("total", JSON.stringify(totalItems));
+  }
+  const addToCartQ = (itemId, num ) => {
+    setCartItems ((prevs) => ({...prevs, [itemId]: prevs[itemId] + num}));
     localStorage.setItem("cart", JSON.stringify(cartItems));
     //setTotalItems ((costo) => ({...costo, [itemId]: costo[itemId] + cost}));
     //localStorage.setItem("total", JSON.stringify(totalItems));
@@ -48,7 +56,7 @@ export const ShopContextProvider = (props) => {
     localStorage.removeItem("cart", JSON.stringify(cartItems));
   }
 
-  const contextValue = { cartItems, addToCart, removeFromCart };
+  const contextValue = { cartItems, addToCart, removeFromCart, addToCartQ };
 
   console.log(cartItems);
   return (

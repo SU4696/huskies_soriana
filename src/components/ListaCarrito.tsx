@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import NumberCounter from './NumberCounter'
 import { Image, chakra, Flex, Box, Link, Text, Button, Card, CardBody, Heading, CardFooter } from "@chakra-ui/react";
 import { Producto } from "@/types/Producto";
 import { ShopContext } from '@/context/ShopContext';

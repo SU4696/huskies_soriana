@@ -1,9 +1,5 @@
 import CamComponents from '@/components/CamComponents'
-import CartHeader from '@/components/CartHeader'
 import ListaCarrito from '@/components/ListaCarrito'
-import NumberCounter from '@/components/NumberCounter'
-import SearchBar from '@/components/SearchBar'
-import TopbarPromo from '@/components/TopbarPromo'
 import { Box } from '@chakra-ui/react'
 import React, { useContext, useState, useEffect } from 'react'
 import { Producto } from "@/types/Producto";
@@ -28,14 +24,14 @@ function Carrito() {
 
     return (
     <>
-        <TopbarPromo  titulo={"Carrito"} />
+        
         <CamComponents  /> 
-        <Box paddingTop={"62px"}>
+        <Box >
         <div className="flex  flex-col max-w-3xl p-6 space-y-4 sm:p-10 ">
             <ul className="flex flex-col divide-y divide-gray-700">
                 {products.map((prod) => {
                     console.log("revisar carrito");
-                    if (cartItems[prod.idProductos] !== 0){
+                    if (cartItems[prod.idProductos] > 0){
                         console.log("carrtio no vacio");
                         total += prod.precio*cartItems[prod.idProductos]
                         return <ListaCarrito  key={prod.idProduct} prod={prod}/>
