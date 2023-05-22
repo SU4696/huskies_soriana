@@ -61,7 +61,7 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
         
 
       <PopoverTrigger>
-          <Box  backgroundColor={"black"} height={"0.1px"} width={"0.001px"} position={"fixed"} left={"0px"} bottom={"0px"} aria-label={""} >
+          <Box   height={"0px"} width={"0px"} position={"fixed"} left={"0px"} bottom={"0px"} aria-label={""} >
 
           </Box>
           </PopoverTrigger>
@@ -98,18 +98,18 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
         </Box>
       
       <PopoverContent
-      zIndex={"100000"}
+      zIndex={"1000"}
       bottom={"0px"}
       height={"40vh"}
-      width={"98vw"}
-      backgroundColor={"#F8F7F1"}
+      width={"97vw"}
+      // backgroundColor={"#F8F7F1"}
       borderTopRadius={"2rem"}
       boxShadow="dark-lg"
       paddingX={"20px"}
-      paddingY={"10px"}
+      paddingY={"15px"}
       
     >
-      <Box display={"flex"} justifyContent={"left"}>
+      <Box >
       <PopoverArrow  />
     <PopoverCloseButton />
       </Box>
@@ -124,17 +124,18 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
           justifyContent={"center"}
           alignItems={"center"}
           rowSpan={4}
-          height={"30vh"}
           colSpan={2}
-          bg="tomato"
         >
-          <Image height={"25vh"} src={image} alt={nombre}></Image>
+          <Image  sizes="150px"
+    objectFit='cover' src={image} alt={nombre}></Image>
           
         </GridItem>
-        <GridItem padding={"15px"} colSpan={2} bg="papayawhip">
-          <Text>{nombre}</Text>
+        <GridItem   marginTop={"15px"} colSpan={3} >
+          <Text fontWeight={"bold"} >{nombre}</Text>
         </GridItem>
-        <GridItem height={"10vh"} padding={"15px"} colSpan={1} bg="papayawhip">
+        <GridItem   colSpan={3} display={"flex"}
+          justifyContent={"end"}
+          alignItems={"end"} >
           <div className="counter">
             <button
               className="counter-button"
@@ -144,7 +145,7 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
               -{" "}
             </button>
 
-            <input
+            <input  
               type="number"
               className="counter-input"
               value={counter}
@@ -192,22 +193,22 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
           justifyContent={"end"}
           alignItems={"end"}
           colSpan={3}
-          height={"15vh"}
-          bg="tomato"
+          fontWeight={"bold"} 
+          
         >
-          <Text>{precio}</Text>
+          <Text>${precio}</Text>
         </GridItem>
         
       </Grid>
 
       <Box
-        marginTop={"130px"}
+        marginTop={"3vh"}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
         gap={"30"}
       >
-        <Button width={"190px"} backgroundColor={"#FC8E51"} color={"white"}>
+        <Button  width={"190px"} backgroundColor={"#FC8E51"} color={"white"}>
           Ver ruta
         </Button>
         <Button

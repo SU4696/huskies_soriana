@@ -14,7 +14,7 @@ function main() {
         <Navbar  />
         <Link href={"/camera"} >
         <IconButton
-         zIndex={"999"}
+         zIndex={"5"}
          aria-label="Camera"
          variant="outline"
          size={"lg"}
