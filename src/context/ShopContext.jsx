@@ -55,8 +55,12 @@ useEffect(() => {
     setCartItems ((prevs) => ({...prevs, [itemId]: prevs[itemId] - 1}));
     localStorage.removeItem("cart", JSON.stringify(cartItems));
   }
-
-  const contextValue = { cartItems, addToCart, removeFromCart, addToCartQ };
+  
+  const removeAllFromCart = (itemId) => {
+    setCartItems ((prevs) => ({...prevs, [itemId]: prevs[itemId] =0}));
+    localStorage.removeItem("cart", JSON.stringify(cartItems));
+  }
+  const contextValue = { cartItems, addToCart, removeFromCart, addToCartQ, removeAllFromCart };
 
   console.log(cartItems);
   return (
