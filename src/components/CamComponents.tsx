@@ -30,7 +30,7 @@ const CamComponents = () => {
       {isCaptureEnable || (
         
          <IconButton
-         
+         zIndex={10}
          aria-label="Camera"
          variant="outline"
          size={"lg"}
