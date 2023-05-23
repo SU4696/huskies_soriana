@@ -30,7 +30,8 @@ import {
   FaIceCream,
   FaAppleAlt,
   FaWineGlassAlt,
-  FaChair
+  FaChair,
+  FaEdit
 } from "react-icons/fa";
 
 import{
@@ -40,18 +41,14 @@ import{
 } from "react-icons/md";
 
 import {
-  BiLogOutCircle
-} from "react-icons/bi";
-
-import {
   FiShoppingCart,
   FiGift,
-
+  FiLogOut
 } from "react-icons/fi";
 
 import {
-  BsFillGridFill
-
+  BsFillGridFill,
+  BsBagCheckFill
 } from "react-icons/bs";
 
 import {
@@ -70,6 +67,7 @@ import { useRouter } from "next/router";
 const Navbar = () => {
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();
+  const perfilNav = useDisclosure();
   const { user, logOut } = useAuth();
   const router = useRouter();
 
@@ -116,9 +114,6 @@ const Navbar = () => {
               color="# F2EFE1"
             >
               
-           
-            
-           
               <VStack
                  position={"fixed"}
                  top={"0px"}
@@ -298,6 +293,86 @@ const Navbar = () => {
 
            
             </Box>
+            <Box
+              display={{
+                base: "inline-flex",
+                
+              }}
+              color="# F2EFE1"
+            >
+              
+              <VStack
+                 position={"fixed"}
+                 top={"0px"}
+                 right={"0px"}
+                 height={"100%"}
+                display={perfilNav.isOpen ? "flex" : "none"}
+                flexDirection="column"
+                alignItems={"left"}
+                width={"338px"}
+                zIndex={"100000"}
+                p={6}
+                pb={9}
+                m={0}
+                bg={bg}
+                spacing={6}
+                rounded="sm"
+                shadow="sm"
+              >
+                <CloseButton
+                  aria-label="Close menu"
+                  justifySelf="self-start"
+                  onClick={perfilNav.onClose}
+                />
+               
+                <Link href={"/editarPerfil"}>
+                  
+                  <IconButton
+                    aria-label="Go to cart"
+                    fontSize="25px"
+                    color="#208220 "
+                    _dark={{
+                      color: "inherit",
+                    }}
+                    variant="ghost"
+                    icon={<FaEdit />}
+                  /> Editar Perfil
+                </Link>
+                
+                <Link href={"/categTodos"}>
+                  <IconButton
+                    aria-label="Go to cart"
+                    fontSize="25px"
+                    color="#208220 "
+                    _dark={{
+                      color: "inherit",
+                    }}
+                    variant="ghost"
+                    icon={<BsBagCheckFill />}
+                  /> Historia de compra
+                </Link>
+
+              {/* Link to logout */}
+              <Link>
+              <IconButton
+                aria-label="Log out"
+                fontSize="25px"
+                color="#208220"
+                _dark={{
+                  color: "inherit",
+                }}
+                variant="ghost"
+                onClick={handleLogout}
+                icon={<FiLogOut />}
+              /> Cerrar sesión
+              </Link>
+
+              </VStack>
+          
+           
+            </Box>
+          
+
             <chakra.a
               href="/"
               title="Choc Home Page"
@@ -312,7 +387,7 @@ const Navbar = () => {
             alignItems="center"
           >
             {/* Link to perfil */}
-            <Link href={"/editarPerfil"}>
+            
               <IconButton
                 aria-label="Go to Perfil"
                 fontSize="25px"
@@ -321,9 +396,10 @@ const Navbar = () => {
                   color: "inherit",
                 }}
                 variant="ghost"
+                onClick={perfilNav.onOpen}
                 icon={<CgProfile />}
               />
-            </Link>
+
             {/* Link to promociones */}
             <Link href={"/promociones"}>
               <IconButton
@@ -350,19 +426,6 @@ const Navbar = () => {
                 icon={<FiShoppingCart />}
               />
             </Link>
-             {/* Link to logout */}
-             
-              <IconButton
-                aria-label="Go to Perfil"
-                fontSize="25px"
-                color="#F2EFE1"
-                _dark={{
-                  color: "inherit",
-                }}
-                variant="ghost"
-                onClick={handleLogout}
-                icon={<BiLogOutCircle />}
-              />
             {/* open menu when you click */}
       
             <IconButton
