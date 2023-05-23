@@ -22,7 +22,7 @@ import React from "react";
 import {
   AiOutlineMenu,
   AiOutlineSearch,
-  AiOutlineShop,
+  AiFillShop,
 } from "react-icons/ai";
 
 import {
@@ -42,6 +42,7 @@ import{
 import {
   BiLogOutCircle
 } from "react-icons/bi";
+
 import {
   FiShoppingCart,
   FiGift,
@@ -49,7 +50,11 @@ import {
 } from "react-icons/fi";
 
 import {
+  BsFillGridFill
 
+} from "react-icons/bs";
+
+import {
   GiMedicines
 } from "react-icons/gi";
 
@@ -138,9 +143,7 @@ const Navbar = () => {
                   onClick={mobileNav.onClose}
                 />
                
-                <Link href={"/categTodos"}
-                
-                >
+               <Link href={"/categTodos"}>
                   
                   <IconButton
                     aria-label="Go to cart"
@@ -150,7 +153,21 @@ const Navbar = () => {
                       color: "inherit",
                     }}
                     variant="ghost"
-                    icon={<AiOutlineShop />}
+                    icon={<BsFillGridFill />}
+                  /> Todos
+                </Link>
+
+                <Link href={"/"}>
+                  
+                  <IconButton
+                    aria-label="Go to cart"
+                    fontSize="25px"
+                    color="#208220 "
+                    _dark={{
+                      color: "inherit",
+                    }}
+                    variant="ghost"
+                    icon={<AiFillShop />}
                   /> Abarrotes
                 </Link>
                 
