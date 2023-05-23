@@ -64,7 +64,6 @@ const Navbar = () => {
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const btnRef = React.useRef();
 
   const handleLogout = async () => {
     try {
@@ -102,7 +101,7 @@ const Navbar = () => {
               />
             </Link>
             <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-              <DrawerOverlay  />
+              <DrawerOverlay />
               <DrawerContent>
                 <DrawerCloseButton />
                 <DrawerHeader>Categorias</DrawerHeader>
@@ -278,12 +277,16 @@ const Navbar = () => {
                 </DrawerBody>
 
                 <DrawerFooter>
-                  <Footer/>
+                  <Footer />
                 </DrawerFooter>
               </DrawerContent>
             </Drawer>
-            <Drawer isOpen={perfilNav.isOpen} placement="right" onClose={perfilNav.onClose}>
-              <DrawerOverlay  />
+            <Drawer
+              isOpen={perfilNav.isOpen}
+              placement="right"
+              onClose={perfilNav.onClose}
+            >
+              <DrawerOverlay />
               <DrawerContent>
                 <DrawerCloseButton />
                 <DrawerHeader>Perfil</DrawerHeader>
@@ -291,61 +294,57 @@ const Navbar = () => {
                 <DrawerBody>
                   <Stack spacing="24px">
                     <Box>
-                    <Link href={"/editarPerfil"}>
-                  <IconButton
-                    aria-label="Go to cart"
-                    fontSize="25px"
-                    color="#208220 "
-                    _dark={{
-                      color: "inherit",
-                    }}
-                    variant="ghost"
-                    icon={<FaEdit />}
-                  />{" "}
-                  Editar Perfil
-                </Link>
-                </Box>
-                <Box>
-                <Link href={"/categTodos"}>
-                  <IconButton
-                    aria-label="Go to cart"
-                    fontSize="25px"
-                    color="#208220 "
-                    _dark={{
-                      color: "inherit",
-                    }}
-                    variant="ghost"
-                    icon={<BsBagCheckFill />}
-                  />{" "}
-                  Historia de compra
-                </Link>
-                </Box>
-                <Box>
-                {/* Link to logout */}
-                <Link>
-                  <IconButton
-                    aria-label="Log out"
-                    fontSize="25px"
-                    color="#208220"
-                    _dark={{
-                      color: "inherit",
-                    }}
-                    variant="ghost"
-                    onClick={handleLogout}
-                    icon={<FiLogOut />}
-                  />{" "}
-                  Cerrar sesión
-                </Link>
+                      <Link href={"/editarPerfil"}>
+                        <IconButton
+                          aria-label="Go to cart"
+                          fontSize="25px"
+                          color="#208220 "
+                          _dark={{
+                            color: "inherit",
+                          }}
+                          variant="ghost"
+                          icon={<FaEdit />}
+                        />{" "}
+                        Editar Perfil
+                      </Link>
+                    </Box>
+                    <Box>
+                      <Link href={"/categTodos"}>
+                        <IconButton
+                          aria-label="Go to cart"
+                          fontSize="25px"
+                          color="#208220 "
+                          _dark={{
+                            color: "inherit",
+                          }}
+                          variant="ghost"
+                          icon={<BsBagCheckFill />}
+                        />{" "}
+                        Historia de compra
+                      </Link>
+                    </Box>
+                    <Box onClick={handleLogout}>
+                      {/* Link to logout */}
+                      <IconButton
+                        aria-label="Log out"
+                        fontSize="25px"
+                        color="#208220"
+                        _dark={{
+                          color: "inherit",
+                        }}
+                        variant="ghost"
+                        icon={<FiLogOut />}
+                      />{" "}
+                      Cerrar sesión
                     </Box>
                   </Stack>
                 </DrawerBody>
 
                 <DrawerFooter>
-                  <Footer/>
+                  <Footer />
                 </DrawerFooter>
               </DrawerContent>
             </Drawer>
-            
 
             <chakra.a
               href="/"
@@ -414,11 +413,7 @@ const Navbar = () => {
           </HStack>
         </Flex>
 
-        <HStack
-          justifyContent={"center"}
-          margin={"20px"}
-          alignItems="center"
-        >
+        <HStack justifyContent={"center"} margin={"20px"} alignItems="center">
           {/* Searching Bar */}
           <InputGroup>
             <InputLeftElement pointerEvents="none">

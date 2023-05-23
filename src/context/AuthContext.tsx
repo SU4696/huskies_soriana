@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   sendPasswordResetEmail,
+  updatePassword as updateFirebasePassword
 } from "firebase/auth";
 import { auth } from "@/firebase/config";
 
@@ -55,8 +56,21 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
     await signOut(auth);
   }
 
+  const updatePassword = async (newPassword: string) => {
+    const user = auth.currentUser;
+    if (user) {
+      try {
+        await updateFirebasePassword(user, newPassword);
+     
+      } catch (error) {
+  
+        console.error("Fatla: Password change", error);
+      }
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, signUp, logIn, logOut,resetPassword }}>
+    <AuthContext.Provider value={{ user, signUp, logIn, logOut,resetPassword,updatePassword }}>
       {loading ? null : children}
     </AuthContext.Provider>
   );

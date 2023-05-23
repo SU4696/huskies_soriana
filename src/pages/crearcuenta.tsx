@@ -21,7 +21,7 @@ interface SignupType {
 
 function Contrasena() {
   const methods = useForm<SignupType>({ mode: "onBlur" });
-  
+
   const {
     register,
     handleSubmit,
@@ -39,12 +39,10 @@ function Contrasena() {
       const datas = {
         correo: data.email,
         puntoTotal: 0,
-      }
-      
-  
+      };
+
       router.push("/crearcuentaInfo");
       const { user } = useAuth();
-     
     } catch (error: any) {
       console.log(error.message);
     }
@@ -65,7 +63,6 @@ function Contrasena() {
         <FormProvider {...methods}>
           {/* Form function works after doing a submit */}
           <form action="" onSubmit={handleSubmit(onSubmit)}>
-            
             <Text marginTop={"3rem"} fontWeight={"bold"} fontSize="xl">
               Correo
             </Text>
@@ -87,7 +84,13 @@ function Contrasena() {
             {/* Password form required */}
             <Input
               type="password"
-              {...register("password", { required: "Contraseña es requerido" })}
+              {...register("password", {
+                required: "Contraseña es requerido",
+                minLength: {
+                  value: 7,
+                  message: "La contraseña debe tener al menos 7 caracteres",
+                },
+              })}
               variant="flushed"
               fontSize="xl"
             />
@@ -102,6 +105,7 @@ function Contrasena() {
               justifyContent={"center"}
               alignItems={"center"}
             >
+              
               <Button
                 type="submit"
                 fontSize="xl"

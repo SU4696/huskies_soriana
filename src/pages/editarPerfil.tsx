@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Center,
   Heading,
   Input,
   Stack,
@@ -14,13 +13,11 @@ import {
   BiArrowBack
 } from "react-icons/bi";
 
-import React from "react";
+import React, { useState } from "react";
 import styles from "@/styles/Home.module.css";
 import { FormProvider, useForm } from "react-hook-form";
 import { useAuth } from "@/context/AuthContext";
-import {
-  updatePassword,
-} from "firebase/auth";
+
 import { useRouter } from "next/router";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import {db} from "@/firebase/config";
@@ -33,10 +30,10 @@ interface ProfileUpdate {
 }
 
 function Perfil() {
-  
+  const [errorMessage, setErrorMessage] = useState("");
   const methods = useForm<ProfileUpdate>({ mode: "onBlur" });
 
-  const { user ,auth} = useAuth();
+  const { user ,auth, updatePassword} = useAuth();
   console.log(user);
   const email =user.email;
   const uid =user.uid;
@@ -55,21 +52,30 @@ function Perfil() {
   const onSubmit = async (data: ProfileUpdate) => {
     try {
       if (data.name) {
-        const docRef = doc(db, 'Usuario', uid);
-        await updateDoc(docRef, {
-          nombre: data.name
-        });
+        if (data.name.length <= 30 && /^[A-Za-z\s]+$/.test(data.name)) {
+          const docRef = doc(db, "Usuario", uid);
+          await updateDoc(docRef, {
+            nombre: data.name,
+          });
+        } else {
+          setErrorMessage("Máximo 30 letras. Solo texto.");
+          return;
+        }
       }
 
-      else if (data.password) {
-        await updatePassword(user, data.password)
-        
+      else if (data.password && data.password.length >= 7) {
+        await updatePassword(data.password);
+      } else {
+        setErrorMessage("Debe tener al menos 7 caracteres."); 
+        return; 
       }
       router.push("/main");
 
     } catch (error: any) {
       console.log(error.message);
+      setErrorMessage("Error"); 
     }
+    
   };
 
   return (
@@ -107,6 +113,7 @@ function Perfil() {
               fontSize="xl"
               type="text"
               {...register("name")}
+              autoComplete="off"
             />
             {errors.name && (
               <p className="text-red-400">{errors.name.message}</p>
@@ -126,6 +133,7 @@ function Perfil() {
               {...register("password")}
               variant="flushed"
               fontSize="xl"
+              autoComplete="off"
             />
             {errors.password && (
               <p className="text-red-400">{errors.password.message}</p>
@@ -138,6 +146,7 @@ function Perfil() {
               justifyContent={"center"}
               alignItems={"center"}
             >
+              {errorMessage && <p className="text-red-400">{errorMessage}</p>}
               <Button
                 type="submit"
                 fontSize="xl"

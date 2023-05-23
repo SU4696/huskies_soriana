@@ -21,31 +21,30 @@ interface userINFO {
 
 function Contrasena() {
   const methods = useForm<userINFO>({ mode: "onBlur" });
-  
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = methods;
   const router = useRouter();
-  const {user} =useAuth();
-  const email=user.email;
-  const uid =user.uid;
+  const { user } = useAuth();
+  const email = user.email;
+  const uid = user.uid;
   {
     /* Create account and direct to main page after submit */
-  } 
+  }
   const onSubmit = async (data: userINFO) => {
     try {
       const datas = {
         correo: email,
         nombre: data.name,
         puntoTotal: 0,
-      }
-      
-  
+      };
+
       router.push("/main");
-      
-      const { result, error } = await addData('Usuario', uid, datas)
+
+      const { result, error } = await addData("Usuario", uid, datas);
     } catch (error: any) {
       console.log(error.message);
     }
@@ -74,12 +73,21 @@ function Contrasena() {
               variant="flushed"
               fontSize="xl"
               type="text"
-              {...register("name", { required: "Nombre es requerido" })}
+              {...register("name", {
+                required: "Nombre es requerido",
+                maxLength: {
+                  value: 30,
+                  message: "El nombre debe tener como máximo 30 caracteres",
+                },
+                pattern: {
+                  value: /^[A-Za-z]+$/,
+                  message: "El nombre solo puede contener letras",
+                },
+              })}
             />
             {errors.name && (
               <p className="text-red-400">{errors.name.message}</p>
             )}
-            
             <Box
               gap={8}
               display={"flex"}
@@ -98,7 +106,6 @@ function Contrasena() {
             </Box>{" "}
           </form>
         </FormProvider>
-        
       </Stack>
     </Box>
   );
