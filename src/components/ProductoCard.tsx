@@ -6,18 +6,21 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-  PopoverBody,
-  CloseButton,
+  
   GridItem,
-  Grid,
+
   PopoverCloseButton,
   useDisclosure,
-  IconButton,
+
   PopoverArrow,
   SimpleGrid,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerHeader,
+  DrawerBody,
 } from "@chakra-ui/react";
 import { ShopContext } from "../context/ShopContext";
-import { SearchIcon, AddIcon } from "@chakra-ui/icons";
 import React, { useContext, useEffect, useState } from "react";
 import Main from "@/pages/mapa";
 
@@ -29,9 +32,11 @@ interface ProductoCardProps {
 
 const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
   const { idProductos, nombre, image, precio } = prod;
-  const { removeFromCart, addToCartQ,addToCart, cartItems } = useContext(ShopContext);
-  const { isOpen, onToggle, onClose } = useDisclosure()
+  const {  addToCartQ, cartItems } = useContext(ShopContext);
+
   const [counter, setCounter] = useState(1);
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [placement, setPlacement] = React.useState('right')
 
   useEffect(() => {
     if (!isOpen) {
@@ -53,20 +58,8 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
 
   const cartItemAmount = cartItems[idProductos];
   return (
-    <Popover
-    returnFocusOnClose={false}
-        isOpen={isOpen}
-        onClose={onClose}
-        placement='right'
-        closeOnBlur={true}>
-        
-
-      <PopoverTrigger>
-          <Box   height={"0px"} width={"0px"} position={"fixed"} left={"0px"} bottom={"0px"} aria-label={""} >
-
-          </Box>
-          </PopoverTrigger>
-        <Box onClick={onToggle} >
+   <>
+        <Box onClick={onOpen} >
         
           <Box
             backgroundColor={"white"}
@@ -97,25 +90,12 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
             {/* <Button leftIcon={<AddIcon/>} onClick={() => addToCart(idProductos, (precio * cartItemAmount))}>Agregar a carrito {cartItemAmount > 0 && <>({cartItemAmount})</>}</Button> */}
           </Box>
         </Box>
-      
-      <PopoverContent
-      zIndex={"1000"}
-      bottom={"0px"}
-      height={"40vh"}
-      width={"97vw"}
-      // backgroundColor={"#F8F7F1"}
-      borderTopRadius={"2rem"}
-      boxShadow="dark-lg"
-      paddingX={"20px"}
-      paddingY={"20px"}
-      
-    >
-      <Box  >
-      <PopoverArrow  />
-      
-    <PopoverCloseButton />
-      </Box>
-      <SimpleGrid
+        <Drawer placement='bottom' onClose={onClose} isOpen={isOpen} >
+        <DrawerOverlay />
+        <DrawerContent padding={"15px"} borderTopRadius={"2rem"} >
+          
+          <DrawerBody>
+          <SimpleGrid
         templateRows="repeat(2, 1fr)"
         templateColumns="repeat(5, 1fr)"
         gap={2}
@@ -226,8 +206,10 @@ src={image} alt={nombre}></Image>
             
         </Button>
       </Box>
-    </PopoverContent>
-    </Popover>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+     </> 
   );
 };
 
