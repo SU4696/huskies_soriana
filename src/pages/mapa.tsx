@@ -37,7 +37,7 @@ function Main () {
       {/* <Mapita categoria={Categoria} /> */}
       {/* <Mapita cat={categoria} /> */}
       <Box marginTop={'16'} padding={'8'}>
-        <Mapita />
+        {/* <Mapita /> */}
         <Text fontSize={'3xl'}>
           {nombre} se encuentra dentro de la tienda en el departamento '{categoria}'', pasillo {idProductos}.
         </Text>
