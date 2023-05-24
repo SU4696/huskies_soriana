@@ -1,22 +1,17 @@
 import {
   Box,
-  Button,
   chakra,
-  CloseButton,
   Flex,
   HStack,
   IconButton,
   useColorModeValue,
   useDisclosure,
-  VStack,
   VisuallyHidden,
   InputGroup,
   InputLeftElement,
   Avatar,
   Input,
   Link,
-  Image,
-  Text,
   Drawer,
   DrawerOverlay,
   DrawerContent,
@@ -309,7 +304,7 @@ const Navbar = () => {
                       </Link>
                     </Box>
                     <Box>
-                      <Link href={"/categTodos"}>
+                      <Link href={"/"}>
                         <IconButton
                           aria-label="Go to cart"
                           fontSize="25px"

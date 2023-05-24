@@ -1,6 +1,6 @@
 import CamComponents from '@/components/CamComponents'
 import ListaCarrito from '@/components/ListaCarrito'
-import { Box } from '@chakra-ui/react'
+import { Box,Link } from '@chakra-ui/react'
 import React, { useContext, useState, useEffect } from 'react'
 import { Producto } from "@/types/Producto";
 import { getProductos } from '@/service/ServicioProductos'
@@ -46,9 +46,11 @@ function Carrito() {
             <Box  display={"flex"}justifyContent={"center"} gap={"10"}>
                 <button type="button" className="px-6 py-2 border rounded-md bg-naranja text-white text-sm md:text-base hover:bg-green-800">Ver más promociones
                 </button>
+                <Link  href={"/barcodePagar"}>
                 <button type="button" className="px-6 py-2 border rounded-md  bg-secondary text-white text-sm md:text-base hover:bg-green-800">
                     Guardar
                 </button>
+                </Link>
             </Box>
         </div>
         </Box>

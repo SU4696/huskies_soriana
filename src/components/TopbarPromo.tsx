@@ -30,7 +30,7 @@ const Topbar = ({ titulo }: { titulo: string }) => {
               aria-label="goBack"
                size="md"
                name="Soriana Logo"
-               icon={<BiArrowBack color="#208220" size={30} />}
+               icon={<BiArrowBack color="#F2EFE1" size={30} />}
               backgroundColor={"transparent"}
              
              />
@@ -40,7 +40,7 @@ const Topbar = ({ titulo }: { titulo: string }) => {
         top={"0"}
         position={"fixed"}
         zIndex={"998"}
-        bg={"#F2EFE1"}
+        bg={"#208220"}
         w="full"
         px={{
           base: 2,
@@ -55,7 +55,7 @@ const Topbar = ({ titulo }: { titulo: string }) => {
             
           
             <Text
-              color={"#208220"}
+              color={"#F2EFE1"}
               fontSize={"20px"}
               fontWeight={"bold"}
             >
