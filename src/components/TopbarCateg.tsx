@@ -1,5 +1,4 @@
 import {
-  Box,
   chakra,
   Flex,
   HStack,
@@ -8,7 +7,6 @@ import {
   useDisclosure,
   Text,
   Link,
-  Heading
 } from "@chakra-ui/react";
 import React from "react";
 import {
@@ -29,7 +27,7 @@ const Topbar = ({titulo}: {titulo: string}) => {
     <React.Fragment>
       <chakra.header
         borderBottomRadius={"2rem"}
-        bg={"#F2EFE1"}
+        bg={"#208220"}
         w="full"
         px={{
           base: 2,
@@ -47,7 +45,7 @@ const Topbar = ({titulo}: {titulo: string}) => {
                 aria-label="goBack"
             
                 padding={"2px"}
-                icon={<BiArrowBack color="#208220" size={30} />}
+                icon={<BiArrowBack color="#F2EFE1" size={30} />}
                 paddingRight={"20px"}
                 position={"fixed"}
                 left={"25px"}
@@ -60,7 +58,7 @@ const Topbar = ({titulo}: {titulo: string}) => {
           
           <Text  
             marginTop={"20px"}
-            color={"#208220"}
+            color={"#F2EFE1"}
             fontSize={"20px"}
             fontWeight={"bold"}
           
@@ -76,7 +74,7 @@ const Topbar = ({titulo}: {titulo: string}) => {
                 aria-label="cart"
             
                 padding={"2px"}
-                icon={<FiShoppingCart color="white" size={30} />}
+                icon={<FiShoppingCart color={"#F2EFE1"} size={30} />}
                 paddingRight={"20px"}
                 position={"fixed"}
                 right={"25px"}
