@@ -68,7 +68,9 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
  
   //decrease counter
   const decrease = () => {
-    setCounter(count => count - 1);
+    if(counter > 1) {
+      setCounter(count => count - 1);
+    }
   };
 
   // const history = useHistory();
