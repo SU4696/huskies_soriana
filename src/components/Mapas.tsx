@@ -17,8 +17,22 @@ import Mapa_plano from "src/img/mapas/mapa_plano.png";
 import Mapa_ropa from "src/img/mapas/mapa_ropa.png";
 import Mapa_salchichoneria from "src/img/mapas/mapa_salchichoneria.png";
 import Mapa_temporada from "src/img/mapas/mapa_temporada.png";
+import { useContext, useEffect } from "react";
+import { MapaContext } from '@/context/MapaContext';
 
-const Mapita = ({categoria}: {categoria: string}) => {
+const Mapita = ({categoria} : {categoria : string}) => {
+// const Mapita = () => {
+
+    // const currProd = useContext(MapaContext)
+
+    // const categoria  = currProd.categoria;
+
+    // useEffect(() => {
+    //     console.log(currProd)
+    //     console.log("aa")
+    //     console.log(categoria)
+    // })
+
     var Mapa = Mapa_plano;
     switch (categoria) {
         case "Abarrotes":
@@ -46,7 +60,7 @@ const Mapita = ({categoria}: {categoria: string}) => {
             Mapa = Mapa_farmacia;
             break;
         case "Frutas y verduras":
-            Mapa = Mapa_abarrotes;
+            Mapa = Mapa_frutasverduras;
             break;
         case "Juguetería":
             Mapa = Mapa_jugueteria;
