@@ -9,6 +9,7 @@ import {
   IconButton,
   Box,
   Stack,
+  Spacer
 } from "@chakra-ui/react";
 import { Producto } from "@/types/Producto";
 import { ShopContext } from "@/context/ShopContext";
@@ -28,10 +29,11 @@ const ListaCarrito: React.FC<ListaCarritoProps> = ({ prod }) => {
         direction={{ base: "column", sm: "row" }}
         overflow="hidden"
         variant="elevated"
-       margin={"10px"}
+        margin={"10px"}
+        border={'white'}
       >
         <Image
-        padding={"2px"}
+          padding={"2px"}
           objectFit="cover"
           maxW={{ base: "100%", sm: "200px" }}
           src={image}
@@ -41,7 +43,7 @@ const ListaCarrito: React.FC<ListaCarritoProps> = ({ prod }) => {
         <Stack>
           <CardBody width={"100%"}>
             <Flex>
-              <Box paddingRight={"50px"} margin={"10px"}>
+              <Box paddingRight={"50px"} margin={"10px"} w="64">
                 <Heading size="sm" marginBottom={6}>
                   {nombre}
                 </Heading>
@@ -101,10 +103,13 @@ const ListaCarrito: React.FC<ListaCarritoProps> = ({ prod }) => {
                   ${(precio * cartItems[idProductos]).toFixed(2)}
                 </Text>
               </Box>
-              <Box   >
+              <Box flex='1' display="flex" flexWrap="wrap" alignContent="flex-end">
+                <Spacer />
                 <IconButton
-                display={"flex"}
-                justifyContent={"right"}
+                  flex='1'
+                  display={"flex"}
+                  justifyContent={"center"}
+                  alignItems={"flex-end"}
                   aria-label="erase"
                   fontSize="25px"
                   color="red.500"
