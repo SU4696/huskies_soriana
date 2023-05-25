@@ -15,8 +15,6 @@ import {
   import {
     BiArrowBack
   } from "react-icons/bi";
-    import { useContext } from 'react';
-    import { ShopContext } from "@/context/ShopContext";
     import { useEffect } from "react";
   
   const HistoriaCompra = () => {
@@ -27,8 +25,6 @@ import {
 
     useEffect(() => {
         const storedTotal = localStorage.getItem("total");
-        console.log("storedTotal", storedTotal);
-        // Puedes utilizar el valor almacenado como desees
     }, []);
     
     return (

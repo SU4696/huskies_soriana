@@ -5,7 +5,6 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Producto } from "@/types/Producto";
 import { getProductos } from '@/service/ServicioProductos'
 import { ShopContext } from '@/context/ShopContext'
-import HistoriaCompra from '@/components/HistoriaCompra';
 
 import { BsFillTrashFill } from "react-icons/bs";
 
@@ -31,7 +30,6 @@ function Carrito() {
       if (cartItems[prod.idProductos] > 0) {
         newTotal += prod.precio * cartItems[prod.idProductos];
         localStorage.setItem("total", newTotal.toFixed(2));
-        console.log(newTotal);
       }
     });
     setTotal(newTotal);
@@ -44,9 +42,7 @@ function Carrito() {
         <div className="flex  flex-col max-w-3xl p-6 space-y-4 sm:p-10 ">
           <ul className="flex flex-col divide-y divide-gray-700">
             {products.map((prod) => {
-              console.log("revisar carrito");
               if (cartItems[prod.idProductos] > 0) {
-                console.log("carrtio no vacio");
                 return <ListaCarrito key={prod.idProduct} prod={prod} />
               }
             })}
