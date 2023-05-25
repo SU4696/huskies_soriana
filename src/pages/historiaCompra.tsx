@@ -1,12 +1,10 @@
 import React from "react";
-import HistorialCompra from "@/components/HistoriaCompra";
-import TopBarHC from "@/components/TopBarHC";
+import HistoriaCompra from "@/components/HistoriaCompra";
 
 function historiaCompra() {
   return (
     <React.Fragment>
-      <TopBarHC />
-        <HistorialCompra />  
+      <HistoriaCompra />
       
     </React.Fragment>    
   )
