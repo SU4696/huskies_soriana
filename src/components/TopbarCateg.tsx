@@ -61,13 +61,8 @@ const Topbar = ({titulo}: {titulo: string}) => {
             color={"#F2EFE1"}
             fontSize={"20px"}
             fontWeight={"bold"}
-          
           >
-            
-            
             {tagTitle}</Text>          
-         
-
             <Link href={"/carrito"}>
                {/*Cart button*/}
                <IconButton

@@ -18,11 +18,11 @@ import {
     import { useEffect } from "react";
   
   const HistoriaCompra = () => {
-    const bg = useColorModeValue("white", "gray.800");
-    const mobileNav = useDisclosure();
     const storedTotal = localStorage.getItem("total");
     const subtotal = storedTotal ? parseFloat(storedTotal) : 0;
-
+    const descuento = 0; // pendiente obtener descuentos
+    const total = subtotal - descuento;
+    
     useEffect(() => {
         const storedTotal = localStorage.getItem("total");
     }, []);
@@ -61,15 +61,14 @@ import {
                     >
                         <Text
                             textAlign={"left"}
-                            fontSize={"18px"} // despues de subtotal poner atributo con las cantidades
+                            fontSize={"18px"} 
                             fontWeight={"600"}
                         > Subtotal: ${subtotal}</Text>
-                        
                         <Text
                             textAlign={"left"}
-                            fontSize={"18px"} // despues de descuento poner atributo con las cantidades
+                            fontSize={"18px"} 
                             fontWeight={"600"}
-                        > Descuento: -$</Text> <br></br>
+                        > Descuento: -${descuento}</Text> <br></br>
                         <hr
                             style={{
                                 background: 'black',
@@ -81,15 +80,15 @@ import {
                         /> <br></br>
                         <Text
                             textAlign={"left"}
-                            fontSize={"18px"} // despues de total poner subtotal - descuento
+                            fontSize={"18px"} 
                             color={"red"}
                             fontWeight={"600"}
-                        > Total: ${subtotal}</Text> 
+                        > Total: ${total}</Text> 
                         <Text
                             textAlign={"left"}
-                            fontSize={"18px"} // despues de puntos poner el 10% del total
+                            fontSize={"18px"} 
                             fontWeight={"600"}
-                        > Puntos: {(subtotal*.10).toFixed(0)}</Text>  
+                        > Puntos: {(total*.10).toFixed(0)}</Text>  
                 </VStack>
             </Box>
             <Box
