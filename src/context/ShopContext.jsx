@@ -49,6 +49,11 @@ useEffect(() => {
     }
   }
 
+  const removeAllItemFromCart = (itemId) => {
+    setCartItems ((prevs) => ({...prevs, [itemId]: prevs[itemId] =0}));
+    localStorage.removeItem("cart", JSON.stringify(cartItems));
+  }
+
   const carritoLleno = () => {
     for (let i = 0; i < 60; i++){
       if(cartItems[i] != 0) return 1;
@@ -56,7 +61,7 @@ useEffect(() => {
     }
   }
 
-  const contextValue = { cartItems, addToCart, removeFromCart, addToCartQ, removeAllFromCart, cartTotal, carritoLleno, updateTotal};
+  const contextValue = { cartItems, addToCart, removeFromCart, addToCartQ, removeAllFromCart, cartTotal, carritoLleno, removeAllItemFromCart, updateTotal};
 
   console.log(cartItems);
   return (
