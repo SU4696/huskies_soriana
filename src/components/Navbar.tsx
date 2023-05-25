@@ -64,6 +64,7 @@ const Navbar = () => {
   const { user, logOut } = useAuth();
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const historiaC = useDisclosure();
 
 
   const handleLogout = async () => {
@@ -316,7 +317,7 @@ const Navbar = () => {
                       </Link>
                     </Box>
                     <Box>
-                      <Link href={"/categTodos"}>
+                      <Link href={"/historiaCompra"}>
                         <IconButton
                           aria-label="Go to cart"
                           fontSize="25px"
@@ -326,6 +327,7 @@ const Navbar = () => {
                           }}
                           variant="ghost"
                           icon={<BsBagCheckFill />}
+                          onClick={historiaC.onOpen}
                         />{" "}
                         Historia de compra
                       </Link>

@@ -34,6 +34,8 @@ const BarcodeGenerator: React.FC = () => {
       <svg ref={barcodeRef}></svg>
       {/* <button onClick={handleGenerateBarcode}>Generate Barcode</button> */}
     </div>
+
+    
   );
 };
 

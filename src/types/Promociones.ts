@@ -4,4 +4,5 @@ export interface Promociones {
     idPromo: number
     descuento: number
     fotoPromo: string
+    idProducto: number
   }

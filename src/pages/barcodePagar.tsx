@@ -25,8 +25,8 @@ function barcode() {
       alignItems={"center"}
       flexWrap={"wrap"}
     >
-      <Heading className={styles.greentext} fontSize="3xl">
-      <Link href={"/main"}>
+      <Heading className={styles.greentext} fontSize="2xl">
+      <Link href={"/carrito"}>
             <IconButton 
             aria-label="goBack"
             size={"xs"}
@@ -40,7 +40,8 @@ function barcode() {
       </Heading>
     <Stack width={"100%"} spacing={5}
      alignItems={"center"}
-     marginTop={"250px"}
+     marginTop={"200px"}
+     marginBottom={"70px"}
     >
       <Text textColor={"#C80606"} fontSize="2xl" fontWeight={"bold"}>
         Total: 

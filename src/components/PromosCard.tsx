@@ -19,7 +19,7 @@ interface PromosCardProps {
 
 const PromosCard:React.FC<PromosCardProps> = ({promo}) => {
 
-    const { titulo, fotoPromo, copy } = promo;
+    const { titulo, fotoPromo, copy, idProducto } = promo;
 
     return(
         <>
@@ -32,7 +32,7 @@ const PromosCard:React.FC<PromosCardProps> = ({promo}) => {
             >
             <Image
                 objectFit='cover'
-                maxW={{ base: '100%', sm: '200px' }}
+                maxW={{ base: '100%', sm: '120px' }}
                 src={fotoPromo}
                 alt='Promo image'
             />
@@ -43,14 +43,15 @@ const PromosCard:React.FC<PromosCardProps> = ({promo}) => {
 
                 <Text py='2'>
                 {copy}
-                </Text>
-                </CardBody>
-
-                <CardFooter>
+                </Text><br />
                 <Button leftIcon={<ViewIcon/>}>
                     Ver producto
                 </Button>
-                </CardFooter>
+                </CardBody>
+
+                {/* <CardFooter> */}
+                
+                {/* </CardFooter> */}
             </Flex>
             </Card>
         </>

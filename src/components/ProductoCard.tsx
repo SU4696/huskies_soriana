@@ -6,7 +6,7 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-  
+  Link,
   GridItem,
 
   PopoverCloseButton,
@@ -19,24 +19,41 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerBody,
+  Modal,
+  ModalBody,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalFooter
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import React, { useContext, useEffect, useState } from "react";
 import Main from "@/pages/mapa";
 
 import { Producto } from "@/types/Producto";
+import Mapita from "./Mapas";
+
+import { MapaContext, MapaContextProvider } from '@/context/MapaContext';
 
 interface ProductoCardProps {
   prod: Producto;
 }
 
+export var producto : Producto;
+
 const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
-  const { idProductos, nombre, image, precio } = prod;
+  const { idProductos, nombre, image, precio, categoria, idProduct } = prod;
   const {  addToCartQ, cartItems } = useContext(ShopContext);
 
   const [counter, setCounter] = useState(1);
+  const { isOpen: isModalOpen, onOpen: onModalOpen, onClose: onModalClose } = useDisclosure()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [placement, setPlacement] = React.useState('right')
+  // var modal = false;
+
+  // const { isOpen, onOpenM, onCloseM } = useDisclosure()
 
   useEffect(() => {
     if (!isOpen) {
@@ -51,14 +68,48 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
  
   //decrease counter
   const decrease = () => {
-    setCounter(count => count - 1);
+    if(counter > 1) {
+      setCounter(count => count - 1);
+    }
   };
- 
 
+  // const history = useHistory();
+ 
+  // function handleMap(){
+  //   console.log("va");
+  //   history.push({
+  //     pathname: '/mapa',
+  //     state: {prod}
+  //   })
+  //   console.log("?");
+  // }
+
+  // const handleClick = (isModal : boolean) => {
+  //   modal = isModal
+  //   onClose()
+  //   onOpen()
+  // }
+
+  // const navigate = useNavigate();
+
+  // const [currentProd, setCurrentProd] = useState<IMapaContext>({
+  //   categoria: categoria, 
+  //   nombre: nombre, 
+  //   idProductos: idProductos
+  // });
+
+  // useEffect(() => {
+  //   console.log(currentProd)
+  //   console.log("curr")
+  // });
+
+  // const {categoria, nombre, idProductos} = useContext(MapaContext);
 
   const cartItemAmount = cartItems[idProductos];
   return (
-   <>
+    <>
+      {/* <MapaContext.Provider value={currentProd}> */}
+      
         <Box onClick={onOpen} >
         
           <Box
@@ -190,9 +241,29 @@ src={image} alt={nombre}></Image>
         alignItems={"center"}
         gap={"30"}
       >
-        <Button  width={"190px"} backgroundColor={"#FC8E51"} color={"white"}>
+        {/* <Link href="/mapa"> */}
+        <Button onClick={onModalOpen} width={"190px"} backgroundColor={"#FC8E51"} color={"white"}>
           Ver ruta
         </Button>
+        {/* </Link> */}
+        
+        <Modal onClose={onModalClose} isOpen={isModalOpen} isCentered>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Ubicación {nombre}</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <Mapita categoria={categoria} />
+              <Text fontSize={'2xl'} marginTop={'1.5'}>
+                {nombre} se encuentra dentro de la tienda en el departamento {categoria}, pasillo {idProductos}.
+              </Text>
+            </ModalBody>
+            <ModalFooter>
+              <Button onClick={onModalClose}>Close</Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+        
         <Button
           width={"190px"}
           backgroundColor={"#208220"}
@@ -209,6 +280,8 @@ src={image} alt={nombre}></Image>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
+      {/* </MapaContext.Provider> */}
+      {/* </MapaContextProvider> */}
      </> 
   );
 };

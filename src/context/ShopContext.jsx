@@ -1,6 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
 
-
 export const ShopContext = createContext();
 
 const getDefaultCart = () => {
@@ -13,29 +12,14 @@ const getDefaultCart = () => {
   }
   return cart;
 };
-
-
-
-
-
 export const ShopContextProvider = (props) => {
   const [ cartItems, setCartItems ] = useState(getDefaultCart);
+  const [cartTotal, setCartTotal] = useState(0); 
+
+  const updateTotal = (newTotal) => {
+    setCartTotal(newTotal);
+  };
   
-  //const [products] = useState<Array<Producto>>([]);
-  
-/*
-  useEffect(() => {
-    let totalPrice = 0;
-    for (const itemId in cartItems) {
-      const quantity = cartItems[itemId];
-      const product = products.find((prod) => prod.idProductos === itemId);
-      if (product) {
-        totalPrice += product.precio * quantity;
-      }
-    }
-    setTotalItems(totalPrice.toFixed(2));
-  }, [cartItems, products]);
-*/
 useEffect(() => {
   localStorage.setItem("cart", JSON.stringify(cartItems));
 }, [cartItems]);
@@ -72,8 +56,7 @@ useEffect(() => {
     }
   }
 
-
-  const contextValue = { cartItems, addToCart, removeFromCart, addToCartQ, removeAllFromCart, carritoLleno };
+  const contextValue = { cartItems, addToCart, removeFromCart, addToCartQ, removeAllFromCart, cartTotal, carritoLleno, updateTotal};
 
   console.log(cartItems);
   return (
