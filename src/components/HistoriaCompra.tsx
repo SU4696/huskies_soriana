@@ -85,15 +85,15 @@ import {
                         /> <br></br>
                         <Text
                             textAlign={"left"}
-                            fontSize={"18px"} // despues de subtotal poner atributo con las cantidades
+                            fontSize={"18px"} // despues de total poner subtotal - descuento
                             color={"red"}
                             fontWeight={"600"}
-                        > Total:        $</Text> 
+                        > Total: ${subtotal}</Text> 
                         <Text
                             textAlign={"left"}
-                            fontSize={"18px"} // despues de descuento poner atributo con las cantidades
+                            fontSize={"18px"} // despues de puntos poner el 10% del total
                             fontWeight={"600"}
-                        > Puntos:        1</Text>  
+                        > Puntos: {(subtotal*.10).toFixed(0)}</Text>  
                 </VStack>
             </Box>
             <Box
