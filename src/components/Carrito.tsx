@@ -1,15 +1,17 @@
 import CamComponents from '@/components/CamComponents'
 import ListaCarrito from '@/components/ListaCarrito'
-import { Box, Link } from '@chakra-ui/react'
+import { Box, Link, IconButton, Button } from '@chakra-ui/react'
 import React, { useContext, useState, useEffect } from 'react'
 import { Producto } from "@/types/Producto";
 import { getProductos } from '@/service/ServicioProductos'
 import { ShopContext } from '@/context/ShopContext'
 import HistoriaCompra from '@/components/HistoriaCompra';
 
+import { BsFillTrashFill } from "react-icons/bs";
+
 function Carrito() {
   const { cartItems, totalItems} = useContext(ShopContext);
-  const { cartTotal, updateTotal } = useContext(ShopContext);
+  const { cartTotal, updateTotal, removeAllFromCart } = useContext(ShopContext);
 
   const [products, setProducts] = useState<Producto[]>([]);
   const [total, setTotal] = useState(0);
@@ -49,11 +51,23 @@ function Carrito() {
             })}
           </ul>
           <div className="space-y-1 text-right">
-            <p>Total de compra:
+            <Button onClick={removeAllFromCart} size='sm' gap={2}>
+                Vaciar Carrito
+                <BsFillTrashFill
+                    display={"flex"}
+                    aria-label="erase"
+                    fontSize="20px"
+                    color='red'
+                />
+            </Button>
+            <p>
+                Total de compra:
               <span className="font-semibold"> ${total.toFixed(2)} </span>
             </p>
           </div>
           
+            
+
           <Box display={"flex"} justifyContent={"center"} gap={"10"}>
             <button type="button" className="px-6 py-2 border rounded-md bg-naranja text-white text-sm md:text-base hover:bg-green-800">Ver más promociones
             </button>
