@@ -11,7 +11,7 @@ import { BsFillTrashFill } from "react-icons/bs";
 
 function Carrito() {
   const { cartItems, totalItems} = useContext(ShopContext);
-  const { cartTotal, updateTotal, removeAllFromCart } = useContext(ShopContext);
+  const { updateTotal, removeAllFromCart } = useContext(ShopContext);
 
   const [products, setProducts] = useState<Producto[]>([]);
   const [total, setTotal] = useState(0);
@@ -30,10 +30,11 @@ function Carrito() {
     products.forEach(prod => {
       if (cartItems[prod.idProductos] > 0) {
         newTotal += prod.precio * cartItems[prod.idProductos];
+        localStorage.setItem("total", newTotal.toFixed(2));
+        console.log(newTotal);
       }
     });
     setTotal(newTotal);
-    updateTotal(cartTotal);
   }, [cartItems, products]);
 
   return (
@@ -66,8 +67,6 @@ function Carrito() {
             </p>
           </div>
           
-            
-
           <Box display={"flex"} justifyContent={"center"} gap={"10"}>
             <Link href='/promociones'>
               <button type="button" className="px-6 py-2 border rounded-md bg-naranja text-white text-sm md:text-base hover:bg-green-800">

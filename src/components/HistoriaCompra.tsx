@@ -17,12 +17,20 @@ import {
   } from "react-icons/bi";
     import { useContext } from 'react';
     import { ShopContext } from "@/context/ShopContext";
+    import { useEffect } from "react";
   
   const HistoriaCompra = () => {
     const bg = useColorModeValue("white", "gray.800");
     const mobileNav = useDisclosure();
-    const { cartTotal } = useContext(ShopContext);
-  
+    const storedTotal = localStorage.getItem("total");
+    const subtotal = storedTotal ? parseFloat(storedTotal) : 0;
+
+    useEffect(() => {
+        const storedTotal = localStorage.getItem("total");
+        console.log("storedTotal", storedTotal);
+        // Puedes utilizar el valor almacenado como desees
+    }, []);
+    
     return (
       <React.Fragment>
             <Flex  justifyContent="center" mx="auto">
@@ -59,7 +67,7 @@ import {
                             textAlign={"left"}
                             fontSize={"18px"} // despues de subtotal poner atributo con las cantidades
                             fontWeight={"600"}
-                        > Subtotal: ${cartTotal}</Text>
+                        > Subtotal: ${subtotal}</Text>
                         
                         <Text
                             textAlign={"left"}
