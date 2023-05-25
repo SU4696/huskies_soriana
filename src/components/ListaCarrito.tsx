@@ -20,7 +20,7 @@ interface ListaCarritoProps {
 
 const ListaCarrito: React.FC<ListaCarritoProps> = ({ prod }) => {
   const { idProductos, nombre, image, precio } = prod;
-  const { removeFromCart, addToCart, cartItems, removeAllFromCart } = useContext(ShopContext);
+  const { removeFromCart, addToCart, cartItems, removeAllItemFromCart } = useContext(ShopContext);
 
   return (
     <>
@@ -110,7 +110,7 @@ const ListaCarrito: React.FC<ListaCarritoProps> = ({ prod }) => {
                   color="red.500"
                   variant="ghost"
                   icon={<BsFillTrashFill />}
-                  onClick={() => removeAllFromCart(idProductos)}
+                  onClick={() => removeAllItemFromCart(idProductos)}
                 />
               </Box>
             </Flex>

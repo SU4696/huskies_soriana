@@ -56,6 +56,7 @@ import { BsFillCameraVideoFill } from "react-icons/bs";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/router";
 import Footer from "./Footer";
+import { useState } from "react";
 
 const Navbar = () => {
   const bg = useColorModeValue("white", "gray.800");
@@ -74,6 +75,12 @@ const Navbar = () => {
       console.log(error.message);
     }
   };
+
+  const [todos, setTodos] = useState(1);
+  const [abarrotes, setAbarrotes] = useState(2);
+  const [bebes, setBebes] = useState(3);
+  
+
   return (
     <React.Fragment>
       <chakra.header
@@ -110,7 +117,7 @@ const Navbar = () => {
                 <DrawerBody>
                   <Stack spacing="24px">
                     <Box>
-                      <Link href={"/categTodos"}>
+                      <Link onClick={todos} href={"/categTodos"}>
                         <IconButton
                           aria-label="Go to cart"
                           fontSize="25px"
@@ -125,7 +132,7 @@ const Navbar = () => {
                       </Link>
                     </Box>
                     <Box>
-                      <Link href={"/"}>
+                      <Link onClick={abarrotes} href={""}>
                         <IconButton
                           aria-label="Go to cart"
                           fontSize="25px"
