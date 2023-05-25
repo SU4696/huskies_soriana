@@ -5,13 +5,12 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Producto } from "@/types/Producto";
 import { getProductos } from '@/service/ServicioProductos'
 import { ShopContext } from '@/context/ShopContext'
-import HistoriaCompra from '@/components/HistoriaCompra';
 
 import { BsFillTrashFill } from "react-icons/bs";
 
 function Carrito() {
   const { cartItems, totalItems} = useContext(ShopContext);
-  const { cartTotal, updateTotal, removeAllFromCart } = useContext(ShopContext);
+  const { updateTotal, removeAllFromCart } = useContext(ShopContext);
 
   const [products, setProducts] = useState<Producto[]>([]);
   const [total, setTotal] = useState(0);
@@ -30,10 +29,10 @@ function Carrito() {
     products.forEach(prod => {
       if (cartItems[prod.idProductos] > 0) {
         newTotal += prod.precio * cartItems[prod.idProductos];
+        localStorage.setItem("total", newTotal.toFixed(2));
       }
     });
     setTotal(newTotal);
-    updateTotal(cartTotal);
   }, [cartItems, products]);
 
   return (
@@ -43,9 +42,7 @@ function Carrito() {
         <div className="flex  flex-col max-w-3xl p-6 space-y-4 sm:p-10 ">
           <ul className="flex flex-col divide-y divide-gray-700">
             {products.map((prod) => {
-              console.log("revisar carrito");
               if (cartItems[prod.idProductos] > 0) {
-                console.log("carrtio no vacio");
                 return <ListaCarrito key={prod.idProduct} prod={prod} />
               }
             })}
@@ -66,11 +63,12 @@ function Carrito() {
             </p>
           </div>
           
-            
-
           <Box display={"flex"} justifyContent={"center"} gap={"10"}>
-            <button type="button" className="px-6 py-2 border rounded-md bg-naranja text-white text-sm md:text-base hover:bg-green-800">Ver más promociones
-            </button>
+            <Link href='/promociones'>
+              <button type="button" className="px-6 py-2 border rounded-md bg-naranja text-white text-sm md:text-base hover:bg-green-800">
+                Ver más promociones
+              </button>
+            </Link>
             <Link href={"/barcodePagar"}>
               <button type="button" className="px-6 py-2 border rounded-md  bg-secondary text-white text-sm md:text-base hover:bg-green-800">
                 Guardar
