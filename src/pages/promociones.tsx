@@ -24,7 +24,7 @@ function Main() {
   return (
     <>
       <TopbarPromo  titulo={"Promociones"} />
-      <Box paddingTop={"62px"}>
+      <Box paddingTop={"67px"}>
       {promociones.map((promo) => (
         <PromosCard key={promo.idPromo} promo={promo} />
       ))}
