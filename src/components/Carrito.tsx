@@ -113,7 +113,7 @@ function Carrito() {
             </Link>
             <Link href={"/barcodePagar"}>
               <button
-                type="button"
+                type="submit"
                 className="px-6 py-2 border rounded-md  bg-secondary text-white text-sm md:text-base hover:bg-green-800"
               >
                 Guardar
