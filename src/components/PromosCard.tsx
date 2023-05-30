@@ -2,15 +2,20 @@
 import { Box, chakra, Flex } from "@chakra-ui/react";
 
 import { Promociones } from "@/types/Promociones";
-import { url } from "inspector";
+import { useContext } from "react";
+import { ShopContext } from "@/context/ShopContext";
 
 interface PromosCardProps {
   promo: Promociones;
 }
 
 const PromosCard: React.FC<PromosCardProps> = ({ promo }) => {
-  const { titulo, fotoPromo, copy, idProducto } = promo;
+  const { nombre, image, precio, descuento, idProductos } = promo;
 
+  const {  addToCart } = useContext(ShopContext);
+ 
+
+ 
   return (
     <>
       <Flex
@@ -40,7 +45,7 @@ const PromosCard: React.FC<PromosCardProps> = ({ promo }) => {
             bgSize="cover"
             bgPos="center"
             style={{
-              backgroundImage: `url(${fotoPromo})`
+              backgroundImage: `url(${image})`
               ,
             }}
           ></Box>
@@ -70,7 +75,7 @@ const PromosCard: React.FC<PromosCardProps> = ({ promo }) => {
               }}
               letterSpacing={1}
             >
-              {titulo}
+              {nombre}
             </chakra.h3>
 
             <Flex
@@ -78,22 +83,33 @@ const PromosCard: React.FC<PromosCardProps> = ({ promo }) => {
               justifyContent="space-between"
               py={2}
               px={3}
-              bg="gray.200"
+              bg="#208220"
               _dark={{
-                bg: "gray.700",
+                bg: "#208220",
               }}
             >
               <chakra.span
                 fontWeight="bold"
-                color="gray.800"
+                color="white"
                 _dark={{
-                  color: "gray.200",
+                  color: "white",
                 }}
               >
-                $129
+                ${precio}
               </chakra.span>
+              <chakra.span
+                color="white"
+                _dark={{
+                  color: "white",
+                }}
+              >
+                 precio con -
+                ${descuento}
+              </chakra.span>
+
               <chakra.button
-                bg="gray.800"
+                bg="red"
+                onClick={() => addToCart(idProductos)}
                 fontSize="xs"
                 fontWeight="bold"
                 color="white"
@@ -102,20 +118,20 @@ const PromosCard: React.FC<PromosCardProps> = ({ promo }) => {
                 rounded="lg"
                 textTransform="uppercase"
                 _hover={{
-                  bg: "gray.700",
+                  bg: "red.400",
                   _dark: {
-                    bg: "gray.600",
+                    bg: "red.300",
                   },
                 }}
                 _focus={{
-                  bg: "gray.700",
+                  bg: "red.400",
                   _dark: {
-                    bg: "gray.600",
+                    bg: "red.300",
                   },
                   outline: "none",
                 }}
               >
-                Add to cart
+                +
               </chakra.button>
             </Flex>
           </Box>

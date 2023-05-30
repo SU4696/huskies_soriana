@@ -24,8 +24,8 @@ const ContenidoInicio = () => {
 
   useEffect(() => {
     const fetchProductos = async () => {
-      const promos = await getProductos();
-      setProductos(promos);
+      const prod = await getProductos();
+      setProductos(prod);
     };
 
     fetchProductos();

@@ -11,12 +11,12 @@ import {
   Stack,
   Spacer
 } from "@chakra-ui/react";
-import { Producto } from "@/types/Producto";
+import { Promociones } from "@/types/Promociones";
 import { ShopContext } from "@/context/ShopContext";
 import { BsFillTrashFill } from "react-icons/bs";
 
 interface ListaCarritoProps {
-  prod: Producto;
+  prod: Promociones;
 }
 
 const ListaCarrito: React.FC<ListaCarritoProps> = ({ prod }) => {

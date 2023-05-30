@@ -5,4 +5,9 @@ export interface Producto {
     categoria: string
     image: string
     precio: number
+    descuento:number
+
+
+
+
   }

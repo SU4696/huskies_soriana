@@ -16,7 +16,7 @@ interface ProductoCarritoProps {
 }
 
 const ProductoCarrito: React.FC<ProductoCarritoProps> = ({ prod }) => {
-  const { nombre, categoria, image, precio } = prod;
+  const { nombre, image, precio } = prod;
 
   return (
     <>
