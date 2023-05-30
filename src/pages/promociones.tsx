@@ -22,7 +22,7 @@ function Main() {
   return (
     <>
       <TopbarCateg  titulo={"Promociones"} />
-      <Box paddingTop={"67px"}>
+      <Box paddingTop={"62px"}>
       {promociones.map((promo) => (
         <PromosCard key={promo.idProductos} promo={promo} />
       ))}
