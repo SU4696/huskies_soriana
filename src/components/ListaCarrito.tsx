@@ -102,7 +102,7 @@ const ListaCarrito: React.FC<ListaCarritoProps> = ({ prod }) => {
                 </div>
                 <br /> <br />
                 <Text marginTop={6} as="b">
-                  {(precio * cartItems[idProductos]).toFixed(2)}
+                  ${(precio * cartItems[idProductos]).toFixed(2)}
                 </Text>
               </Box>
 
@@ -129,7 +129,7 @@ const ListaCarrito: React.FC<ListaCarritoProps> = ({ prod }) => {
             </Flex>
             <Box>
               <Text color={"red"} marginLeft={15} marginTop={6} as="b">
-                -{descuento}
+                -${descuento}
               </Text>
             </Box>
           </CardBody>
