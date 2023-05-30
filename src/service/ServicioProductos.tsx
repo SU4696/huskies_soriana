@@ -8,14 +8,15 @@ export async function getProductos(){
   snapshot.forEach((doc) => {
     const prod = doc.data();
     const idProduct = doc.id;
-    const {image, idProductos, nombre, categoria, precio } = prod;
+    const {image, idProductos, nombre, categoria, precio, pasillo } = prod;
     productos.push({
       idProductos,
       nombre,
       categoria,
       idProduct,
       image,
-      precio
+      precio,
+      pasillo
     })
     console.log(productos);
   })

@@ -44,7 +44,7 @@ interface ProductoCardProps {
 export var producto : Producto;
 
 const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
-  const { idProductos, nombre, image, precio, categoria, idProduct } = prod;
+  const { idProductos, nombre, image, precio, categoria, idProduct, pasillo } = prod;
   const {  addToCartQ, cartItems } = useContext(ShopContext);
 
   const [counter, setCounter] = useState(1);
@@ -255,7 +255,7 @@ src={image} alt={nombre}></Image>
             <ModalBody>
               <Mapita categoria={categoria} />
               <Text fontSize={'2xl'} marginTop={'1.5'}>
-                {nombre} se encuentra dentro de la tienda en el departamento {categoria}, pasillo {idProductos}.
+                {nombre} se encuentra dentro de la tienda en el departamento {categoria}, pasillo {pasillo}.
               </Text>
             </ModalBody>
             <ModalFooter>
