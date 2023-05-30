@@ -1,6 +1,6 @@
 import CamComponents from "@/components/CamComponents";
 import ListaCarrito from "@/components/ListaCarrito";
-import { Box, Link, Button } from "@chakra-ui/react";
+import { Box, Link, Button, Divider, Text } from "@chakra-ui/react";
 import React, { useContext, useState, useEffect } from "react";
 import { Producto } from "@/types/Producto";
 import { getProductos } from "@/service/ServicioProductos";
@@ -19,6 +19,8 @@ function Carrito() {
   const [promociones, setPromociones] = useState<Promociones[]>([]);
 
   const [total, setTotal] = useState(0);
+  const [descuento, setDes] = useState(0);
+  const [subtotal, setSub] = useState(0);
 
   useEffect(() => {
     const fetchProductos = async () => {
@@ -36,6 +38,7 @@ function Carrito() {
 
   useEffect(() => {
     let newTotal = 0;
+    let newDes = 0;
     products.forEach((prod) => {
       if (cartItems[prod.idProductos] > 0) {
         newTotal += prod.precio * cartItems[prod.idProductos];
@@ -45,10 +48,15 @@ function Carrito() {
     promociones.forEach((prom) => {
       if (cartItems[prom.idProductos] > 0) {
         newTotal += prom.precio * cartItems[prom.idProductos];
+        newDes += prom.descuento *cartItems[prom.idProductos];
         localStorage.setItem("total2", newTotal.toFixed(2));
+        localStorage.setItem("descuent", newDes.toFixed(2));
       }
     });
+    
     setTotal(newTotal);
+    setDes(newDes);
+    setSub(newDes+newTotal);
   }, [cartItems, products, promociones]);
 
   return (
@@ -69,8 +77,8 @@ function Carrito() {
               }
             })}
           </ul>
-          <div className="space-y-1 text-right">
-            <Button onClick={removeAllFromCart} size="sm" gap={2}>
+          <div className="space-y-1 text-right" >
+            <Button onClick={removeAllFromCart} size="sm" gap={2} marginY={3}>
               Vaciar Carrito
               <BsFillTrashFill
                 display={"flex"}
@@ -79,10 +87,19 @@ function Carrito() {
                 color="red"
               />
             </Button>
-            <p>
+            <Text>
+              Subtotal:
+              <span className="font-semibold"> ${subtotal} </span>
+            </Text>
+            <Text>
+              Descuento:
+              <span className="font-semibold"> ${descuento.toFixed(2)} </span>
+            </Text>
+            <Divider></Divider>
+            <Text paddingBottom={"5"}>
               Total de compra:
               <span className="font-semibold"> ${total.toFixed(2)} </span>
-            </p>
+            </Text>
           </div>
 
           <Box display={"flex"} justifyContent={"center"} gap={"10"}>
