@@ -45,17 +45,6 @@ const PromosCard: React.FC<PromosCardProps> = ({ promo }) => {
             }}
           ></Box>
 
-<<<<<<< HEAD
-    return(
-        <>
-            <Card
-            direction={{ base: 'column', sm: 'row' }}
-            overflow='hidden'
-            variant='outline'
-            mx={2}
-            my={6}
-            // marginY={'6'}
-=======
           <Box
             w={{
               base: 56,
@@ -80,7 +69,6 @@ const PromosCard: React.FC<PromosCardProps> = ({ promo }) => {
                 color: "white",
               }}
               letterSpacing={1}
->>>>>>> 617132a757d82d51fffca3941608cbf78dddb4c2
             >
               {titulo}
             </chakra.h3>
