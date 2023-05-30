@@ -31,9 +31,7 @@ function Contrasena() {
   const { user } = useAuth();
   const email = user.email;
   const uid = user.uid;
-  {
-    /* Create account and direct to main page after submit */
-  }
+
   const onSubmit = async (data: userINFO) => {
     try {
       const datas = {

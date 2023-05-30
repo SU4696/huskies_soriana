@@ -6,4 +6,9 @@ export interface Producto {
     pasillo: number
     image: string
     precio: number
+    descuento:number
+
+
+
+
   }

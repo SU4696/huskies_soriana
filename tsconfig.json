@@ -18,6 +18,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/context/ShopContext.jsx", "src/components/ProductoCard.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/context/ShopContext.tsx", "src/components/ProductoCard.jsx", "src/context/PromoContext.jsx"],
   "exclude": ["node_modules"]
 }

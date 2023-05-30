@@ -9,19 +9,21 @@ import {
   IconButton,
   Box,
   Stack,
-  Spacer
+  Spacer,
+  CardFooter,
 } from "@chakra-ui/react";
-import { Producto } from "@/types/Producto";
+import { Promociones } from "@/types/Promociones";
 import { ShopContext } from "@/context/ShopContext";
 import { BsFillTrashFill } from "react-icons/bs";
 
 interface ListaCarritoProps {
-  prod: Producto;
+  prod: Promociones;
 }
 
 const ListaCarrito: React.FC<ListaCarritoProps> = ({ prod }) => {
-  const { idProductos, nombre, image, precio } = prod;
-  const { removeFromCart, addToCart, cartItems, removeAllItemFromCart } = useContext(ShopContext);
+  const { idProductos, nombre, image, precio, descuento } = prod;
+  const { removeFromCart, addToCart, cartItems, removeAllItemFromCart } =
+    useContext(ShopContext);
 
   return (
     <>
@@ -30,7 +32,7 @@ const ListaCarrito: React.FC<ListaCarritoProps> = ({ prod }) => {
         overflow="hidden"
         variant="elevated"
         margin={"10px"}
-        border={'white'}
+        border={"white"}
       >
         <Image
           padding={"2px"}
@@ -103,10 +105,16 @@ const ListaCarrito: React.FC<ListaCarritoProps> = ({ prod }) => {
                   ${(precio * cartItems[idProductos]).toFixed(2)}
                 </Text>
               </Box>
-              <Box flex='1' display="flex" flexWrap="wrap" alignContent="flex-end">
+
+              <Box
+                flex="1"
+                display="flex"
+                flexWrap="wrap"
+                alignContent="flex-end"
+              >
                 <Spacer />
                 <IconButton
-                  flex='1'
+                  flex="1"
                   display={"flex"}
                   justifyContent={"center"}
                   alignItems={"flex-end"}
@@ -119,6 +127,11 @@ const ListaCarrito: React.FC<ListaCarritoProps> = ({ prod }) => {
                 />
               </Box>
             </Flex>
+            <Box>
+              <Text color={"red"} marginLeft={15} marginTop={6} as="b">
+                -${descuento}
+              </Text>
+            </Box>
           </CardBody>
         </Stack>
       </Card>

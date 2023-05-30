@@ -15,3 +15,4 @@ export default async function addData(colllection: any, id: any, data: any) {
 
     return { result, error };
 }
+

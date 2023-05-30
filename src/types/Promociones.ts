@@ -1,8 +1,8 @@
 export interface Promociones {
-    copy: string
-    titulo: string
-    idPromo: number
+
+    nombre: string
+    idProductos: number
     descuento: number
-    fotoPromo: string
-    idProducto: number
-  }
+    image: string
+    precio:number
+}

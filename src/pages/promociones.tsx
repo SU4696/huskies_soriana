@@ -1,15 +1,13 @@
 import { useEffect, useState } from 'react';
-import TopbarPromo from '@/components/TopbarPromo';
 import PromosCard from '@/components/PromosCard';
-import { DocumentData, collection, doc, getDocs } from "firebase/firestore";
-import { db } from "../firebase/config";
 import { getPromociones } from '@/service/ServicioPromociones';
 import { Promociones } from '@/types/Promociones';
 import { Box } from '@chakra-ui/react';
+import TopbarCateg from '@/components/TopbarCateg';
 
 function Main() {
   const [promociones, setPromociones] = useState<Promociones[]>([]);
-
+  
 
   useEffect(() => {
     const fetchPromos = async () => {
@@ -23,10 +21,10 @@ function Main() {
 
   return (
     <>
-      <TopbarPromo  titulo={"Promociones"} />
-      <Box paddingTop={"62px"} marginX={"8"}>
+      <TopbarCateg  titulo={"Promociones"} />
+      <Box paddingTop={"62px"}>
       {promociones.map((promo) => (
-        <PromosCard key={promo.idPromo} promo={promo} />
+        <PromosCard key={promo.idProductos} promo={promo} />
       ))}
       </Box>
     </>

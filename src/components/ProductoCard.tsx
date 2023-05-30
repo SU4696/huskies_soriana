@@ -3,21 +3,12 @@ import {
   Box,
   Text,
   Button,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  Link,
   GridItem,
-
-  PopoverCloseButton,
   useDisclosure,
-
-  PopoverArrow,
   SimpleGrid,
   Drawer,
   DrawerOverlay,
   DrawerContent,
-  DrawerHeader,
   DrawerBody,
   Modal,
   ModalBody,
@@ -27,16 +18,11 @@ import {
   ModalCloseButton,
   ModalFooter
 } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import React, { useContext, useEffect, useState } from "react";
-import Main from "@/pages/mapa";
 
 import { Producto } from "@/types/Producto";
 import Mapita from "./Mapas";
-
-import { MapaContext, MapaContextProvider } from '@/context/MapaContext';
-
 interface ProductoCardProps {
   prod: Producto;
 }
@@ -50,7 +36,6 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
   const [counter, setCounter] = useState(1);
   const { isOpen: isModalOpen, onOpen: onModalOpen, onClose: onModalClose } = useDisclosure()
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [placement, setPlacement] = React.useState('right')
   // var modal = false;
 
   // const { isOpen, onOpenM, onCloseM } = useDisclosure()
@@ -105,7 +90,6 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
 
   // const {categoria, nombre, idProductos} = useContext(MapaContext);
 
-  const cartItemAmount = cartItems[idProductos];
   return (
     <>
       {/* <MapaContext.Provider value={currentProd}> */}

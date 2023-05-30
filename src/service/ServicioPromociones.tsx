@@ -7,14 +7,13 @@ export async function getPromociones(){
   const snapshot = await getDocs(collection(db, "Promociones"))
   snapshot.forEach((doc) => {
     const promo = doc.data();
-    const { copy, idPromo, fotoPromo, title, descuento, idProducto } = promo;
+    const { precio, idProductos, image, nombre, descuento } = promo;
     promociones.push({
-      titulo: title,
+      nombre: nombre,
       descuento,
-      idPromo,
-      copy,
-      fotoPromo,
-      idProducto
+      precio,
+      idProductos,
+      image
     })
     console.log(promociones);
   })
