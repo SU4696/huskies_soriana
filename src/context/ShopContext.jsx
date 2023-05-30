@@ -12,17 +12,13 @@ const getDefaultCart = () => {
   }
   return cart;
 };
+
 export const ShopContextProvider = (props) => {
   const [ cartItems, setCartItems ] = useState(getDefaultCart);
-  const [cartTotal, setCartTotal] = useState(0); 
-
-  const updateTotal = (newTotal) => {
-    setCartTotal(newTotal);
-  };
   
-useEffect(() => {
-  localStorage.setItem("cart", JSON.stringify(cartItems));
-}, [cartItems]);
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const addToCart = (itemId ) => {
     setCartItems ((prevs) => ({...prevs, [itemId]: prevs[itemId] + 1}));
@@ -61,7 +57,7 @@ useEffect(() => {
     }
   }
 
-  const contextValue = { cartItems, addToCart, removeFromCart, addToCartQ, removeAllFromCart, cartTotal, carritoLleno, removeAllItemFromCart, updateTotal};
+  const contextValue = { cartItems, addToCart, removeFromCart, addToCartQ, removeAllFromCart, carritoLleno, removeAllItemFromCart };
 
   console.log(cartItems);
   return (

@@ -15,14 +15,18 @@ import {
   import {
     BiArrowBack
   } from "react-icons/bi";
-    import { useContext } from 'react';
-    import { ShopContext } from "@/context/ShopContext";
+    import { useEffect } from "react";
   
   const HistoriaCompra = () => {
-    const bg = useColorModeValue("white", "gray.800");
-    const mobileNav = useDisclosure();
-    const { cartTotal } = useContext(ShopContext);
-  
+    const storedTotal = localStorage.getItem("total");
+    const subtotal = storedTotal ? parseFloat(storedTotal) : 0;
+    const descuento = 0; // pendiente obtener descuentos
+    const total = subtotal - descuento;
+    
+    useEffect(() => {
+        const storedTotal = localStorage.getItem("total");
+    }, []);
+    
     return (
       <React.Fragment>
             <Flex  justifyContent="center" mx="auto">
@@ -57,15 +61,14 @@ import {
                     >
                         <Text
                             textAlign={"left"}
-                            fontSize={"18px"} // despues de subtotal poner atributo con las cantidades
+                            fontSize={"18px"} 
                             fontWeight={"600"}
-                        > Subtotal: ${cartTotal}</Text>
-                        
+                        > Subtotal: ${subtotal}</Text>
                         <Text
                             textAlign={"left"}
-                            fontSize={"18px"} // despues de descuento poner atributo con las cantidades
+                            fontSize={"18px"} 
                             fontWeight={"600"}
-                        > Descuento: -$</Text> <br></br>
+                        > Descuento: -${descuento}</Text> <br></br>
                         <hr
                             style={{
                                 background: 'black',
@@ -77,15 +80,15 @@ import {
                         /> <br></br>
                         <Text
                             textAlign={"left"}
-                            fontSize={"18px"} // despues de subtotal poner atributo con las cantidades
+                            fontSize={"18px"} 
                             color={"red"}
                             fontWeight={"600"}
-                        > Total:        $</Text> 
+                        > Total: ${total}</Text> 
                         <Text
                             textAlign={"left"}
-                            fontSize={"18px"} // despues de descuento poner atributo con las cantidades
+                            fontSize={"18px"} 
                             fontWeight={"600"}
-                        > Puntos:        1</Text>  
+                        > Puntos: {(total*.10).toFixed(0)}</Text>  
                 </VStack>
             </Box>
             <Box

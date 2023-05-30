@@ -8,17 +8,17 @@ import ProductoCard from '@/components/ProductoCard';
 
 import { DocumentData, collection, doc, getDocs } from "firebase/firestore";
 import { db } from "../firebase/config";
-import { getProductos } from '@/service/ServicioProductos';
+import { getCategoria } from '@/service/ServicioCategorias';
 import { Producto } from '@/types/Producto';
 
 
-const Categoria = () => {
+const Categoria = ({categoria}) => {
     const [productos, setProductos] = useState<Producto[]>([]);
 
     useEffect(() => {
         const fetchProductos = async () => {
-        const promos = await getProductos();
-        setProductos(promos);
+        const produc = await getCategoria(categoria);
+        setProductos(produc);
         }
 
     fetchProductos();

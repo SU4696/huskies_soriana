@@ -25,76 +25,66 @@ const Topbar = ({titulo}: {titulo: string}) => {
 
   return (
     <React.Fragment>
+      <Link href={"/main"}>
+             
+             <IconButton
+             zIndex={"999"}
+             position={"fixed"}
+             top={"12px"}
+             left={"18px"}
+              aria-label="goBack"
+               size="md"
+               name="Soriana Logo"
+               icon={<BiArrowBack color="#F2EFE1" size={30} />}
+              backgroundColor={"transparent"}
+             
+             />
+           </Link>
       <chakra.header
         borderBottomRadius={"2rem"}
+        top={"0"}
+        position={"fixed"}
+        zIndex={"998"}
         bg={"#208220"}
         w="full"
         px={{
           base: 2,
           sm: 4,
         }}
-        py={0.1}
+        py={4}
         shadow="md"
-        marginBottom={"15px"}
+       
       >
-        
-        <Flex  justifyContent="center" mx="auto">
-        <Link href={"/main"}>
-               {/*Back arrow button*/}
-               <IconButton
-                aria-label="goBack"
+        <Flex alignItems="center" justifyContent={"center"} mx="auto">
+          <HStack >
             
-                padding={"2px"}
-                icon={<BiArrowBack color="#F2EFE1" size={30} />}
-                paddingRight={"20px"}
-                position={"fixed"}
-                left={"25px"}
-                marginTop={"15px"}
-                variant="ghost"
-              />
-            </Link>
-         
-          {/* "Todos" text, for next sprint we should bring the category name from database*/ }
           
-          <Text  
-            marginTop={"20px"}
-            color={"#F2EFE1"}
-            fontSize={"20px"}
-            fontWeight={"bold"}
-          
-          >
-            
-            
-            {tagTitle}</Text>          
-         
-
-            <Link href={"/carrito"}>
-               {/*Cart button*/}
-               <IconButton
-                aria-label="cart"
-            
-                padding={"2px"}
-                icon={<FiShoppingCart color={"#F2EFE1"} size={30} />}
-                paddingRight={"20px"}
-                position={"fixed"}
-                right={"25px"}
-                marginTop={"15px"}
-                variant="ghost"
-              />
-            </Link>
-          
+            <Text
+              color={"#F2EFE1"}
+              fontSize={"20px"}
+              fontWeight={"bold"}
+            >
+              {tagTitle}
+            </Text>
+          </HStack>
         </Flex>
-
-        <HStack
-          justifyContent={"center"}
-          margin={"13px"}
-          display={mobileNav.isOpen ? "none" : "flex"}
-          alignItems="center"
-        >
-
-        </HStack>
+        <Link href={"/carrito"}>
+        <IconButton
+             zIndex={"999"}
+             position={"fixed"}
+             top={"12px"}
+             right={"18px"}
+              aria-label="goBack"
+               size="md"
+               name="Soriana Logo"
+               icon={<FiShoppingCart color="#F2EFE1" size={30} />}
+              backgroundColor={"transparent"}
+             
+             />
+             </Link>
       </chakra.header>
     </React.Fragment>
+   
   );
 };
 
