@@ -7,8 +7,4 @@ export interface Producto {
     image: string
     precio: number
     descuento:number
-
-
-
-
   }

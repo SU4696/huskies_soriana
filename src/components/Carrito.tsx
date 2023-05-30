@@ -62,7 +62,7 @@ function Carrito() {
   return (
     <>
       <CamComponents />
-      <Box display={"flex"} justifyContent={"center"}>
+      <Box display={"flex"} justifyContent={"center"} marginLeft={'24'}>
         <div className="flex  flex-col max-w-3xl p-6 space-y-4 sm:p-10 ">
           <ul className="flex flex-col divide-y divide-gray-700">
             {products.map((prod) => {

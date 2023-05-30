@@ -2,7 +2,7 @@
 import { Box, chakra, Flex } from "@chakra-ui/react";
 
 import { Promociones } from "@/types/Promociones";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ShopContext } from "@/context/ShopContext";
 
 interface PromosCardProps {
@@ -13,8 +13,13 @@ const PromosCard: React.FC<PromosCardProps> = ({ promo }) => {
   const { nombre, image, precio, descuento, idProductos } = promo;
 
   const {  addToCart } = useContext(ShopContext);
- 
 
+  const [ active, setActive ] = useState(false);
+ 
+  function handlePlusPromo() {
+    addToCart(idProductos);
+    setActive(!active);
+  }
  
   return (
     <>
@@ -108,8 +113,9 @@ const PromosCard: React.FC<PromosCardProps> = ({ promo }) => {
               </chakra.span>
 
               <chakra.button
+                disabled = {active}
                 bg="red"
-                onClick={() => addToCart(idProductos)}
+                onClick={() => handlePlusPromo()}
                 fontSize="xs"
                 fontWeight="bold"
                 color="white"

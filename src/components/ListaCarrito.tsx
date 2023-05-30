@@ -25,6 +25,12 @@ const ListaCarrito: React.FC<ListaCarritoProps> = ({ prod }) => {
   const { removeFromCart, addToCart, cartItems, removeAllItemFromCart } =
     useContext(ShopContext);
 
+  function handlePlus() {
+    if(!(descuento > 0)) {
+      addToCart(idProductos)
+    }
+  }
+
   return (
     <>
       <Card
@@ -67,7 +73,7 @@ const ListaCarrito: React.FC<ListaCarritoProps> = ({ prod }) => {
 
                   <button
                     className="counter-button"
-                    onClick={() => addToCart(idProductos)}
+                    onClick={() => handlePlus()}
                   >
                     +
                   </button>
@@ -128,9 +134,10 @@ const ListaCarrito: React.FC<ListaCarritoProps> = ({ prod }) => {
               </Box>
             </Flex>
             <Box>
+              {(descuento > 0) &&
               <Text color={"red"} marginLeft={15} marginTop={6} as="b">
                 -${descuento}
-              </Text>
+              </Text>}
             </Box>
           </CardBody>
         </Stack>
