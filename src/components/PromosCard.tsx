@@ -28,7 +28,8 @@ const PromosCard:React.FC<PromosCardProps> = ({promo}) => {
             overflow='hidden'
             variant='outline'
             mx={2}
-            my={4}
+            my={6}
+            // marginY={'6'}
             >
             <Image
                 objectFit='cover'
