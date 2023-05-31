@@ -89,7 +89,7 @@ function Carrito() {
             </Button>
             <Text>
               Subtotal:
-              <span className="font-semibold"> ${subtotal} </span>
+              <span className="font-semibold"> ${subtotal.toFixed(2)} </span>
             </Text>
             <Text>
               Descuento:

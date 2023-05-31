@@ -20,8 +20,12 @@ import {
   const HistoriaCompra = () => {
     const storedTotal = localStorage.getItem("total");
     const subtotal = storedTotal ? parseFloat(storedTotal) : 0;
-    const descuento = 0; // pendiente obtener descuentos
-    const total = subtotal - descuento;
+
+    const storedPromos = localStorage.getItem("total2");
+    const promos = storedPromos ? parseFloat(storedPromos) : 0;
+    
+    const storedDesc = localStorage.getItem("descuent");
+    const descuento = storedDesc ? parseFloat(storedDesc) : 0;
     
     useEffect(() => {
         const storedTotal = localStorage.getItem("total");
@@ -56,14 +60,14 @@ import {
                     justifyContent={"center"}
                     display= "flex"
                     alignItems="left"
-                    marginTop={"125px"}
+                    marginTop={"255px"}
                     justifyItems={"center"}
                     >
                         <Text
                             textAlign={"left"}
                             fontSize={"18px"} 
                             fontWeight={"600"}
-                        > Subtotal: ${subtotal}</Text>
+                        > Subtotal: ${subtotal + promos + descuento}</Text>
                         <Text
                             textAlign={"left"}
                             fontSize={"18px"} 
@@ -83,21 +87,19 @@ import {
                             fontSize={"18px"} 
                             color={"red"}
                             fontWeight={"600"}
-                        > Total: ${total}</Text> 
+                        > Total: ${subtotal + promos}</Text> 
                         <Text
                             textAlign={"left"}
                             fontSize={"18px"} 
                             fontWeight={"600"}
-                        > Puntos: {(total*.10).toFixed(0)}</Text>  
+                        > Puntos: {((subtotal + promos)*.10).toFixed(0)}</Text>  
                 </VStack>
             </Box>
             <Box
-                marginTop={"200px"}
-                alignItems="center"
-                display="flex"
-                justifyContent={"center"}>
-                <Text>PONER CODIGO QR AQUI</Text>
-            </Box>               
+                marginTop={"230px"}>
+            
+
+            </Box>              
       </React.Fragment>
     );
   };
