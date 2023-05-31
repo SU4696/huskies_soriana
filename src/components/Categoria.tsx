@@ -12,7 +12,7 @@ import { getCategoria } from '@/service/ServicioCategorias';
 import { Producto } from '@/types/Producto';
 
 
-const Categoria = ({categoria}) => {
+const Categoria = ({categoria} : {categoria : string}) => {
     const [productos, setProductos] = useState<Producto[]>([]);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const Categoria = ({categoria}) => {
   {/* Display of products taken from the database in 2 columns */}
   return (
     <HStack>
-        <div className="product-list" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1px' }}>
+        <div className="product-list" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
             {productos.map((prod) => (
                 <ProductoCard key={prod.idProduct} prod={prod} />
             ))}

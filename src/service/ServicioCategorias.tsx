@@ -9,14 +9,16 @@ export async function getCategoria(categoria = ""){
   querySnapshot.forEach((doc) => {
     const prod = doc.data();
     const idProduct = doc.id;
-    const {image, idProductos, nombre, categoria, precio } = prod;
+    const {image, idProductos, nombre, categoria, precio, pasillo, descuento } = prod;
     productos.push({
       idProductos,
       nombre,
       categoria,
       idProduct,
       image,
-      precio
+      precio,
+      pasillo,
+      descuento
     })
     console.log(productos);
   })
