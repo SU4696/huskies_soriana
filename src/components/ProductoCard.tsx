@@ -16,7 +16,8 @@ import {
   ModalContent,
   ModalHeader,
   ModalCloseButton,
-  ModalFooter
+  ModalFooter,
+  useToast
 } from "@chakra-ui/react";
 import { ShopContext } from "../context/ShopContext";
 import React, { useContext, useEffect, useState } from "react";
@@ -39,6 +40,8 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
   // var modal = false;
 
   // const { isOpen, onOpenM, onCloseM } = useDisclosure()
+  
+  const toast = useToast();
 
   useEffect(() => {
     if (!isOpen) {
@@ -90,6 +93,19 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
 
   // const {categoria, nombre, idProductos} = useContext(MapaContext);
 
+  function handleAdd(){
+    addToCartQ(idProductos, counter);
+    toast({
+      title: `¡Felicidades!`,
+      description: `${nombre} ahora se encuentra en tu carrito.`,
+      status: 'success',
+      duration: 4500,
+      isClosable: true,
+      position: 'top',
+      variant: 'subtle'
+    })
+  }
+
   return (
     <>
       {/* <MapaContext.Provider value={currentProd}> */}
@@ -119,7 +135,7 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
               position={"relative"}
               bottom={"0"}
             >
-              ${precio}
+              ${precio.toFixed(2)}
             </Text>
             {/* <Button leftIcon={<SearchIcon/>} onClick={<Main Categoria={categoria}></Main>}></Button> */}
             {/* <Button leftIcon={<AddIcon/>} onClick={() => addToCart(idProductos, (precio * cartItemAmount))}>Agregar a carrito {cartItemAmount > 0 && <>({cartItemAmount})</>}</Button> */}
@@ -213,7 +229,7 @@ src={image} alt={nombre}></Image>
           fontWeight={"bold"} 
           
         >
-          <Text>${precio}</Text>
+          <Text>${(precio*counter).toFixed(2)}</Text>
         </GridItem>
         
       </SimpleGrid>
@@ -243,23 +259,22 @@ src={image} alt={nombre}></Image>
               </Text>
             </ModalBody>
             <ModalFooter>
-              <Button onClick={onModalClose}>Close</Button>
+              <Button onClick={onModalClose}>Cerrar</Button>
             </ModalFooter>
           </ModalContent>
         </Modal>
         
-        <Button
-          width={"190px"}
-          backgroundColor={"#208220"}
-          color={"white"}
-          onClick={() => addToCartQ(idProductos,counter)}
-          
-        >
-          <Box onClick={onClose}>
-          Agregar Carrito
-          </Box>
+        <Box onClick={onClose}>
+            <Button
+            width={"190px"}
+            backgroundColor={"#208220"}
+            color={"white"}
+            onClick={() => handleAdd()}
             
-        </Button>
+          >
+            Agregar Carrito  
+          </Button>
+        </Box>
       </Box>
           </DrawerBody>
         </DrawerContent>

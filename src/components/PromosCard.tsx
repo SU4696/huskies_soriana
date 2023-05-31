@@ -1,5 +1,5 @@
 
-import { Box, chakra, Flex } from "@chakra-ui/react";
+import { Box, chakra, Flex, Alert, AlertIcon, useToast } from "@chakra-ui/react";
 
 import { Promociones } from "@/types/Promociones";
 import { useContext, useState } from "react";
@@ -14,11 +14,23 @@ const PromosCard: React.FC<PromosCardProps> = ({ promo }) => {
 
   const {  addToCart } = useContext(ShopContext);
 
-  const [ active, setActive ] = useState(false);
+  const [active, setActive] = useState(false);
+  // const [showAlert, setShowAlert] = useState(false);
+  const toast = useToast();
  
   function handlePlusPromo() {
     addToCart(idProductos);
     setActive(!active);
+    // setShowAlert(true);
+    toast({
+      title: `${nombre}`,
+      description: `Ahora se encuentra en tu carrito. Estás ahorrando $${descuento}.`,
+      status: 'success',
+      duration: 4500,
+      isClosable: true,
+      position: 'top',
+      variant: 'subtle'
+    })
   }
  
   return (
@@ -139,6 +151,7 @@ const PromosCard: React.FC<PromosCardProps> = ({ promo }) => {
               >
                 +
               </chakra.button>
+              
             </Flex>
           </Box>
         </Flex>

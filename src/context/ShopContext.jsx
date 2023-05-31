@@ -26,8 +26,16 @@ export const ShopContextProvider = (props) => {
     //setTotalItems ((costo) => ({...costo, [itemId]: costo[itemId] + cost}));
     //localStorage.setItem("total", JSON.stringify(totalItems));
   }
+  
   const addToCartQ = (itemId, num ) => {
     setCartItems ((prevs) => ({...prevs, [itemId]: prevs[itemId] + num}));
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+    //setTotalItems ((costo) => ({...costo, [itemId]: costo[itemId] + cost}));
+    //localStorage.setItem("total", JSON.stringify(totalItems));
+  }
+
+  const setToCartQ = (itemId, num ) => {
+    setCartItems ((prevs) => ({...prevs, [itemId]: num}));
     localStorage.setItem("cart", JSON.stringify(cartItems));
     //setTotalItems ((costo) => ({...costo, [itemId]: costo[itemId] + cost}));
     //localStorage.setItem("total", JSON.stringify(totalItems));
@@ -39,7 +47,7 @@ export const ShopContextProvider = (props) => {
   }
   
   const removeAllFromCart = () => {
-    for (let i = 0; i < 60; i++){
+    for (let i = 0; i < 200; i++){
       setCartItems ((prevs) => ({...prevs, [i]: prevs[i] =0}));
       localStorage.removeItem("cart", JSON.stringify(cartItems));
     }
@@ -57,7 +65,7 @@ export const ShopContextProvider = (props) => {
     }
   }
 
-  const contextValue = { cartItems, addToCart, removeFromCart, addToCartQ, removeAllFromCart, carritoLleno, removeAllItemFromCart };
+  const contextValue = { cartItems, addToCart, removeFromCart, addToCartQ, setToCartQ, removeAllFromCart, carritoLleno, removeAllItemFromCart };
 
   console.log(cartItems);
   return (
