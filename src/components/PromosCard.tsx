@@ -24,7 +24,7 @@ const PromosCard: React.FC<PromosCardProps> = ({ promo }) => {
     // setShowAlert(true);
     toast({
       title: `${nombre}`,
-      description: `Ahora se encuentra en tu carrito. Estás ahorrando $${descuento}.`,
+      description: `Ahora se encuentra en tu carrito. Estás ahorrando $${descuento.toFixed(2)}.`,
       status: 'success',
       duration: 4500,
       isClosable: true,
