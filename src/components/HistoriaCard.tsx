@@ -48,7 +48,7 @@ const HistoriaCard: React.FC<HistoriaCardProps> = ({ hist }) => {
             fontSize={"18px"}
             whiteSpace="nowrap" // Agregado para mostrar en una sola línea
           >
-            Compra con ID:{hist.idHistoria}
+            Compra con ID: {hist.idHistoria}
           </GridItem>
 
           <GridItem
@@ -75,20 +75,21 @@ const HistoriaCard: React.FC<HistoriaCardProps> = ({ hist }) => {
                       alignItems={"center"}
                       fontWeight={"semibold"}
                     >
-                      <Text>Subtotal: ${hist.subtotal} </Text>
-                      <Text>Descuento: -${hist.discount}</Text>
-                      <hr
-                        style={{
-                          background: "black",
-                          color: "black",
-                          height: "1px",
-                          width: "130%",
-                          marginLeft: "-20px",
-                        }}
-                      />{" "}
-                      <br></br>
-                      <Text>Total: ${hist.total}</Text>
-                      <Text>Puntos: {(puntos * 0.1).toFixed(0)}</Text>
+                      <Box>
+                        <Text>Subtotal: ${hist.subtotal} </Text>
+                        <Text>Descuento: -${hist.discount}</Text>
+                        <hr
+                          style={{
+                            background: "black",
+                            color: "black",
+                            height: "1px",
+                            width: "130%",
+                            marginLeft: "-20px",
+                          }}
+                        />{" "}
+                        <br></br>
+                        <Text>Total: ${hist.total}</Text>
+                      </Box>
                     </DrawerBody>
                   </DrawerContent>
                 </Drawer>
