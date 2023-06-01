@@ -1,17 +1,44 @@
-import Carrito from '@/components/Carrito'
-import TopbarPromo from '@/components/TopbarPromo'
-import { Box } from '@chakra-ui/react'
-import React from 'react'
+import Carrito from "@/components/Carrito";
+import { Box, Heading, IconButton, Link } from "@chakra-ui/react";
+import React from "react";
+import { BiArrowBack } from "react-icons/bi";
+
+import styles from "@/styles/Home.module.css";
 
 const carrito = () => {
   return (
     <React.Fragment>
-      <TopbarPromo  titulo={"Carrito"} />
-      <Box paddingTop={"62px"}>
-        <Carrito />
-        </Box>
-    </React.Fragment>
-  )
-}
+      <Box
+        marginX={"2rem"}
+        marginTop={"2rem"}
+        paddingX={"calc(8px + 1.5625vw)"}
+        paddingTop={"calc(8px + 1.5625vw)"}
+        display={"flex"}
+        alignItems={"center"}
+        flexWrap={"wrap"}
+      >
+        <Link href={"/main"}>
+          <IconButton
+            aria-label="goBack"
+            size={"xs"}
+            padding={"2px"}
+            icon={<BiArrowBack color="black" size={30} />}
+            paddingRight={"20px"}
+            variant="ghost"
+          />
+        </Link>
+        <Heading
+          className={styles.greentext}
+          fontSize="4xl"
+          
+        >
+          Carrito
+        </Heading>
+      </Box>
 
-export default carrito
+      <Carrito />
+    </React.Fragment>
+  );
+};
+
+export default carrito;
