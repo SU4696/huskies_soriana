@@ -83,8 +83,7 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
       <Box onClick={onOpen}>
         <Box
           backgroundColor={"white"}
-          borderWidth={"medium"}
-          borderColor={"#D6D8B1"}
+          shadow={"lg"}
           padding={3}
         >
           <Image className="p-1" src={image} alt={nombre} />

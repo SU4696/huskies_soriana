@@ -20,11 +20,11 @@ const ContenidoInicio = () => {
 
   return (
     <>
-      <Box justifyContent={"center"} alignItems={"center"}>
+      <Box justifyContent={"center"} alignItems={"center"} >
         <Box padding={"15px"} alignItems={"center"} paddingBottom={"7"}>
           <Carrusel />
         </Box>
-        <Box backgroundColor={"#F8F7F1"} borderRadius={"2rem"}>
+        <Box backgroundColor={"#F8F7F1"} borderRadius={"2rem"}  >
           <Flex justifyContent={"center"} alignItems={"center"}>
             <Heading paddingTop={"20px"} size={"lg"}>
               Recomendados
