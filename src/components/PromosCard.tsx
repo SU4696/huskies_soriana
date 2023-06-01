@@ -12,14 +12,14 @@ interface PromosCardProps {
 const PromosCard: React.FC<PromosCardProps> = ({ promo }) => {
   const { nombre, image, precio, descuento, idProductos } = promo;
 
-  const {  addToCart } = useContext(ShopContext);
+  const {  addToCartQ } = useContext(ShopContext);
 
   const [active, setActive] = useState(false);
   // const [showAlert, setShowAlert] = useState(false);
   const toast = useToast();
  
   function handlePlusPromo() {
-    addToCart(idProductos);
+    addToCartQ(idProductos, 1);
     setActive(!active);
     // setShowAlert(true);
     toast({

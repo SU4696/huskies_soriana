@@ -78,13 +78,13 @@ function Carrito() {
             })}
           </ul>
           <div className="space-y-1 text-right" >
-            <Button onClick={removeAllFromCart} size="sm" gap={2} marginY={3}>
+            <Button onClick={removeAllFromCart} size="sm" gap={2} marginY={3} textColor="white" backgroundColor={"#E23535"}>
               Vaciar Carrito
               <BsFillTrashFill
                 display={"flex"}
                 aria-label="erase"
                 fontSize="20px"
-                color="red"
+                color="white"
               />
             </Button>
             <Text>
@@ -106,7 +106,7 @@ function Carrito() {
             <Link href="/promociones">
               <button
                 type="button"
-                className="px-6 py-2 border rounded-md bg-naranja text-white text-sm md:text-base hover:bg-green-800"
+                className="px-6 py-2 border rounded-md bg-naranja text-white text-m md:text-base hover:bg-green-800"
               >
                 Ver más promociones
               </button>
@@ -114,7 +114,7 @@ function Carrito() {
             <Link href={"/barcodePagar"}>
               <button
                 type="submit"
-                className="px-6 py-2 border rounded-md  bg-secondary text-white text-sm md:text-base hover:bg-green-800"
+                className="px-6 py-2 border rounded-md  bg-secondary text-white text-m md:text-base hover:bg-green-800"
               >
                 Guardar
               </button>
