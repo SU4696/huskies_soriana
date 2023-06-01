@@ -15,7 +15,6 @@ import Link from "next/link";
 import { FormProvider, useForm } from "react-hook-form";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/router";
-import { useState } from "react";
 
 interface LoginType {
   email: string;
@@ -26,7 +25,7 @@ function Index() {
   const methods = useForm<LoginType>({ mode: "onBlur" });
   const { logIn } = useAuth();
   const router = useRouter();
-  
+
   const {
     register,
     handleSubmit,
@@ -75,10 +74,9 @@ function Index() {
             Inicio de sesión
           </Heading>
         </Center>
-          <FormProvider {...methods}>
-            <form onSubmit={handleSubmit(onSubmit)}>
-
-        <Stack spacing={5}>
+        <FormProvider {...methods}>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Stack spacing={5}>
               <VisuallyHidden>Email Address</VisuallyHidden>
               <Input
                 type="email"
@@ -95,7 +93,9 @@ function Index() {
               <VisuallyHidden>Password</VisuallyHidden>
               <Input
                 type="password"
-                {...register("password", { required: "Contraseña es requerido" })}
+                {...register("password", {
+                  required: "Contraseña es requerido",
+                })}
                 variant="password"
                 placeholder="Contraseña"
                 borderRadius={"3rem"}
@@ -130,13 +130,12 @@ function Index() {
                   </Text>
                 </Link>
               </Box>
-        </Stack>
-            </form>
-          </FormProvider>
+            </Stack>
+          </form>
+        </FormProvider>
       </Box>
     </Box>
   );
 }
-
 
 export default Index;

@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import Footer from "@/components/Footer";

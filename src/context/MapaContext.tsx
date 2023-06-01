@@ -1,10 +1,6 @@
-import React, { useState, useEffect, createContext, FC } from 'react';
+import React, { useState, createContext } from 'react';
 
-interface IMapaContext {
-    categoria: string;
-    nombre: string;
-    idProductos: number
-  }
+
 
 const defaultState = {
   categoria: "",

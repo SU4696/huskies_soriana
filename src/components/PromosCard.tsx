@@ -1,5 +1,5 @@
 
-import { Box, chakra, Flex, Alert, AlertIcon, useToast } from "@chakra-ui/react";
+import { Box, chakra, Flex,  useToast } from "@chakra-ui/react";
 
 import { Promociones } from "@/types/Promociones";
 import { useContext, useState } from "react";

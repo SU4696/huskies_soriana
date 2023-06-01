@@ -1,22 +1,16 @@
 import {
   Box,
-  Button,
   chakra,
-  CloseButton,
   Flex,
   HStack,
   IconButton,
   useColorModeValue,
   useDisclosure,
-  VStack,
   VisuallyHidden,
   InputGroup,
   InputLeftElement,
   Avatar,
   Input,
-  // Link,
-  Image,
-  Text,
   Drawer,
   DrawerOverlay,
   DrawerContent,
@@ -25,10 +19,10 @@ import {
   DrawerBody,
   DrawerFooter,
   Stack,
+  Link,
 } from "@chakra-ui/react";
 import React from "react";
 import { AiOutlineMenu, AiOutlineSearch, AiFillShop } from "react-icons/ai";
-import Link from "next/link";
 
 import {
   FaBaby,
@@ -47,25 +41,22 @@ import {
 
 import { FiShoppingCart, FiGift, FiLogOut } from "react-icons/fi";
 
-import { BsFillGridFill, BsBagCheckFill } from "react-icons/bs";
+import { BsBagCheckFill } from "react-icons/bs";
 
 import { GiMedicines } from "react-icons/gi";
 
 import { CgProfile } from "react-icons/cg";
 
-import { BsFillCameraVideoFill } from "react-icons/bs";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/router";
 import Footer from "./Footer";
 
 const Navbar = () => {
-  const bg = useColorModeValue("white", "gray.800");
   const perfilNav = useDisclosure();
-  const { user, logOut } = useAuth();
+  const { logOut } = useAuth();
   const router = useRouter();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const historiaC = useDisclosure();
-
 
   const handleLogout = async () => {
     try {
@@ -111,21 +102,6 @@ const Navbar = () => {
 
                 <DrawerBody>
                   <Stack spacing="24px">
-                    {/* <Box>
-                      <Link href={"/categTodos"}>
-                        <IconButton
-                          aria-label="Go to cart"
-                          fontSize="25px"
-                          color="#208220 "
-                          _dark={{
-                            color: "inherit",
-                          }}
-                          variant="ghost"
-                          icon={<BsFillGridFill />}
-                        />{" "}
-                        Todos
-                      </Link>
-                    </Box> */}
                     <Box>
                       <Link href={"/categorias/Abarrotes"}>
                         <IconButton

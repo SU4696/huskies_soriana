@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TopbarCateg from "@/components/TopbarCateg";
 import Categoria from "@/components/Categoria";
-import ProductoCard from "@/components/ProductoCard";
 import { Box } from "@chakra-ui/react";
-import { getCategoria } from "@/service/ServicioCategorias";
-import { Producto } from "@/types/Producto";
 import { useRouter } from "next/router";
 
 function main() {

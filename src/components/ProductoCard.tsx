@@ -31,9 +31,9 @@ interface ProductoCardProps {
 export var producto: Producto;
 
 const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
-  const { idProductos, nombre, image, precio, categoria, idProduct, pasillo } =
+  const { idProductos, nombre, image, precio, categoria, pasillo } =
     prod;
-  const { addToCartQ, cartItems } = useContext(ShopContext);
+  const { addToCartQ } = useContext(ShopContext);
 
   const [counter, setCounter] = useState(1);
   const {
@@ -215,11 +215,11 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
               </Button>
               {/* </Link> */}
 
-              <Modal onClose={onModalClose} isOpen={isModalOpen} isCentered>
+              <Modal onClose={onModalClose} isOpen={isModalOpen} isCentered >
                 <ModalOverlay />
-                <ModalContent>
+                <ModalContent padding={"5"} margin={"15px"}>
                   <ModalHeader>Ubicación {nombre}</ModalHeader>
-                  <ModalCloseButton />
+                  
                   <ModalBody>
                     <Mapita categoria={categoria} />
                     <Text fontSize={"2xl"} marginTop={"1.5"}>

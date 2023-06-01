@@ -1,4 +1,4 @@
-import styled from "@emotion/styled"
+
 import {
     HStack,
   } from "@chakra-ui/react";
@@ -6,8 +6,6 @@ import {
 import { useEffect, useState } from 'react';
 import ProductoCard from '@/components/ProductoCard';
 
-import { DocumentData, collection, doc, getDocs } from "firebase/firestore";
-import { db } from "../firebase/config";
 import { getCategoria } from '@/service/ServicioCategorias';
 import { Producto } from '@/types/Producto';
 
