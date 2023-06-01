@@ -19,11 +19,11 @@ import {
   DrawerBody,
   DrawerFooter,
   Stack,
-  Link,
+
 } from "@chakra-ui/react";
 import React from "react";
 import { AiOutlineMenu, AiOutlineSearch, AiFillShop } from "react-icons/ai";
-
+import Link from "next/link";
 import {
   FaBaby,
   FaIceCream,
