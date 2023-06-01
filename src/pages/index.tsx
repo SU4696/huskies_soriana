@@ -12,10 +12,10 @@ import {
 import React from "react";
 import Link from "next/link";
 
-
 import { FormProvider, useForm } from "react-hook-form";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 interface LoginType {
   email: string;
@@ -26,6 +26,7 @@ function Index() {
   const methods = useForm<LoginType>({ mode: "onBlur" });
   const { logIn } = useAuth();
   const router = useRouter();
+  
   const {
     register,
     handleSubmit,
@@ -35,12 +36,14 @@ function Index() {
   const onSubmit = async (data: LoginType) => {
     try {
       await logIn(data.email, data.password);
+      localStorage.setItem("email", data.email);
       router.push("/main");
     } catch (error: any) {
       console.log(error.message);
       alert("Correo y/o contrseña es invalido");
     }
   };
+
   return (
     <Box h={"calc(100vh - 20px)"}>
       <Box
@@ -134,5 +137,6 @@ function Index() {
     </Box>
   );
 }
+
 
 export default Index;

@@ -11,6 +11,8 @@ import {
 } from "react-icons/bi";
 
 function historiaCompra() {
+  const emailR = localStorage.getItem("email") ?? "";
+
   return (
     <React.Fragment>
       <Flex  justifyContent="center" mx="auto">
@@ -32,7 +34,7 @@ function historiaCompra() {
           marginTop={"25px"}
           fontSize={"25px"}> Historia de compra
       </Text> 
-      <HistorialCompra email={"raon.park@gmail.com"} />
+      <HistorialCompra email={emailR} />
       
     </React.Fragment>    
   )
