@@ -1,11 +1,12 @@
 import React from "react";
 import HistorialCompra from "@/components/HistorialCompra";
 import {
-  Flex,
-  Text, 
+  Heading,
   Link,
   IconButton,
+  Box
 } from "@chakra-ui/react";
+import styles from "@/styles/Home.module.css";
 import {
   BiArrowBack
 } from "react-icons/bi";
@@ -15,27 +16,29 @@ function historiaCompra() {
 
   return (
     <React.Fragment>
-      <Flex  justifyContent="center" mx="auto">
-          <Link href={"/main"}> {/*Back arrow button*/}
-              <IconButton
-                  aria-label="goBack"
-                  padding={"2px"}
-                  icon={<BiArrowBack color="#208220" size={30} />}
-                  paddingRight={"20px"}
-                  position={"fixed"}
-                  left={"25px"}
-                  marginTop={"15px"}
-                  variant="ghost" />
-          </Link>          
-      </Flex>
-      <Text
-          textAlign={"center"}
-          fontWeight={"semibold"}
-          marginTop={"25px"}
-          fontSize={"25px"}> Historia de compra
-      </Text> 
+         <Box
+      margin={"2rem"}
+      padding={"calc(8px + 1.5625vw)"}
+      display={"flex"}
+      alignItems={"center"}
+      flexWrap={"wrap"}
+    >
+     <Heading className={styles.greentext} fontSize={"27px"}>
+      <Link href={"/main"}>
+            <IconButton 
+            aria-label="goBack"
+            size={"xs"}
+            padding={"2px"}
+            icon={<BiArrowBack color="black" size={30} />}
+            paddingRight={"20px"}
+            variant="ghost"
+            />
+            </Link>
+       Historia de compra
+      </Heading>
+      </Box>
       <HistorialCompra email={emailR} />
-      
+     
     </React.Fragment>    
   )
 }
