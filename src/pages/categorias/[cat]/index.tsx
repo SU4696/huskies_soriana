@@ -8,10 +8,10 @@ import { Producto } from "@/types/Producto";
 import { useRouter } from "next/router";
 
 function main() {
-  // const router = useRouter();
+  const router = useRouter();
 
-  // const cat = router.query.slug
-  const cat = "Abarrotes"
+  const cat = router.query.cat as string
+//   const cat = "Abarrotes"
 
   return (
     <>

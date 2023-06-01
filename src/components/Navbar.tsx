@@ -14,7 +14,7 @@ import {
   InputLeftElement,
   Avatar,
   Input,
-  Link,
+  // Link,
   Image,
   Text,
   Drawer,
@@ -28,6 +28,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { AiOutlineMenu, AiOutlineSearch, AiFillShop } from "react-icons/ai";
+import Link from "next/link";
 
 import {
   FaBaby,
@@ -76,7 +77,7 @@ const Navbar = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <chakra.header
         zIndex={"999"}
         borderBottomRadius={"2rem"}
@@ -110,7 +111,7 @@ const Navbar = () => {
 
                 <DrawerBody>
                   <Stack spacing="24px">
-                    <Box>
+                    {/* <Box>
                       <Link href={"/categTodos"}>
                         <IconButton
                           aria-label="Go to cart"
@@ -124,9 +125,9 @@ const Navbar = () => {
                         />{" "}
                         Todos
                       </Link>
-                    </Box>
+                    </Box> */}
                     <Box>
-                      <Link href={""}>
+                      <Link href={"/categorias/Abarrotes"}>
                         <IconButton
                           aria-label="Go to cart"
                           fontSize="25px"
@@ -141,7 +142,7 @@ const Navbar = () => {
                       </Link>
                     </Box>
                     <Box>
-                      <Link href={"/categTodos"}>
+                      <Link href={"/categorias/Bebés"}>
                         <IconButton
                           aria-label="Go to cart"
                           fontSize="25px"
@@ -156,7 +157,7 @@ const Navbar = () => {
                       </Link>
                     </Box>
                     <Box>
-                      <Link href={"/"}>
+                      <Link href={"/categorias/Congelados"}>
                         <IconButton
                           aria-label="Go to cart"
                           fontSize="25px"
@@ -171,7 +172,7 @@ const Navbar = () => {
                       </Link>
                     </Box>
                     <Box>
-                      <Link href={"/"}>
+                      <Link href={"/categorias/Farmacia"}>
                         <IconButton
                           aria-label="Go to cart"
                           fontSize="25px"
@@ -186,7 +187,7 @@ const Navbar = () => {
                       </Link>
                     </Box>
                     <Box>
-                      <Link href={"/"}>
+                      <Link href={"/categorias/Frutas y verduras"}>
                         <IconButton
                           aria-label="Go to cart"
                           fontSize="25px"
@@ -201,7 +202,7 @@ const Navbar = () => {
                       </Link>
                     </Box>
                     <Box>
-                      <Link href={"/"}>
+                      <Link href={"/categorias/Limpieza"}>
                         <IconButton
                           aria-label="Go to cart"
                           fontSize="25px"
@@ -212,11 +213,11 @@ const Navbar = () => {
                           variant="ghost"
                           icon={<MdCleaningServices />}
                         />{" "}
-                        Limpieza
+                        Hogar
                       </Link>
                     </Box>
                     <Box>
-                      <Link href={"/"}>
+                      <Link href={"/categorias/Jugueteria"}>
                         <IconButton
                           aria-label="Go to cart"
                           fontSize="25px"
@@ -231,7 +232,7 @@ const Navbar = () => {
                       </Link>
                     </Box>
                     <Box>
-                      <Link href={"/"}>
+                      <Link href={"/categorias/VinosLicores"}>
                         <IconButton
                           aria-label="Go to cart"
                           fontSize="25px"
@@ -242,11 +243,11 @@ const Navbar = () => {
                           variant="ghost"
                           icon={<FaWineGlassAlt />}
                         />{" "}
-                        VinosLicores
+                        Vinos y licores
                       </Link>
                     </Box>
                     <Box>
-                      <Link href={"/"}>
+                      <Link href={"/categorias/Electrodomésticos"}>
                         <IconButton
                           aria-label="Go to cart"
                           fontSize="25px"
@@ -261,7 +262,7 @@ const Navbar = () => {
                       </Link>
                     </Box>
                     <Box>
-                      <Link href={"/"}>
+                      <Link href={"/categorias/Muebles"}>
                         <IconButton
                           aria-label="Go to cart"
                           fontSize="25px"
@@ -431,7 +432,7 @@ const Navbar = () => {
           </InputGroup>
         </HStack>
       </chakra.header>
-    </React.Fragment>
+    </>
   );
 };
 
