@@ -96,14 +96,16 @@ function barcode() {
       const { result, error } = await addData("Compra",randomID, dataCompra);
 
         // Reset the state values to their initial state
-        setProducts([]);
-        setPromociones([]);
-
-        router.push("/main");
- 
-    } catch (error: any) {
-      console.log(error.message);
-    }
+        if (!error) {
+          removeAllFromCart(); // Call removeAllFromCart function here
+    
+          router.push("/main");
+        } else {
+          console.log(error);
+        }
+      } catch (error: any) {
+        console.log(error.message);
+      }
   };
 
 
