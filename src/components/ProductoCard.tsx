@@ -17,7 +17,7 @@ import {
   ModalHeader,
   ModalCloseButton,
   ModalFooter,
-  useToast
+  useToast,
 } from "@chakra-ui/react";
 import { ShopContext } from "../context/ShopContext";
 import React, { useContext, useEffect, useState } from "react";
@@ -28,19 +28,21 @@ interface ProductoCardProps {
   prod: Producto;
 }
 
-export var producto : Producto;
+export var producto: Producto;
 
 const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
-  const { idProductos, nombre, image, precio, categoria, idProduct, pasillo } = prod;
-  const {  addToCartQ, cartItems } = useContext(ShopContext);
+  const { idProductos, nombre, image, precio, categoria, idProduct, pasillo } =
+    prod;
+  const { addToCartQ, cartItems } = useContext(ShopContext);
 
   const [counter, setCounter] = useState(1);
-  const { isOpen: isModalOpen, onOpen: onModalOpen, onClose: onModalClose } = useDisclosure()
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  // var modal = false;
+  const {
+    isOpen: isModalOpen,
+    onOpen: onModalOpen,
+    onClose: onModalClose,
+  } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
-  // const { isOpen, onOpenM, onCloseM } = useDisclosure()
-  
   const toast = useToast();
 
   useEffect(() => {
@@ -49,239 +51,205 @@ const ProductoCard: React.FC<ProductoCardProps> = ({ prod }) => {
     }
   }, [isOpen]);
 
-   //increase counter
-   const increase = () => {
-    setCounter(count => count + 1);
+  //increase counter
+  const increase = () => {
+    setCounter((count) => count + 1);
   };
- 
+
   //decrease counter
   const decrease = () => {
-    if(counter > 1) {
-      setCounter(count => count - 1);
+    if (counter > 1) {
+      setCounter((count) => count - 1);
     }
   };
 
-  // const history = useHistory();
- 
-  // function handleMap(){
-  //   console.log("va");
-  //   history.push({
-  //     pathname: '/mapa',
-  //     state: {prod}
-  //   })
-  //   console.log("?");
-  // }
-
-  // const handleClick = (isModal : boolean) => {
-  //   modal = isModal
-  //   onClose()
-  //   onOpen()
-  // }
-
-  // const navigate = useNavigate();
-
-  // const [currentProd, setCurrentProd] = useState<IMapaContext>({
-  //   categoria: categoria, 
-  //   nombre: nombre, 
-  //   idProductos: idProductos
-  // });
-
-  // useEffect(() => {
-  //   console.log(currentProd)
-  //   console.log("curr")
-  // });
-
-  // const {categoria, nombre, idProductos} = useContext(MapaContext);
-
-  function handleAdd(){
+  function handleAdd() {
     addToCartQ(idProductos, counter);
     toast({
       title: `¡Felicidades!`,
       description: `${nombre} ahora se encuentra en tu carrito.`,
-      status: 'success',
+      status: "success",
       duration: 4500,
       isClosable: true,
-      position: 'top',
-      variant: 'subtle'
-    })
+      position: "top",
+      variant: "subtle",
+    });
   }
 
   return (
     <>
       {/* <MapaContext.Provider value={currentProd}> */}
-      
-        <Box onClick={onOpen} >
-        
-          <Box
-            backgroundColor={"white"}
-            borderWidth={"medium"}
-            borderColor={"#D6D8B1"}
-            padding={3}
-          >
-            <Image className="p-1" src={image} alt={nombre} />
 
-            <Box height={"45px"} paddingX={"3"} paddingBottom={"4"}>
-              <a href="#">
-                <Text textAlign={"left"} fontWeight={"semibold"}>
-                  {nombre}
-                </Text>
-              </a>
-            </Box>
-            <Text
-              paddingX={"3"}
-              paddingBottom={"4"}
-              fontWeight={"bold"}
-              textAlign={"left"}
-              position={"relative"}
-              bottom={"0"}
-            >
-              ${precio.toFixed(2)}
-            </Text>
-            {/* <Button leftIcon={<SearchIcon/>} onClick={<Main Categoria={categoria}></Main>}></Button> */}
-            {/* <Button leftIcon={<AddIcon/>} onClick={() => addToCart(idProductos, (precio * cartItemAmount))}>Agregar a carrito {cartItemAmount > 0 && <>({cartItemAmount})</>}</Button> */}
-          </Box>
-        </Box>
-        <Drawer placement='bottom' onClose={onClose} isOpen={isOpen} >
-        <DrawerOverlay />
-        <DrawerContent padding={"15px"} borderTopRadius={"2rem"} >
-          
-          <DrawerBody>
-          <SimpleGrid
-        templateRows="repeat(2, 1fr)"
-        templateColumns="repeat(5, 1fr)"
-        gap={2}
-      >
-        <GridItem
-          display={"flex"}
-          justifyContent={"center"}
-          alignItems={"center"}
-          rowSpan={4}
-          colSpan={2}
+      <Box onClick={onOpen}>
+        <Box
+          backgroundColor={"white"}
+          borderWidth={"medium"}
+          borderColor={"#D6D8B1"}
+          padding={3}
         >
-          <Image  boxSize='130px'
-    objectFit='cover'
-src={image} alt={nombre}></Image>
-          
-        </GridItem>
-        <GridItem   marginTop={"15px"} colSpan={3} >
-          <Text fontWeight={"bold"} >{nombre}</Text>
-        </GridItem>
-        <GridItem   colSpan={3} display={"flex"}
-          justifyContent={"end"}
-          alignItems={"end"} >
-          <div className="counter">
-            <button
-              className="counter-button"
-              onClick={decrease}
-            >
-              {" "}
-              -{" "}
-            </button>
+          <Image className="p-1" src={image} alt={nombre} />
 
-            <input  
-              type="number"
-              className="counter-input"
-              value={counter}
-              readOnly
-            />
-
-            <button
-              className="counter-button"
-              onClick={increase}
-            >
-              +
-            </button>
-            <style jsx>{`
-              .counter {
-                display: flex;
-                align-items: center;
-              }
-
-              .counter-button {
-                background-color: #208220;
-                color: #fff;
-                border: none;
-                padding: 5px 12px;
-                font-size: 11px;
-                cursor: pointer;
-                transition: background-color 0.3s;
-              }
-
-              .counter-button:hover {
-                background-color: #165c16;
-              }
-
-              .counter-input {
-                width: 14px;
-                text-align: center;
-                margin: 0 16px;
-                border: none;
-                font-size: 12px;
-              }
-            `}</style>
-          </div>
-        </GridItem>
-        <GridItem
-          display={"flex"}
-          justifyContent={"end"}
-          alignItems={"end"}
-          colSpan={3}
-          fontWeight={"bold"} 
-          
-        >
-          <Text>${(precio*counter).toFixed(2)}</Text>
-        </GridItem>
-        
-      </SimpleGrid>
-
-      <Box
-        marginTop={"3vh"}
-        display={"flex"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        gap={"30"}
-      >
-        {/* <Link href="/mapa"> */}
-        <Button onClick={onModalOpen} width={"190px"} backgroundColor={"#FC8E51"} color={"white"}>
-          Ver ruta
-        </Button>
-        {/* </Link> */}
-        
-        <Modal onClose={onModalClose} isOpen={isModalOpen} isCentered>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Ubicación {nombre}</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <Mapita categoria={categoria} />
-              <Text fontSize={'2xl'} marginTop={'1.5'}>
-                {nombre} se encuentra dentro de la tienda en el departamento {categoria}, pasillo {pasillo}.
+          <Box height={"45px"} paddingX={"3"} paddingBottom={"4"}>
+            <a href="#">
+              <Text textAlign={"left"} fontWeight={"semibold"}>
+                {nombre}
               </Text>
-            </ModalBody>
-            <ModalFooter>
-              <Button onClick={onModalClose}>Cerrar</Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-        
-        <Box onClick={onClose}>
-            <Button
-            width={"190px"}
-            backgroundColor={"#208220"}
-            color={"white"}
-            onClick={() => handleAdd()}
-            
+            </a>
+          </Box>
+          <Text
+            paddingX={"3"}
+            paddingBottom={"4"}
+            fontWeight={"bold"}
+            textAlign={"left"}
+            position={"relative"}
+            bottom={"0"}
           >
-            Agregar Carrito  
-          </Button>
+            ${precio.toFixed(2)}
+          </Text>
         </Box>
       </Box>
+      <Drawer placement="bottom" onClose={onClose} isOpen={isOpen}>
+        <DrawerOverlay />
+        <DrawerContent padding={"15px"} borderTopRadius={"2rem"}>
+          <DrawerBody>
+            <SimpleGrid
+              templateRows="repeat(2, 1fr)"
+              templateColumns="repeat(5, 1fr)"
+              gap={2}
+            >
+              <GridItem
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                rowSpan={4}
+                colSpan={2}
+              >
+                <Image
+                  boxSize="130px"
+                  objectFit="cover"
+                  src={image}
+                  alt={nombre}
+                ></Image>
+              </GridItem>
+              <GridItem marginTop={"15px"} colSpan={3}>
+                <Text fontWeight={"bold"}>{nombre}</Text>
+              </GridItem>
+              <GridItem
+                colSpan={3}
+                display={"flex"}
+                justifyContent={"end"}
+                alignItems={"end"}
+              >
+                <div className="counter">
+                  <button className="counter-button" onClick={decrease}>
+                    {" "}
+                    -{" "}
+                  </button>
+
+                  <input
+                    type="number"
+                    className="counter-input"
+                    value={counter}
+                    readOnly
+                  />
+
+                  <button className="counter-button" onClick={increase}>
+                    +
+                  </button>
+                  <style jsx>{`
+                    .counter {
+                      display: flex;
+                      align-items: center;
+                    }
+
+                    .counter-button {
+                      background-color: #208220;
+                      color: #fff;
+                      border: none;
+                      padding: 5px 12px;
+                      font-size: 11px;
+                      cursor: pointer;
+                      transition: background-color 0.3s;
+                    }
+
+                    .counter-button:hover {
+                      background-color: #165c16;
+                    }
+
+                    .counter-input {
+                      width: 14px;
+                      text-align: center;
+                      margin: 0 16px;
+                      border: none;
+                      font-size: 12px;
+                    }
+                  `}</style>
+                </div>
+              </GridItem>
+              <GridItem
+                display={"flex"}
+                justifyContent={"end"}
+                alignItems={"end"}
+                colSpan={3}
+                fontWeight={"bold"}
+              >
+                <Text>${(precio * counter).toFixed(2)}</Text>
+              </GridItem>
+            </SimpleGrid>
+
+            <Box
+              marginTop={"3vh"}
+              display={"flex"}
+              justifyContent={"center"}
+              alignItems={"center"}
+              gap={"30"}
+            >
+              {/* <Link href="/mapa"> */}
+              <Button
+                onClick={onModalOpen}
+                width={"190px"}
+                backgroundColor={"#FC8E51"}
+                color={"white"}
+              >
+                Ver ruta
+              </Button>
+              {/* </Link> */}
+
+              <Modal onClose={onModalClose} isOpen={isModalOpen} isCentered>
+                <ModalOverlay />
+                <ModalContent>
+                  <ModalHeader>Ubicación {nombre}</ModalHeader>
+                  <ModalCloseButton />
+                  <ModalBody>
+                    <Mapita categoria={categoria} />
+                    <Text fontSize={"2xl"} marginTop={"1.5"}>
+                      {nombre} se encuentra dentro de la tienda en el
+                      departamento {categoria}, pasillo {pasillo}.
+                    </Text>
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button onClick={onModalClose}>Cerrar</Button>
+                  </ModalFooter>
+                </ModalContent>
+              </Modal>
+
+              <Box onClick={onClose}>
+                <Button
+                  width={"190px"}
+                  backgroundColor={"#208220"}
+                  color={"white"}
+                  onClick={() => handleAdd()}
+                >
+                  Agregar Carrito
+                </Button>
+              </Box>
+            </Box>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
       {/* </MapaContext.Provider> */}
       {/* </MapaContextProvider> */}
-     </> 
+    </>
   );
 };
 
