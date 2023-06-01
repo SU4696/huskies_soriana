@@ -85,8 +85,7 @@ const HistoriaCard: React.FC<HistoriaCardProps> = ({ hist }) => {
                           <Text marginBottom={"15px"} textColor={"black"} fontSize="l" fontWeight={"bold"}>Descuento: -${hist.discount}</Text>
                                   
                           <Divider marginBottom={"15px"} borderColor="#208220"/>
-                          <Text marginBottom={"15px"} textColor={"#E23535"} fontSize="l" fontWeight={"bold"}>Total: ${hist.total}</Text>  
-                          <Text textColor={"black"} fontSize="l" fontWeight={"bold"}>Puntos: {(puntos*.10).toFixed(0)}</Text>
+                          <Text marginBottom={"15px"} textColor={"#E23535"} fontSize="l" fontWeight={"bold"}>Total: ${hist.total}</Text> 
 
                           </DrawerBody>
                       </DrawerContent>
