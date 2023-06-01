@@ -1,4 +1,4 @@
-import CamComponents from "@/components/CamComponents";
+
 import ListaCarrito from "@/components/ListaCarrito";
 import { Box, Link, Button, Divider, Text } from "@chakra-ui/react";
 import React, { useContext, useState, useEffect } from "react";
@@ -61,7 +61,7 @@ function Carrito() {
 
   return (
     <>
-      <CamComponents />
+      
       <Box display={"flex"} justifyContent={"center"} marginLeft={'24'}>
         <div className="flex  flex-col max-w-3xl p-6 space-y-4 sm:p-10 ">
           <ul className="flex flex-col divide-y divide-gray-700">

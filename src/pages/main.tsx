@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from "@/components/Navbar";
 import ContenidoInicio from '@/components/ContenidoInicio';
-import CamComponents from "@/components/CamComponents";
 import { useAuth } from '@/context/AuthContext';
 import { Box, IconButton, Link } from '@chakra-ui/react';
 import { AiFillCamera } from "react-icons/ai";
