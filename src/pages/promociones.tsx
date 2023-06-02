@@ -7,17 +7,30 @@ import TopbarCateg from '@/components/TopbarCateg';
 
 function Main() {
   const [promociones, setPromociones] = useState<Promociones[]>([]);
-  
+
+
+
+  // useEffect(() => {
+  //   const fetchPromos = async () => {
+  //     // const promos = await getPromociones();
+      
+  //     setPromociones(promos);
+  //   }
+
+  //   fetchPromos();
+
+  // }, [])
 
   useEffect(() => {
-    const fetchPromos = async () => {
-      const promos = await getPromociones();
-      setPromociones(promos);
-    }
+    fetch("https://huskies.suyeoncho.repl.co/huskies/promociones")
+    .then(response => {
+      return response.json()
+    })
+    .then(data => {
+      setPromociones(data);
+    })
+  }) 
 
-    fetchPromos();
-
-  }, [])
 
   return (
     <>
