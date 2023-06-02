@@ -48,7 +48,7 @@ const HistoriaCard: React.FC<HistoriaCardProps> = ({ hist }) => {
             fontSize={"18px"}
             whiteSpace="nowrap" // Agregado para mostrar en una sola línea
           >
-            Compra con ID:{hist.idHistoria}
+            No. de Ticket: {hist.idHistoria}
           </GridItem>
 
           <GridItem
