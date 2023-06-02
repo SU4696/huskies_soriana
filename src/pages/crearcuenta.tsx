@@ -40,7 +40,7 @@ function Contrasena() {
         correo: data.email,
         puntoTotal: 0,
       };
-
+      localStorage.setItem("email", data.email);
       router.push("/crearcuentaInfo");
       const { user } = useAuth();
     } catch (error: any) {
