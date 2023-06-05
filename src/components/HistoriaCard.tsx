@@ -15,8 +15,9 @@ import {
 import React from "react";
 
 import {
-  BsBagCheckFill
-} from "react-icons/bs";
+  AiOutlineBarcode
+} from "react-icons/ai";
+
 
 import { Historia } from "@/types/Historias";
 
@@ -68,11 +69,11 @@ const HistoriaCard: React.FC<HistoriaCardProps> = ({ hist }) => {
                     <div className="counter">
 
                     <Button onClick={onOpen} size="sm" gap={2} marginY={3} textColor="white" backgroundColor={"#208220"}>
-                      Ver
-                      <BsBagCheckFill
+                      
+                      <AiOutlineBarcode
                       display={"flex"}
                       aria-label="erase"
-                      fontSize="20px"
+                      fontSize="28px"
                       color="white"
                       />
                   </Button>
