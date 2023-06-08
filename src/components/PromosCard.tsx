@@ -19,7 +19,7 @@ const PromosCard: React.FC<PromosCardProps> = ({ promo }) => {
   const toast = useToast();
  
   function handlePlusPromo() {
-    addToCartQ(idProductos, 1);
+    addToCartQ(idProductos, 0);
     setActive(!active);
     // setShowAlert(true);
     toast({
