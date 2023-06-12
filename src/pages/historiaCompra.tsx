@@ -9,6 +9,8 @@ import { useAuth } from "@/context/AuthContext";
 function historiaCompra() {
   const emailR = localStorage.getItem("email") ?? "";
   const { user } = useAuth();
+  console.log(user);
+
   return (
     <React.Fragment>
       <ProtectedRoute>

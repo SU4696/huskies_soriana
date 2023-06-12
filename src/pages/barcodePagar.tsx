@@ -32,6 +32,8 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 
 
 function barcode() {
+  const { user } = useAuth();
+  console.log(user);
   const { removeAllFromCart,cartItems } = useContext(ShopContext);
   const [products, setProducts] = useState<Producto[]>([]);
   const [promociones, setPromociones] = useState<Promociones[]>([]);
@@ -81,7 +83,7 @@ function barcode() {
 
 
   const router = useRouter();
-  const { user } = useAuth();
+
   const email = user.email;
 
   const onSubmit = async () => {

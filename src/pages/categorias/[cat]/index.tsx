@@ -9,6 +9,7 @@ import { useAuth } from "@/context/AuthContext";
 function main() {
   const router = useRouter();
   const { user } = useAuth();
+  console.log(user);
   const cat = router.query.cat as string;
   //   const cat = "Abarrotes"
 

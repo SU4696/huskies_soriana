@@ -9,6 +9,8 @@ import { useAuth } from "@/context/AuthContext";
 
 const carrito = () => {
   const { user } = useAuth();
+  console.log(user);
+
   return (
     <React.Fragment>
       <ProtectedRoute>
