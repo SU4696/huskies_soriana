@@ -43,7 +43,7 @@ import {
         flexWrap={"wrap"}
       >
         <Heading className={styles.greentext} fontSize="3xl">
-          Reestablecer Contraseña
+          Restablecer Contraseña
         </Heading>
             <Stack width={"100%"} spacing={30}>
         <FormProvider {...methods} >
