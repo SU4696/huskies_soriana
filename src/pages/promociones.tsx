@@ -4,7 +4,6 @@ import { getPromociones } from "@/service/ServicioPromociones";
 import { Promociones } from "@/types/Promociones";
 import { Box } from "@chakra-ui/react";
 import TopbarCateg from "@/components/TopbarCateg";
-import ProtectedRoute from "@/components/ProtectedRoute";
 import { useAuth } from "@/context/AuthContext";
 
 function Main() {
@@ -35,14 +34,14 @@ function Main() {
 
   return (
     <>
-      <ProtectedRoute>
+
         <TopbarCateg titulo={"Promociones"} />
         <Box paddingTop={"62px"}>
           {promociones.map((promo) => (
             <PromosCard key={promo.idProductos} promo={promo} />
           ))}
         </Box>
-      </ProtectedRoute>
+
     </>
   );
 }

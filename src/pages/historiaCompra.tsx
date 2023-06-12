@@ -3,7 +3,6 @@ import HistorialCompra from "@/components/HistorialCompra";
 import { Heading, Link, IconButton, Box } from "@chakra-ui/react";
 import styles from "@/styles/Home.module.css";
 import { BiArrowBack } from "react-icons/bi";
-import ProtectedRoute from "@/components/ProtectedRoute";
 import { useAuth } from "@/context/AuthContext";
 
 function historiaCompra() {
@@ -12,8 +11,8 @@ function historiaCompra() {
   console.log(user);
 
   return (
+
     <React.Fragment>
-      <ProtectedRoute>
         <Box
           margin={"2rem"}
           padding={"calc(8px + 1.5625vw)"}
@@ -36,8 +35,8 @@ function historiaCompra() {
           </Heading>
         </Box>
         <HistorialCompra email={emailR} />
-      </ProtectedRoute>
     </React.Fragment>
+
   );
 }
 

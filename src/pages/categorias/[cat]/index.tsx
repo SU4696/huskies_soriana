@@ -3,7 +3,7 @@ import TopbarCateg from "@/components/TopbarCateg";
 import Categoria from "@/components/Categoria";
 import { Box } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import ProtectedRoute from "@/components/ProtectedRoute";
+
 import { useAuth } from "@/context/AuthContext";
 
 function main() {
@@ -15,12 +15,12 @@ function main() {
 
   return (
     <>
-      <ProtectedRoute>
+   
         <TopbarCateg titulo={cat} />
         <Box paddingTop={"62px"} margin={"16px"}>
           <Categoria categoria={cat} />
         </Box>
-      </ProtectedRoute>
+
     </>
   );
 }

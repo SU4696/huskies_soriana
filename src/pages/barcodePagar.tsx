@@ -28,12 +28,13 @@ import { Promociones } from "@/types/Promociones";
 import { getPromociones } from "@/service/ServicioPromociones";
 import { Producto } from "@/types/Producto";
 import { getProductos } from "@/service/ServicioProductos";
-import ProtectedRoute from "@/components/ProtectedRoute";
+
 
 
 function barcode() {
   const { user } = useAuth();
   console.log(user);
+
   const { removeAllFromCart,cartItems } = useContext(ShopContext);
   const [products, setProducts] = useState<Producto[]>([]);
   const [promociones, setPromociones] = useState<Promociones[]>([]);
@@ -113,7 +114,7 @@ function barcode() {
 
 
   return (
-    <ProtectedRoute>
+
 
     <Box
       margin={"2rem"}
@@ -171,7 +172,7 @@ function barcode() {
 
       </Stack>
     </Box>
-    </ProtectedRoute>
+
   );
 }
 

@@ -8,13 +8,15 @@ import {
   updatePassword as updateFirebasePassword
 } from "firebase/auth";
 import { auth } from "@/firebase/config";
+import router from "next/router";
 
 interface UserType {
   email: string | null;
   uid: string | null;
 }
 
-const AuthContext = createContext({});
+const AuthContext = createContext<any>(null);
+
 
 export const useAuth = () => useContext<any>(AuthContext);
 
@@ -31,6 +33,7 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
         });
       } else {
         setUser({ email: null, uid: null });
+        router.push("/");
       }
     });
     setLoading(false);

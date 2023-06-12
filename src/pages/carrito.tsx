@@ -4,7 +4,6 @@ import React from "react";
 import { BiArrowBack } from "react-icons/bi";
 
 import styles from "@/styles/Home.module.css";
-import ProtectedRoute from "@/components/ProtectedRoute";
 import { useAuth } from "@/context/AuthContext";
 
 const carrito = () => {
@@ -13,7 +12,6 @@ const carrito = () => {
 
   return (
     <React.Fragment>
-      <ProtectedRoute>
         <Box
           marginX={"2rem"}
           marginTop={"2rem"}
@@ -39,7 +37,7 @@ const carrito = () => {
         </Box>
 
         <Carrito />
-      </ProtectedRoute>
+
     </React.Fragment>
   );
 };
