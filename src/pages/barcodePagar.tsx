@@ -28,6 +28,7 @@ import { Promociones } from "@/types/Promociones";
 import { getPromociones } from "@/service/ServicioPromociones";
 import { Producto } from "@/types/Producto";
 import { getProductos } from "@/service/ServicioProductos";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 
 function barcode() {
@@ -110,6 +111,7 @@ function barcode() {
 
 
   return (
+    <ProtectedRoute>
 
     <Box
       margin={"2rem"}
@@ -167,7 +169,7 @@ function barcode() {
 
       </Stack>
     </Box>
-
+    </ProtectedRoute>
   );
 }
 

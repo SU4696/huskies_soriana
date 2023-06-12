@@ -1,46 +1,42 @@
 import React from "react";
 import HistorialCompra from "@/components/HistorialCompra";
-import {
-  Heading,
-  Link,
-  IconButton,
-  Box
-} from "@chakra-ui/react";
+import { Heading, Link, IconButton, Box } from "@chakra-ui/react";
 import styles from "@/styles/Home.module.css";
-import {
-  BiArrowBack
-} from "react-icons/bi";
+import { BiArrowBack } from "react-icons/bi";
+import ProtectedRoute from "@/components/ProtectedRoute";
+import { useAuth } from "@/context/AuthContext";
 
 function historiaCompra() {
   const emailR = localStorage.getItem("email") ?? "";
-
+  const { user } = useAuth();
   return (
     <React.Fragment>
-         <Box
-      margin={"2rem"}
-      padding={"calc(8px + 1.5625vw)"}
-      display={"flex"}
-      alignItems={"center"}
-      flexWrap={"wrap"}
-    >
-     <Heading className={styles.greentext} fontSize={"27px"}>
-      <Link href={"/main"}>
-            <IconButton 
-            aria-label="goBack"
-            size={"xs"}
-            padding={"2px"}
-            icon={<BiArrowBack color="black" size={30} />}
-            paddingRight={"20px"}
-            variant="ghost"
-            />
+      <ProtectedRoute>
+        <Box
+          margin={"2rem"}
+          padding={"calc(8px + 1.5625vw)"}
+          display={"flex"}
+          alignItems={"center"}
+          flexWrap={"wrap"}
+        >
+          <Heading className={styles.greentext} fontSize={"27px"}>
+            <Link href={"/main"}>
+              <IconButton
+                aria-label="goBack"
+                size={"xs"}
+                padding={"2px"}
+                icon={<BiArrowBack color="black" size={30} />}
+                paddingRight={"20px"}
+                variant="ghost"
+              />
             </Link>
-       Historia de compra
-      </Heading>
-      </Box>
-      <HistorialCompra email={emailR} />
-     
-    </React.Fragment>    
-  )
+            Historia de compra
+          </Heading>
+        </Box>
+        <HistorialCompra email={emailR} />
+      </ProtectedRoute>
+    </React.Fragment>
+  );
 }
 
-export default historiaCompra
+export default historiaCompra;
