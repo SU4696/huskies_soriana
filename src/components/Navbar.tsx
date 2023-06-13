@@ -393,20 +393,7 @@ const Navbar = () => {
           </HStack>
         </Flex>
 
-        <HStack justifyContent={"center"} margin={"20px"} alignItems="center">
-          {/* Searching Bar */}
-          <InputGroup>
-            <InputLeftElement pointerEvents="none">
-              <AiOutlineSearch color="#208220" />
-            </InputLeftElement>
-            <Input
-              borderColor={"#F2EFE1"}
-              backgroundColor={"white"}
-              type="tel"
-              placeholder="Buscar..."
-            />
-          </InputGroup>
-        </HStack>
+       
       </chakra.header>
     </>
   );

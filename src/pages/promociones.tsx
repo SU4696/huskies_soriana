@@ -13,7 +13,7 @@ function Main() {
 
   // useEffect(() => {
   //   const fetchPromos = async () => {
-  //     // const promos = await getPromociones();
+  //     const promos = await getPromociones();
 
   //     setPromociones(promos);
   //   }

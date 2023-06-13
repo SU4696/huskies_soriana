@@ -21,7 +21,7 @@ const ContenidoInicio = () => {
   return (
     <>
       <Box justifyContent={"center"} alignItems={"center"} >
-        <Box padding={"15px"} alignItems={"center"} paddingBottom={"7"}>
+        <Box padding={"8px"} alignItems={"center"} paddingBottom={"7"}>
           <Carrusel />
         </Box>
         <Box backgroundColor={"#F8F7F1"} borderRadius={"2rem"}  >

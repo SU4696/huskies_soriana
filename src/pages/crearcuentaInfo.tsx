@@ -76,10 +76,10 @@ function Contrasena() {
                   value: 30,
                   message: "El nombre debe tener como máximo 30 caracteres",
                 },
-                pattern: {
-                  value: /^[A-Za-z\s]+$/,
-                  message: "El nombre solo puede contener letras",
-                },
+                // pattern: {
+                //   // value: /^[A-Za-z\s]+$/,
+                //   message: "El nombre solo puede contener letras",
+                // },
               })}
             />
             {errors.name && (

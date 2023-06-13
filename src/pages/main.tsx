@@ -13,7 +13,7 @@ function main() {
    
         <Navbar />
 
-        <Box paddingTop={"165px"}>
+        <Box paddingTop={"80px"}>
           <ContenidoInicio />
         </Box>
    
