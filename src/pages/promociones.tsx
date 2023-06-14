@@ -11,26 +11,26 @@ function Main() {
   console.log(user);
   const [promociones, setPromociones] = useState<Promociones[]>([]);
 
-  // useEffect(() => {
-  //   const fetchPromos = async () => {
-  //     const promos = await getPromociones();
-
-  //     setPromociones(promos);
-  //   }
-
-  //   fetchPromos();
-
-  // }, [])
-
   useEffect(() => {
-    fetch("https://huskies.suyeoncho.repl.co/huskies/promociones")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setPromociones(data);
-      });
-  });
+    const fetchPromos = async () => {
+      const promos = await getPromociones();
+
+      setPromociones(promos);
+    }
+
+    fetchPromos();
+
+  }, [])
+
+  // useEffect(() => {
+  //   fetch("https://huskies.suyeoncho.repl.co/huskies/promociones")
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       setPromociones(data);
+  //     });
+  // });
 
   return (
     <>
